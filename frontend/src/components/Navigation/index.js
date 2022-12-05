@@ -1,34 +1,39 @@
 // frontend/src/components/Navigation/index.js
 
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import ProfileButton from './ProfileButton';
-import './Navigation.css';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import ProfileButton from "./ProfileButton";
+import "./Navigation.css";
 
 function Navigation() {
-  const sessionUser = useSelector(state => state.session.user);
+  const sessionUser = useSelector((state) => state.session.user);
 
   let sessionLinks;
   if (sessionUser) {
-    sessionLinks = (
-      <ProfileButton user={sessionUser} />
-    );
+    sessionLinks = <ProfileButton user={sessionUser} />;
   } else {
     sessionLinks = (
       <>
-        <NavLink to="/login">Log In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
+        <li>
+          <NavLink to="/login">Log In</NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/signup">Sign Up</NavLink>
+        </li>
       </>
     );
   }
 
   return (
-    <ul>
+    <ul className="navBar">
       <li>
-        <NavLink exact to="/">Home</NavLink>
-        {sessionLinks}
+        <NavLink exact to="/">
+          Home
+        </NavLink>
       </li>
+      {sessionLinks}
     </ul>
   );
 }

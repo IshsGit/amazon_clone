@@ -1,4 +1,4 @@
-
+// frontend/src/components/SignupFormPage/index.js
 import './SignupForm.css';
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,7 +6,7 @@ import { Redirect, Link } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import logo from "../../assets/logo.png";
 
-function SignupForm() {
+function SignupFormPage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [email, setEmail] = useState("");
@@ -27,10 +27,10 @@ function SignupForm() {
         .catch(async (res) => {
         let data;
         try {
-        
+          // .clone() essentially allows you to read the response body twice
           data = await res.clone().json();
         } catch {
-          data = await res.text(); 
+          data = await res.text(); // Will hit this case if the server is down
         }
         if (data?.errors) setErrors(data.errors);
         else if (data) setErrors([data]);
@@ -92,7 +92,7 @@ function SignupForm() {
           </label>
           <button className="sign-up-button" type="submit">{buttonText}</button>
         </form>
-        <p className="terms">By creating an account, you agree to Amazish's Conditions of Use and Privacy Notice..</p>
+        <p className="terms">By creating an account, you agree to Amazish Conditions of Use and Privacy Notice.</p>
         <div className="divider"></div>
         <p className="options-tag">Already have an account? <Link className="a-link" to="/login">Sign In</Link></p>
       </div>
@@ -100,4 +100,4 @@ function SignupForm() {
   );
 }
 
-export default SignupForm;
+export default SignupFormPage;
