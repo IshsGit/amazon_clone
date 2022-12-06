@@ -35,9 +35,12 @@ function LoginFormPage() {
 
   return (
     <div className="center-section">
-      <Link to="/">
-        <img src={logo} alt="icon-logo" className="signup-logo"></img>
-      </Link>
+      <Link to='/'>
+                <img
+                    className="login__logo"
+                    src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png' 
+                />
+        </Link>
       <div className="center-form">
         <p className="createAccount">Sign in</p>
         <form onSubmit={handleSubmit}>

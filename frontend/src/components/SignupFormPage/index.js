@@ -17,7 +17,7 @@ function SignupFormPage() {
 
   if (sessionUser) return <Redirect to="/" />;
 
-  const buttonText = (email.length > 0) ? `Verify Email` : `Continue`;
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,18 +41,27 @@ function SignupFormPage() {
   };
 
   return (
-    <div className="center-section">
-      <Link to="/">
+    // div center-section, div center-form, p->h1 createAccount
+    <div className="signup-container">
+       
+    
+       <Link to="/">
         <img src={logo} alt="icon-logo" className="signup-logo"></img>
       </Link>
-      <div className="center-form">
-        <p className="createAccount">Create account</p>
+
+    
+        <div className="signup-form">
+          <div className="create-account-container">
+            <h1 className="create-account">Create Account</h1>
+          </div>
+      
         <form onSubmit={handleSubmit}>
           <ul>
             {errors.map(error => <li key={error}>{error}</li>)}
           </ul>
+          <div className="your-name-container">
           <label className="sign-up-label">
-            Your name
+            <p>Your name</p>
             <input
               type="text"
               value={name}
@@ -61,6 +70,7 @@ function SignupFormPage() {
               required
             />
           </label>
+          </div>
           <label className="sign-up-label">
             Email
             <input
@@ -90,12 +100,12 @@ function SignupFormPage() {
               required
             />
           </label>
-          <button className="sign-up-button" type="submit">{buttonText}</button>
+          <button className="sign-up-button" type="submit">Continue</button>
         </form>
         <p className="terms">By creating an account, you agree to Amazish Conditions of Use and Privacy Notice.</p>
         <div className="divider"></div>
         <p className="options-tag">Already have an account? <Link className="a-link" to="/login">Sign In</Link></p>
-      </div>
+        </div>
     </div>
   );
 }
