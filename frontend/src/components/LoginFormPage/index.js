@@ -12,6 +12,8 @@ function LoginFormPage() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
+
+
   if (sessionUser) return <Redirect to="/" />;
 
   const handleSubmit = (e) => {
@@ -31,6 +33,17 @@ function LoginFormPage() {
         else setErrors([res.statusText]);
       }
     );
+  };
+
+  const logout = () => {
+    dispatch(sessionActions.logout());
+  };
+  const loginDemo = () => {
+    const demoUser = {
+      email: "zish@amazon.io",
+      password: "password",
+    };
+    dispatch(sessionActions.login(demoUser));
   };
 
   return (
@@ -71,6 +84,9 @@ function LoginFormPage() {
           Create your Amazish account
         </button>
       </Link>
+      <button className="login-button" type="submit" onClick={loginDemo}>
+          Demo Login
+        </button>
         <div className="divider-container"></div>
         <div className="divider-break"></div>
     
