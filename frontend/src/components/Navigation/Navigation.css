@@ -1,0 +1,186 @@
+@import url("https://fonts.cdnfonts.com/css/amazon-ember");
+
+#root {
+  width: 100%;
+}
+
+.nav-bar {
+  background-color: #131921;
+  height: 100%;
+  max-height: 70px;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Amazon Ember", sans-serif;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.nav-left {
+  width: 25%;
+  min-width: 300px;
+}
+
+.nav-center {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  flex: 1 1 auto;
+  min-width: 600px;
+}
+
+.nav-search {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.nav-logo {
+  margin-left: 5px;
+  object-fit: contain;
+  width: 100px;
+}
+
+.nav-search-field {
+  width: 80%;
+  height: 30px;
+  padding: 5px 10px;
+  z-index: 1;
+  border-style: none;
+  align-items: center;
+}
+
+.nav-search-button {
+  background: url("../../assets/search-button.png") no-repeat scroll 0 0
+    transparent;
+  background-color: #febd69;
+  background-size: 60%;
+  background-position: 65% 50%;
+  color: transparent;
+  border-radius: 5px;
+  position: relative;
+  right: 7px;
+  border-style: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-right {
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-right-container:last-child {
+  display: flex;
+  align-items: center;
+}
+
+.nav-right-container {
+  margin: auto 10px;
+  cursor: pointer;
+  padding: 10px 15px;
+  border: 1px solid transparent;
+  height: 50%;
+  max-height: 70px;
+  inline-size: max-content;
+}
+
+.nav-right-container:hover {
+  border: 1px solid white;
+}
+
+.nav-right-container > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-right-container > span,
+.nav-right-container > a > span {
+  font-size: 12px;
+}
+
+.nav-right-container > p,
+.nav-right-container > a > p {
+  font-weight: bold;
+}
+
+.nav-right > ul {
+  display: flex;
+}
+
+.nav-right > ul > li {
+  font-size: 18px;
+  margin: 5px auto;
+}
+
+
+.header {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        background-color: #131921;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      
+      .header__logo {
+        width: 100px;
+        object-fit: contain;
+        margin: 0 20px;
+        margin-top: 18px;
+      }
+      
+      .header__search {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        border-radius: 24px;
+      }
+      
+      .header__searchInput {
+        height: 12px;
+        padding: 10px;
+        border: none;
+        width: 100%;
+      }
+      
+      .header__searchIcon {
+        padding: 5px;
+        height: 22px !important;
+        background-color: #cd9042;
+      }
+      
+      .header__optionLineOne {
+        font-size: 10px;
+      }
+      
+      .header__optionLineTwo {
+        font-size: 13px;
+        font-weight: 800;
+      }
+      
+      .header__optionBasket {
+        display: flex;
+        align-items: center;
+        color: white;
+      }
+      
+      .header__basketCount {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+      
+      .header__nav {
+        display: flex;
+        justify-content: space-evenly;
+      }
+      
+      .header__option {
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+        margin-right: 10px;
+        color: white;
+      }

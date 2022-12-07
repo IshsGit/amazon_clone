@@ -34,13 +34,54 @@ function LoginFormPage() {
   };
 
   return (
-    <div className="center-section">
-      <Link to='/'>
-                <img
-                    className="login__logo"
-                    src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png' 
-                />
-        </Link>
+    <>
+   <div className="login">
+    <Link to="/">
+        <img src={logo} alt="icon-logo" className="signup-logo"></img>
+    </Link>
+
+    <div className="signup-form">
+      <h1>Sign in</h1>
+      <form onSubmit={handleSubmit}>
+   
+    <h5>Email</h5>
+    <input
+            className='test-input-two'
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+      <h5>Password</h5>
+      <input
+            className='test-input-three'
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              placeholder="At least 6 characters"
+            />
+
+    <button className="login-button" type="submit">Log in</button>
+      </form>
+      <p className="terms">By signing-in you agree to the AMAZISH Conditions of Use & Sale. All credit card information
+      be be *safely* stored in my hard drive for our personal use.</p>
+      <Link to="/signup">
+        <button type="submit" className="signup-button">
+          Create your Amazish account
+        </button>
+      </Link>
+        <div className="divider-container"></div>
+        <div className="divider-break"></div>
+    
+  
+    </div>
+   
+    </div>
+    {/* <div className="center-section">
+       <Link to="/">
+        <img src={logo} alt="icon-logo" className="signup-logo"></img>
+      </Link>
       <div className="center-form">
         <p className="createAccount">Sign in</p>
         <form onSubmit={handleSubmit}>
@@ -80,7 +121,8 @@ function LoginFormPage() {
           Create your Amazish account
         </button>
       </Link>
-    </div>
+    </div> */}
+    </>
   );
 }
 
