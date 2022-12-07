@@ -5,22 +5,62 @@ import { Redirect, Link } from "react-router-dom";
 import "./LoginForm.css";
 import logo from "../../assets/logo.png";
 
+
 function LoginFormPage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [successMSG, setSuccessMsg] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
 
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value)
+    setSuccessMsg('');
+    setEmailError('');
+    
+  }
 
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value)
+    setSuccessMsg('');
+    setPasswordError('');
+    
+  }
 
   if (sessionUser) return <Redirect to="/" />;
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    if(email!==''){
+        if(email===sessionUser){
+          
+          setEmailError('');
+      }
+    } else{
+      
+      setEmailError('Email required');
+    }
+
+    if(password!==''){
+      if(password===sessionUser){
+          
+          setPasswordError('');
+      } else{
+     
+        setPasswordError("Invalid Password")
+      }
+    } else{
+      setPasswordError('Password Required')
+    }
     setErrors([]);
     return dispatch(sessionActions.login({ email, password })).catch(
+      
       async (res) => {
+        
         let data;
         try {
           // .clone() essentially allows you to read the response body twice
@@ -35,19 +75,24 @@ function LoginFormPage() {
     );
   };
 
-  const logout = () => {
-    dispatch(sessionActions.logout());
-  };
+
   const loginDemo = () => {
+    console.log(email)
+
     const demoUser = {
+      
       email: "zish@amazon.io",
       password: "password",
     };
     dispatch(sessionActions.login(demoUser));
   };
 
+
+
+
   return (
     <>
+   
    <div className="login">
     <Link to="/">
         <img src={logo} alt="icon-logo" className="signup-logo"></img>
@@ -62,25 +107,29 @@ function LoginFormPage() {
             className='test-input-two'
               type="text"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
+              onChange={(e)=>handleEmailChange(e)}
+
+          
+            /><br></br>
+            {emailError&&<div className='error-msg'>{emailError}</div>}
       <h5>Password</h5>
       <input
             className='test-input-three'
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
+              onChange={(e)=>handlePasswordChange(e)}
               placeholder="At least 6 characters"
-            />
+              
+              
+            /><br></br>
+            {passwordError&&<div className='error-msg'>{passwordError}</div>}
 
-    <button className="login-button" type="submit">Log in</button>
+    <button className="login-button" type="submit" >Log in</button>
       </form>
       <p className="terms">By signing-in you agree to the AMAZISH Conditions of Use & Sale. All credit card information
-      be be *safely* stored in my hard drive for our personal use.</p>
+      to be *safely* stored in my hard drive for personal use.</p>
       <Link to="/signup">
-        <button type="submit" className="signup-button">
+        <button type="submit" className="signup-button" >
           Create your Amazish account
         </button>
       </Link>

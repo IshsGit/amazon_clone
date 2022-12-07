@@ -14,13 +14,41 @@ function SignupFormPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [successMSG, setSuccessMsg] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
 
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value)
+    setSuccessMsg('');
+    setEmailError('');
+    
+  }
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value)
+    setSuccessMsg('');
+    setPasswordError('');
+    
+  }
+
+  
   if (sessionUser) return <Redirect to="/" />;
 
  
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("in submit")
+    if(email!==''){ 
+      setEmailError('Wrong or Invalid email address or mobile phone number. Please correct and try again.');
+  } 
+
+  if(password!==''){
+    setPasswordError('Minimum 6 characters required')
+  }
+
+
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(sessionActions.signup({ email, name, password }))
@@ -74,18 +102,20 @@ function SignupFormPage() {
             className='test-input-two'
               type="text"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
+              onChange={(e)=>handleEmailChange(e)}
+          
             />
+             {emailError&&<div className='error-msg'>{emailError}</div>}
       <h5>Password</h5>
       <input
             className='test-input-three'
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
+              onChange={(e)=>handlePasswordChange(e)}
+         
               placeholder="At least 6 characters"
             />
+              {passwordError&&<div className='error-msg'>{passwordError}</div>}
 
         <h5>Re-enter Password</h5>
         <input

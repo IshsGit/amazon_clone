@@ -91,7 +91,7 @@
   } 
   
 
-  .test-input-one, .test-input-two, .test-input-three, .test-input-four{
+  .test-input-one:hover, .test-input-two:hover, .test-input-three:hover, .test-input-four:hover{
     border: 1px solid #a6a6a6;
     border-top-color: #949494;
     border-radius: 3px;
@@ -102,8 +102,16 @@
     background-color: #fff;
     margin-bottom: 10px;
     width: 95%;
+   
+    
+      box-shadow: 0 0 0 3px rgb(221 0 0 / 10%) inset; 
+      border-color: #d00;
+    
+  
     
   }
+
+  
   .login {
     background-color: white;
     height: 100vh;
@@ -113,7 +121,9 @@
     
 }
 
-
+.terms, .options-tag{
+  font-family: "Amazon Ember", sans-serif;
+}
 
 .login__logo {
     margin-top: 20px;
@@ -174,4 +184,11 @@
     background: #f0c14b;
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
+  }
+
+  .error-msg{
+    font-size: 12px;
+    width: 100%;
+    color:red;
+    font-family: "Amazon Ember", sans-serif;
   }
