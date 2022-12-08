@@ -198,6 +198,11 @@
     border-color: #a88734 #9c7e31 #846a29;
     font-family: "Amazon Ember", sans-serif;
   }
+
+  .login-button:hover{
+    background: #e8a90a;
+    border-color: #a88734 #9c7e31 #846a29;
+  }
   .terms, .options-tag{
     margin-top: 15px;
     font-size: 12px;
@@ -213,5 +218,6 @@
     font-size: 12px;
     width: 100%;
     color:red;
+    font-family: "Amazon Ember", sans-serif;
   }
 

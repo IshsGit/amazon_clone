@@ -8,6 +8,8 @@ import logo from "../../assets/logo.png";
 import * as sessionActions from "../../store/session";
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 function Navigation() {
   const sessionUser = useSelector((state) => state.session.user);
@@ -54,7 +56,14 @@ function Navigation() {
         src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
       />
         </Link>
-
+        <div className="external-link" >  <a  className='github' href="https://www.linkedin.com/"><GitHubIcon /></a>
+        <a className='linkedin' href="https://www.linkedin.com/"><LinkedInIcon /></a>
+        </div>
+      
+        
+       
+        
+       
     <div className="header__search">
       <input className="header__searchInput" type="text" />
       <SearchIcon className="header__searchIcon" />
@@ -63,12 +72,36 @@ function Navigation() {
     <div className="header__nav">
       
         <div className="header__option">
-          <span className="header__optionLineOne">Hello,</span>
-          <Link to="/login">
+       
+       
+          {/* <Link to="/login">
+          <span className="header__optionOneLineOne">Hello, sign in</span>
           {login && <button onClick={logout}>Logout</button>}
-          {!login && <span className="header__optionLineTwo">Sign In</span>}
-          </Link>
+          {!login && <span className="header__optionLineTwo">Accounts & Lists</span>}
+          </Link> */}
+
+          <div class="dropdown">
+            <button class="dropbtn">
+            {login&&<div>Welcome, {sessionUser.name}</div>}
+            <Link to="/login">
+            {!login && <span className="header__optionOneLineOne">Hello, sign in</span>}
+           <span className="header__optionLineTwo">Accounts & Lists</span>
+           </Link>
+            </button>
+           {!login&& <div><div class="dropdown-content">
+            <Link to="/Signup">Create an account</Link>
+            <Link to="/login">Sign in</Link>
+            </div></div>}
+
+            {login&&  <div><div class="dropdown-content">
+            <button onClick={logout}>Logout</button>
+            </div></div>}
+
+            
+            
+          </div>
         </div>
+      
       
 
       

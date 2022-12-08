@@ -32,28 +32,25 @@ function LoginFormPage() {
 
   if (sessionUser) return <Redirect to="/" />;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    if(email!==''){
-        if(email===sessionUser){
-          
-          setEmailError('');
-      }
-    } else{
-      
+  const checkUser = (ele) => {
+    if(!sessionUser.email){
       setEmailError('Email required');
     }
 
-    if(password!==''){
-      if(password===sessionUser){
-          
-          setPasswordError('');
-      } else{
-     
-        setPasswordError("Invalid Password")
-      }
-    } else{
+    if(password===''){
+      setPasswordError('Password Required')
+    }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+   
+    if(!sessionUser.email){
+      setEmailError('Email required');
+    }
+
+    if(password===''){
       setPasswordError('Password Required')
     }
     setErrors([]);
@@ -92,7 +89,6 @@ function LoginFormPage() {
 
   return (
     <>
-   
    <div className="login">
     <Link to="/">
         <img src={logo} alt="icon-logo" className="signup-logo"></img>
@@ -101,7 +97,7 @@ function LoginFormPage() {
     <div className="signup-form">
       <h1>Sign in</h1>
       <form onSubmit={handleSubmit}>
-   
+     
     <h5>Email</h5>
     <input
             className='test-input-two'

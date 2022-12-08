@@ -184,6 +184,11 @@
     background: #f0c14b;
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
+    
+  }
+  .login__registerButton:hover{
+    background: #e8a90a;
+    border-color: #a88734 #9c7e31 #846a29;
   }
 
   .error-msg{
