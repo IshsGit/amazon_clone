@@ -1,15 +1,18 @@
 .slider{
     position: relative;
-    height: 100vh;
+    height: 70.5vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .image{
-    width: 1000px;
-    height: 600px;
-    border-radius: 10px;
+    position: relative;
+    right: -10%;
+   object-fit: cover;
+    margin-bottom: 4.9%;
+    width: 80%;
+    height: 50%;
 }
 
 .right-arrow{
