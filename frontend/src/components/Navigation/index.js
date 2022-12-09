@@ -80,20 +80,20 @@ function Navigation() {
           {!login && <span className="header__optionLineTwo">Accounts & Lists</span>}
           </Link> */}
 
-          <div class="dropdown">
-            <button class="dropbtn">
+          <div className="dropdown">
+            <button className="dropbtn">
             {login&&<div>Welcome, {sessionUser.name}</div>}
             <Link to="/login">
             {!login && <span className="header__optionOneLineOne">Hello, sign in</span>}
            <span className="header__optionLineTwo">Accounts & Lists</span>
            </Link>
             </button>
-           {!login&& <div><div class="dropdown-content">
+           {!login&& <div><div className="dropdown-content">
             <Link to="/Signup">Create an account</Link>
             <Link to="/login">Sign in</Link>
             </div></div>}
 
-            {login&&  <div><div class="dropdown-content">
+            {login&&  <div><div className="dropdown-content">
             <button onClick={logout}>Logout</button>
             </div></div>}
 
