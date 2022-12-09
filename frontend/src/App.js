@@ -6,6 +6,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 
 import "./reset.css";
+import { SliderData } from "./components/MainPage/SliderData";
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
       <Switch>
         <Route exact path = "/">
           <Navigation />
-          <MainPage />
+          <MainPage slides={SliderData} />
         </Route>
         <Route path="/login">
           <LoginFormPage />
