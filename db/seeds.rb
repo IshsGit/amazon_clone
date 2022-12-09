@@ -17,4 +17,13 @@ ApplicationRecord.transaction do
     )
   
     puts "Done!"
+
+    Product.create!(
+      title: 'Echo (4th Gen) | With premium sound, smart home hub, and Alexa | Charcoal',
+      description: 'A fuzzy round ball that can do stuff for you',
+      category: 'electronics',
+      price: 59.99
+    )
+
+    puts "Done!"
   end
