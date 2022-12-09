@@ -56,7 +56,7 @@ function Navigation() {
         src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
       />
         </Link>
-        <div className="external-link" >  <a  className='github' href="https://www.linkedin.com/"><GitHubIcon /></a>
+        <div className="external-link" >  <a  className='github' href="https://github.com/IshsGit/amazon_clone"><GitHubIcon /></a>
         <a className='linkedin' href="https://www.linkedin.com/"><LinkedInIcon /></a>
         </div>
       
