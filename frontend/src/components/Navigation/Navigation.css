@@ -272,3 +272,134 @@
         padding-left: 7px;
         padding-right: 20px;
       }
+
+      /* .slider{
+    position: relative;
+    height: 70.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.slider{
+  object-fit: contain;
+  width: 100;
+ 
+
+
+}
+
+.main-page-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.image{
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  
+ 
+}
+
+.right-arrow{
+
+  position: absolute;
+  top:25%;
+  right: 32px;
+  font-size: 3rem;
+  color:#000;
+  z-index:1;
+  cursor: pointer;
+  user-select: none;
+ 
+}
+
+.left-arrow{
+  position: absolute;
+  top:25%;
+  left: 32px;
+  font-size: 3rem;
+  color:#000;
+  z-index:1;
+  cursor: pointer;
+  user-select: none;
+  
+}
+/* 
+.slide{
+  opacity: 0;
+  transition-duration: 1s ease;
+} */
+
+
+
+.slide.active{
+  display: flex;
+  align-content: center;
+  opacity: 1;
+  transition-duration: 1s;
+  transform: scale(1.08);
+  
+}
+
+.sometext{
+display: flex;
+justify-content: space-between;
+
+}
+
+.tile1{
+  /* width: 50%; height: 100px; float: left; background: green; */
+  height: 300px;
+ margin-top: 19%;
+  background: green;
+  color: black;
+  border: solid 2px;
+  border-color: #000;
+  display: flex;
+  align-content: center;
+ width: 20%;
+  transform: scale(1.08);
+}
+
+.tile2{
+  /* width: 50%; margin-left: 50%; height: 100px; background: blue; margin-top: 25%; */
+  background: blue;
+  margin-top: 19%;
+  height:300px;
+  color: black;
+  border: solid 2px;
+  border-color: #000;
+  display: flex;
+  align-content: center;
+ width: 20%;
+  transform: scale(1.08);
+}
+
+.tile3{
+  /* width: 50%; margin-left: 50%; height: 100px; background: blue; margin-top: 25%; */
+  background: pink;
+  margin-top: 19%;
+  height: 300px;
+  color: black;
+  border: solid 2px;
+  border-color: #000;
+  display: flex;
+  align-content: center;
+ width: 20%;
+  transform: scale(1.08);
+}
+.tile4{
+  /* width: 50%; margin-left: 50%; height: 100px; background: blue; margin-top: 25%; */
+  background: orange;
+  margin-top: 19%;
+  height: 300px;
+  color: black;
+  border: solid 2px;
+  border-color: #000;
+  display: flex;
+  align-content: center;
+ width: 20%;
+  transform: scale(1.08);
+}

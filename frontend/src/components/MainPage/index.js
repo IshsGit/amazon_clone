@@ -46,6 +46,7 @@ const MainPage = ({slides}) => {
 
   return (
     <>
+    {/* <div className='main-page-container'>
     <section className="slider">
 
         <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
@@ -54,14 +55,16 @@ const MainPage = ({slides}) => {
         SliderData.map((slide, index)=>{
             return(
                 <div className={index === current ? 'slide active' : 'slide' } key={index}>
-                    {index===current && ( <img className="image" src={slide.image} alt='product' />)}
-                   
+                    {index===current && ( <div><img className="image" src={slide.image} alt='product' /> </div>)}
+                    
                 </div>
+
             )
             
         })
       }
     </section>
+    </div> */}
     </>
   );
 };
