@@ -46,25 +46,30 @@ const MainPage = ({slides}) => {
 
   return (
     <>
-    {/* <div className='main-page-container'>
-    <section className="slider">
+   <section className="slider">
 
-        <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
-        <FaArrowAltCircleRight className="right-arrow"  onClick={nextSlide}/>
-      {
-        SliderData.map((slide, index)=>{
-            return(
-                <div className={index === current ? 'slide active' : 'slide' } key={index}>
-                    {index===current && ( <div><img className="image" src={slide.image} alt='product' /> </div>)}
-                    
-                </div>
-
-            )
+<FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
+<FaArrowAltCircleRight className="right-arrow"  onClick={nextSlide}/>
+{
+SliderData.map((slide, index)=>{
+    return(
+        <div className={index === current ? 'slide active' : 'slide' } key={index}>
+            {index===current && ( <img className="image" src={slide.image} alt='product' />)}
             
-        })
-      }
-    </section>
-    </div> */}
+        </div>
+    )
+})
+
+}
+<section className="sometext">
+<div className="tile1">ooone</div>
+<div className="tile2">two</div>
+<div className="tile3">three</div>
+<div className="tile4">four</div>
+
+</section>
+
+</section>
     </>
   );
 };

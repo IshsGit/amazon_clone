@@ -15,8 +15,8 @@ function App() {
     <>
       <Switch>
         <Route exact path = "/">
-          <Navigation slides={SliderData}/>
-   
+          <Navigation />
+   <MainPage slides={SliderData}/>
         </Route>
         <Route path="/login">
        
