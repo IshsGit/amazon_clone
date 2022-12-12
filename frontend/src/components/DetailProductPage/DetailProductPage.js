@@ -31,7 +31,7 @@ function DetailProductPage() {
   return (
     <div className="product-show">
        <h1>{product.title}</h1>
-       
+      <img alt="product image" src={product.photo}></img>
     </div>
   );
 };
