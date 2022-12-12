@@ -46,13 +46,13 @@ function LoginFormPage() {
     e.preventDefault();
     
    
-    if(!sessionUser.email){
-      setEmailError('Email required');
-    }
+    // if(!sessionUser.email){
+    //   setEmailError('Email required');
+    // }
 
-    if(password===''){
-      setPasswordError('Password Required')
-    }
+    // if(password===''){
+    //   setPasswordError('Password Required')
+    // }
     setErrors([]);
     return dispatch(sessionActions.login({ email, password })).catch(
       

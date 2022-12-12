@@ -27,7 +27,8 @@ export const fetchProducts = () => async (dispatch) => {
 export const fetchProduct = (productId) => async (dispatch) => {
   const res = await csrfFetch(`/api/products/${productId}`);
   const data = await res.json();
-  dispatch(receiveProduct(data));
+ 
+  dispatch(receiveProduct(data.product));
 };
 
 export const fetchProductsByCategory = (category) => async (dispatch) => {
@@ -51,8 +52,8 @@ const productsReducer = (state = {}, action) => {
       return action.products;
     case RECIEVE_PRODUCT:
       // debugger;
-      newState[action.product.id] = action.product;
-      return newState;
+      return {[action.product.id]: action.product};
+      
     default:
       return state;
   }
