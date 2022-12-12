@@ -43,7 +43,8 @@ const MainPage = ({slides}) => {
   if(!Array.isArray(slides) || slides.length <=0){
     return null;
   }
-
+  console.log("product items below")
+console.log(productItems)
   return (
     <>
    <section className="slider">
@@ -63,6 +64,7 @@ SliderData.map((slide, index)=>{
 
 }
 <section className="sometext">
+ 
 <div className="tile1">{productItems[0] }</div>
 <div className="tile2">{productItems[1] }</div>
 <div className="tile3">{productItems[2] }</div>
