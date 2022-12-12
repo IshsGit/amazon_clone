@@ -21,10 +21,12 @@ const ProductIndexItem = (props) => {
 //     e.preventDefault();
 //     dispatch(deletePost(props.id))
 // };
-
+console.log("product below")
+console.log(product)
   return (
     <li>
-      <Link to={`/products/${product.id}`}>{product.title}</Link>
+      <img src={product.photo}></img>
+      {/* <Link to={`/products/${product.id}`}>{product.photo}</Link> */}
       {/* <Link to={`/posts/${post.id}/edit`}>Edit</Link>
       <button onClick={handleClick}>Delete</button> */}
     </li>

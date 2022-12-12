@@ -16,7 +16,7 @@ function DetailProductPage() {
   const sessionUser = useSelector(state => state.session.user);
   const product = useSelector(state => state.products[productId] ? state.products[productId] : {})
 //   const reviews = useSelector(getProductReviews(parseInt(productId)));
-    console.log(product);
+   
   useEffect(() => {
     dispatch(fetchProduct(productId));
   }, [productId, dispatch]);

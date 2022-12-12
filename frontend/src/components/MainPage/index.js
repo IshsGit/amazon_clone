@@ -37,14 +37,14 @@ const MainPage = ({slides}) => {
   }, []);
 
   const productItems = products.map(product => {
+    
     return <ProductIndexItem key={product.id} product={product} />
   });
 
   if(!Array.isArray(slides) || slides.length <=0){
     return null;
   }
-  console.log("product items below")
-console.log(productItems)
+
   return (
     <>
    <section className="slider">
@@ -65,10 +65,10 @@ SliderData.map((slide, index)=>{
 }
 <section className="sometext">
  
-<div className="tile1">{productItems[0] }</div>
-<div className="tile2">{productItems[1] }</div>
+<div className="tile1">{productItems}</div>
+{/* <div className="tile2">{productItems[1] }</div>
 <div className="tile3">{productItems[2] }</div>
-<div className="tile4">{productItems[3] }</div>
+<div className="tile4">{productItems[3] }</div> */}
 
 </section>
 
