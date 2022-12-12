@@ -1,5 +1,4 @@
 json.product do
-  json.partial! '/api/products/product',  product: @product
+    json.photo @product.photo.url
+    json.extract! @product, :id, :title, :description, :category, :price
 end
-
-

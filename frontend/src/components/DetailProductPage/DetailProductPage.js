@@ -12,24 +12,25 @@ function DetailProductPage() {
   const dispatch = useDispatch();
   const {productId}  = useParams();
   
-// console.log(productId);
-//   const sessionUser = useSelector(state => state.session.user);
-//   const product = useSelector(state => state.products[productId]);
-// //   const reviews = useSelector(getProductReviews(parseInt(productId)));
-    
-//   useEffect(() => {
-//     dispatch(fetchProduct(productId));
-//   }, [productId, dispatch]);
 
-//   if (!product) {
-//     return null;
-//   }
+  const sessionUser = useSelector(state => state.session.user);
+  const product = useSelector(state => state.products[productId] ? state.products[productId] : {})
+//   const reviews = useSelector(getProductReviews(parseInt(productId)));
+    console.log(product);
+  useEffect(() => {
+    dispatch(fetchProduct(productId));
+  }, [productId, dispatch]);
 
-//   const { title, description, category, price, photoUrl } = product;
-//   const hasReviewed = sessionUser && reviews.some(review => review.authorId === sessionUser.id);
+  if (!product) {
+    return null;
+  }
+
+  // const { title, description, category, price, photoUrl } = product;
+  // const hasReviewed = sessionUser && reviews.some(review => review.authorId === sessionUser.id);
   
   return (
     <div className="product-show">
+       <h1>{product.title}</h1>
        
     </div>
   );
