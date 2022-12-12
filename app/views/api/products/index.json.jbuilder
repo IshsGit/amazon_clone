@@ -1,5 +1,6 @@
 @products.each do |product|
-  json.set! product.id do
-    json.partial! 'product', product: product
-  end
+    json.set! product.id do
+        json.extract! product, :id, :title, :description, :category, :price
+     
+    end
 end
