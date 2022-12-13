@@ -26,6 +26,7 @@ function App() {
           <SignupFormPage />
         </Route>
         <Route exact path="/products/:productId">
+        <Navigation />
         <DetailProductPage/>
         </Route>
       </Switch>

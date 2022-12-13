@@ -38,9 +38,11 @@ const MainPage = ({slides}) => {
     dispatch(fetchProducts());
   }, []);
 
-  const productItems = products.map(product => {
+  const productItems = products.map((product, idx) => {
     
-    return <ProductIndexItem key={product.id} product={product} />
+    return <ProductIndexItem key={product.id} product={product} 
+    
+    />
   });
 
   const productDetails = products.map(product => {
@@ -141,6 +143,79 @@ SliderData.map((slide, index)=>{
   </div>
   </div>
 </section>
+<div className='rest-of-products'>
+<div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+  <div className='tile-inner'>
+  <h1>Very Merry Deals</h1>
+  {productItems[4]}
+ <span>
+  <p>up to 50% off</p>
+ <p> Top deal</p>
+ </span>
+  <h2>{productDetails[4] }</h2>
+  </div>
+  </div>
+  <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+  <div className='tile-inner'>
+  <h1>Very Merry Deals</h1>
+  {productItems[5]}
+ <span>
+  <p>up to 50% off</p>
+ <p> Top deal</p>
+ </span>
+  <h2>{productDetails[5] }</h2>
+  </div>
+  </div>
+  <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+  <div className='tile-inner'>
+  <h1>Very Merry Deals</h1>
+  {productItems[6]}
+ <span>
+  <p>up to 50% off</p>
+ <p> Top deal</p>
+ </span>
+  <h2>{productDetails[6] }</h2>
+  </div>
+  </div>
+  <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+  <div className='tile-inner'>
+  <h1>Very Merry Deals</h1>
+  {productItems[7]}
+ <span>
+  <p>up to 50% off</p>
+ <p> Top deal</p>
+ </span>
+  <h2>{productDetails[7] }</h2>
+  </div>
+  
+  </div>
+  
+  <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+  <div className='tile-inner'>
+  <h1>Very Merry Deals</h1>
+  {productItems[8]}
+ <span>
+  <p>up to 50% off</p>
+ <p> Top deal</p>
+ </span>
+  <h2>{productDetails[8] }</h2>
+  </div>
+  </div>
+  <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+  <div className='tile-inner'>
+  <h1>Very Merry Deals</h1>
+  {productItems[9]}
+ <span>
+  <p>up to 50% off</p>
+ <p> Top deal</p>
+ </span>
+  <h2>{productDetails[9] }</h2>
+  </div>
+  </div>
+  <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+ 
+  </div>
+  </div>
 
 </section>
     </>

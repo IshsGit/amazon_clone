@@ -1,5 +1,94 @@
-/* .product-show{
+@import url("https://fonts.cdnfonts.com/css/amazon-ember");
+
+.parent-container {
+  display: flex;
+  margin-top: 4%;
+  font-family: "Amazon Ember", sans-serif;
+}
+
+
+.product-show{
+    margin-left: 3%;
+    margin-top: 3%;
+    width: 20%;
+    height: 20%;
+  
     display: flex;
-   flex-wrap: wrap;
-    justify-content: space-between;
-} */
+  justify-content: space-between;
+    
+}
+
+
+.product-image-show {
+    padding: 2%;
+  margin-left: 50px;
+    transition: transform .2s; 
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+}
+
+.product-image-show:hover {
+   -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5); 
+  }
+
+  .product-title-details {
+    margin-left: 7%;
+    margin-right: 8%;
+    font-size: 25px;
+    width: 30%;
+  }
+
+  .product-title-details > p {
+    font-family: "Amazon Ember", Arial, sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    color: #007185;
+    margin-top: 2%;
+  }
+
+  .product-price {
+    margin-bottom: 10px;
+  }
+
+  .product-image-details{
+    margin-left: 5%;
+    width: 20%;
+    height: 20%;
+    max-height: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .prime-label {
+    position: relative;
+    color: #565959;
+    font-size: 14px;
+    bottom: 4px;
+  }
+
+  .return-label, .returnable-label {
+    color: #007185;
+  }
+
+  .return-label,
+.delivery-label,
+.fastest-delivery {
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.points-back {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .product-linked-link {
+    text-decoration: none;
+    color: #007185;
+  }
+  

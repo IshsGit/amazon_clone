@@ -3,9 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 // import ReviewForm from './ReviewForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProduct } from '../../store/products';
-// import { destroyReview, getBenchReviews } from '../../store/reviews';
-// import './BenchShowPage.css';
-// import "./mainpage.css";
+import prime from "../../assets/prime.png";
+import "./DetailProductPage.css";
 
 function DetailProductPage() {
     console.log("in detail")
@@ -27,12 +26,45 @@ function DetailProductPage() {
 
   // const { title, description, category, price, photoUrl } = product;
   // const hasReviewed = sessionUser && reviews.some(review => review.authorId === sessionUser.id);
-  
+
   return (
-    <div className="product-show">
-       <h1>{product.title}</h1>
-      <img alt="product image" src={product.photo}></img>
+    <div className="parent-container">
+    <div className="product-image-details">
+      <img className="product-image-show" src={product.photo} alt="product-display"></img>
     </div>
+    <div className="product-title-details">
+      {product.title}
+      <p>Brand: Zish Services</p>
+        <hr></hr>
+        <div className="product-price">
+          <span className="price-symbol">$</span>
+          <span className="price-price">{product.price}</span>
+    </div>
+
+        <div>
+        
+          <span className="prime-label">One-Day</span>
+        <div className="return-label">FREE Returns</div>
+        </div>
+        <hr />
+        <div className="center-bottom-container">
+          <div className="about-label">About this item:</div>
+          <ul className="about-list">
+            <li>{product.description}</li>
+          </ul>
+        </div>
+        </div>
+    
+    </div>
+    // <div className='parent-container'>
+    // <div className="product-show">
+    //   <img alt="product image" src={product.photo}></img>
+    //   <p>Hover over image to zoom in</p>
+    // </div>
+    // <div className='title-container'> 
+    // <p className='produce-title'>{product.title}</p>
+    // </div>
+    // </div>
   );
 };
 
