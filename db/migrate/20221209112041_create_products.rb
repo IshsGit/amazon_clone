@@ -5,7 +5,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.text :description, null: false
       t.string :category, null: false
       t.float :price, null: false
-
+      t.integer :rating, null: false
       t.timestamps
     end
     add_index :products, :category

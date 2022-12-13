@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.11.0",
     "better-react-carousel": "^1.1.1"
   }
 }

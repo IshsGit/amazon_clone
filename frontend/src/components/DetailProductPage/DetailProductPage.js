@@ -5,13 +5,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProduct } from '../../store/products';
 import prime from "../../assets/prime.png";
 import "./DetailProductPage.css";
+import Rating from "@mui/material/Rating";
 
 function DetailProductPage() {
     console.log("in detail")
   const dispatch = useDispatch();
   const {productId}  = useParams();
-  
-
+ 
   const sessionUser = useSelector(state => state.session.user);
   const product = useSelector(state => state.products[productId] ? state.products[productId] : {})
 //   const reviews = useSelector(getProductReviews(parseInt(productId)));
@@ -23,48 +23,72 @@ function DetailProductPage() {
   if (!product) {
     return null;
   }
-
+  console.log("rating below")
+  console.log(product.rating);
   // const { title, description, category, price, photoUrl } = product;
   // const hasReviewed = sessionUser && reviews.some(review => review.authorId === sessionUser.id);
 
   return (
     <div className="parent-container">
+   
     <div className="product-image-details">
       <img className="product-image-show" src={product.photo} alt="product-display"></img>
     </div>
+   
     <div className="product-title-details">
       {product.title}
+      <div className="product__rating">
+          Rating: {Array(product.rating)
+            .fill()
+            .map((_, i) => (
+              <p>🌟</p> 
+            ))}
+           
+        </div>
       <p>Brand: Zish Services</p>
         <hr></hr>
+      
+  <div className='tile-inner'>
+  
+      <span>
+       <p>Top deal</p>
+      <p> -24%</p>
+      </span>
+  
+  </div>
+ 
         <div className="product-price">
-          <span className="price-symbol">$</span>
-          <span className="price-price">{product.price}</span>
-    </div>
-
+        <div className='full-price'>$73.99</div>
+           <p className='product-p1'> ${product.price}</p>
+         
+        </div>
+           
         <div>
-        
-          <span className="prime-label">One-Day</span>
-        <div className="return-label">FREE Returns</div>
+        <div className="same-day"> <p> Same Day Shipping</p></div>
+    
+           <div className="return-label">FREE Returns</div>
         </div>
         <hr />
-        <div className="center-bottom-container">
+        
           <div className="about-label">About this item:</div>
           <ul className="about-list">
             <li>{product.description}</li>
           </ul>
         </div>
+        <div className="product-cart-details">
+          
+        <div className="product-price">
+          <span className="price-symbol">$</span>
+          <span className="product-price">{(product.price)}</span>
+        
         </div>
+        </div>
+        
+        
+       
     
     </div>
-    // <div className='parent-container'>
-    // <div className="product-show">
-    //   <img alt="product image" src={product.photo}></img>
-    //   <p>Hover over image to zoom in</p>
-    // </div>
-    // <div className='title-container'> 
-    // <p className='produce-title'>{product.title}</p>
-    // </div>
-    // </div>
+
   );
 };
 
