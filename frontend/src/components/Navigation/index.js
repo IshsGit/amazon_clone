@@ -22,7 +22,7 @@ import {FaArrowAltCircleRight, FaArrowAltCircleLeft} from 'react-icons/fa'
 
 function Navigation() {
 
-  console.log("in navigation")
+
   const sessionUser = useSelector((state) => state.session.user);
 
   let display;

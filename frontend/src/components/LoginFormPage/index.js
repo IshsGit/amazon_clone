@@ -97,7 +97,11 @@ function LoginFormPage() {
     <div className="signup-form">
       <h1>Sign in</h1>
       <form onSubmit={handleSubmit}>
-     
+      <ul>
+            {errors.map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
     <h5>Email</h5>
     <input
             className='test-input-two'

@@ -39,15 +39,7 @@ function SignupFormPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("in submit")
-    if(email!==''){ 
-      setEmailError('Wrong or Invalid email address or mobile phone number. Please correct and try again.');
-  } 
-
-  if(password!==''){
-    setPasswordError('Minimum 6 characters required')
-  }
-
+   
 
     if (password === confirmPassword) {
       setErrors([]);
@@ -88,6 +80,11 @@ function SignupFormPage() {
     <div className="signup-form">
       <h1>Create Account</h1>
       <form onSubmit={handleSubmit}>
+        <ul>
+            {errors.map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
       <input
             className='test-input-one'
               type="text"

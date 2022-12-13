@@ -17,18 +17,11 @@ const ProductIndexItem = (props) => {
   const product = props.product;
   const dispatch = useDispatch();
 
-//   const handleClick = (e) => {
-//     e.preventDefault();
-//     dispatch(deletePost(props.id))
-// };
-console.log("product below")
-console.log(product)
+
   return (
     <li>
       <img src={product.photo}></img>
-      {/* <Link to={`/products/${product.id}`}>{product.photo}</Link> */}
-      {/* <Link to={`/posts/${post.id}/edit`}>Edit</Link>
-      <button onClick={handleClick}>Delete</button> */}
+
     </li>
   );
 };
