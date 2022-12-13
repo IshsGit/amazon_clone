@@ -56,6 +56,20 @@ const MainPage = ({slides}) => {
     return null;
   }
 
+
+//   <div className="tile2">
+//   <div className='tile-inner'>
+//   <h1>Very Merry Deals</h1>
+//   {productItems[0]}
+//  <span>
+//   <p>up to 50% off</p>
+//  <p> Top deal</p>
+//  </span>
+//   <h2>{productDetails[0] }</h2>
+//   </div>
+//   </div>
+
+
   return (
     <>
    <section className="slider">
@@ -76,14 +90,56 @@ SliderData.map((slide, index)=>{
 }
 <section className="sometext">
  
- <h1>Very merry deals</h1>
 
-<div className="tile1">{productItems[1]}</div>
-<div className="tile2">{productDetails[0] }</div>
-{/* <div className="tile2">{productItems[1] }</div>
-<div className="tile3">{productItems[2] }</div>
-<div className="tile4">{productItems[3] }</div> */}
 
+
+<div className="tile2">
+  <div className='tile-inner'>
+  <h1>Very Merry Deals</h1>
+  {productItems[0]}
+ <span>
+  <p>up to 50% off</p>
+ <p> Top deal</p>
+ </span>
+  <h2>{productDetails[0] }</h2>
+  </div>
+  </div>
+
+
+<div className="tile2">
+  <div className='tile-inner'>
+  <h1>Very Merry Deals</h1>
+  {productItems[1]}
+ <span>
+  <p>up to 50% off</p>
+ <p> Top deal</p>
+ </span>
+  <h2>{productDetails[1] }</h2>
+  </div>
+  </div>
+  <div className="tile2">
+  <div className='tile-inner'>
+  <h1>Very Merry Deals</h1>
+  {productItems[2]}
+ <span>
+  <p>up to 50% off</p>
+ <p> Top deal</p>
+ </span>
+  <h2>{productDetails[2] }</h2>
+  </div>
+  </div>
+
+<div className="tile2" style={{marginRight: "2%"}}>
+  <div className='tile-inner'>
+  <h1>Very Merry Deals</h1>
+  {productItems[3]}
+ <span>
+  <p>up to 50% off</p>
+ <p> Top deal</p>
+ </span>
+  <h2>{productDetails[3] }</h2>
+  </div>
+  </div>
 </section>
 
 </section>

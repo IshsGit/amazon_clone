@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import "./mainpage.css";
 // import { deletePost } from '../store/posts';
 
 /*
@@ -19,10 +20,10 @@ const ProductIndexItem = (props) => {
 
 
   return (
-    <li>
-      <img src={product.photo}></img>
+   
+    <Link to={`/products/${product.id}`}><img className='productImg' src={product.photo}></img></Link>
 
-    </li>
+ 
   );
 };
 

@@ -1,3 +1,5 @@
+@import url("https://fonts.cdnfonts.com/css/amazon-ember");
+
 /* .slider{
     position: relative;
     height: 70.5vh;
@@ -68,6 +70,10 @@
     
 } */
 
+body{
+  background-color: #eaeded;
+}
+
 .slide.active{
     display: flex;
     align-content: center;
@@ -99,18 +105,63 @@
   
   .tile2{
     /* width: 50%; margin-left: 50%; height: 100px; background: blue; margin-top: 25%; */
-    background: blue;
+    background: white;
     margin-top: 19%;
-    height:300px;
+    margin-left: 2%;
+   
+    height:150%;
     color: black;
-    border: solid 2px;
-    border-color: #000;
+
     display: flex;
+    flex-direction: column;
     align-content: center;
    width: 20%;
     transform: scale(1.08);
   }
+
+  .productImg{
+    max-height: 200px;
+    width:100%;
+    object-fit: contain;
+    margin-bottom: 15px;
+   
+  }
+
+  .tile-inner > h1 {
+   
+    font-size: 21px!important;
+    line-height: 27.3px!important;
+    margin-bottom: 10%;
+    font-family: "Amazon Ember",Arial, Helvetica, sans-serif; 
+    font-weight: 700;
+  }
+  .tile-inner{
+    justify-content: center;
+    margin: 5%;
+  }
   
+  .tile-inner > h2 {
+    font-size: 13px;
+    font-family: "Amazon Ember",Arial, sans-serif; 
+  }
+
+  .tile-inner> span {
+    display: flex; 
+  }
+
+  .tile-inner > span > p:first-child {
+  
+   background-color:#CC0C39;
+   color:#ffffff;
+    padding-right: 10px;
+  }
+
+  .tile-inner> span > p:last-child {
+    font-size: 12px;
+    padding-left: 5px;
+    color:#CC0C39;
+    font-family: "Amazon Ember",Arial, sans-serif; 
+  }
   .tile3{
     /* width: 50%; margin-left: 50%; height: 100px; background: blue; margin-top: 25%; */
     background: pink;

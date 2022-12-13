@@ -7,14 +7,15 @@ import { useDispatch } from 'react-redux';
 const AllProducts= (props) => {
   const product = props.product;
   const dispatch = useDispatch();
-
+    const {title, description, category, price} = product;
 
   return (
-    <li>
-      <Link to={`/products/${product.id}`}>{product.title}</Link>
-      {/* <Link to={`/posts/${post.id}/edit`}>Edit</Link>
-      <button onClick={handleClick}>Delete</button> */}
-    </li>
+    <>
+      <Link to={`/products/${product.id}`}>{title}</Link>
+      </>
+      
+
+    
   );
 };
 
