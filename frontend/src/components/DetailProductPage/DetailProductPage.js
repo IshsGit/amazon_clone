@@ -10,9 +10,9 @@ import AllProducts from './products';
 import ProductIndexItem from './ProductIndexItem';
 import { getProducts } from '../../store/products';
 import { fetchProducts } from '../../store/products';
-
+import ProductGetCategory from './productGetCategory';
 function DetailProductPage() {
-    console.log("in detail")
+
   const dispatch = useDispatch();
   const {productId}  = useParams();
  
@@ -27,8 +27,7 @@ const products = useSelector(getProducts);
   if (!product) {
     return null;
   }
-  console.log("rating below")
-  console.log(product.rating);
+
   // const { title, description, category, price, photoUrl } = product;
   // const hasReviewed = sessionUser && reviews.some(review => review.authorId === sessionUser.id);
   function getRandomInt(price) {
@@ -56,7 +55,7 @@ const products = useSelector(getProducts);
     const min = Math.floor(16);
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
-  const productItems = products.map((product, idx) => {
+  const productItems = products.map((product) => {
     
     return <ProductIndexItem key={product.id} product={product} 
     
@@ -67,7 +66,14 @@ const products = useSelector(getProducts);
     
     return <AllProducts key={product.id} product={product} />
   });
-  
+
+  const productCat = products.map(product => {
+    
+    return <ProductGetCategory key={product.id} product={product} />
+  });
+  console.log("product category")
+  console.log(productCat[0].props.product.category === product.category)
+
   return (
     <>
     <div className="parent-container">
@@ -117,7 +123,7 @@ const products = useSelector(getProducts);
           <ul className="about-list">
             <li>{product.description}</li>
           </ul>
-              <div className='recommended'> <p>Related products with free delivery on eligible orders belowish</p></div>
+              <div className='recommended'> <p>Related products with free delivery on eligible orders below</p></div>
         </div>
         <div className="product-cart-details">
           
@@ -144,8 +150,8 @@ const products = useSelector(getProducts);
         <div className="stock-label"><p>Arrives before chrismas</p>
        
         <p>In Stock.</p>
-        <p>Ships from Amazon.com</p>
-        <p>Sold by Amazon.com</p>
+        <p>Ships from Amazish.com</p>
+        <p>Sold by Amazish.com</p>
         </div>
         
         </div>
@@ -155,12 +161,12 @@ const products = useSelector(getProducts);
         
            
     </div>
-    <section className="sometext-detail">
+    <section className="tile-detail">
  
    
 
 
- <div className="tile2-detail">
+ {product.category === productCat[0].props.product.category && <div className="tile2-detail">
    <div className='tile-inner'>
    <h1>Revolutionary technology</h1>
    {productItems[0]}
@@ -170,10 +176,10 @@ const products = useSelector(getProducts);
   </span>
    <h2>{productDetails[0] }</h2>
    </div>
-   </div>
+   </div>}
  
  
- <div className="tile2-detail">
+   {product.category === productCat[1].props.product.category && <div className="tile2-detail">
    <div className='tile-inner'>
    <h1>Very Merry Deals</h1>
    {productItems[1]}
@@ -183,8 +189,9 @@ const products = useSelector(getProducts);
   </span>
    <h2>{productDetails[1] }</h2>
    </div>
-   </div>
-   <div className="tile2-detail">
+   </div>}
+
+   {product.category === productCat[2].props.product.category && <div className="tile2-detail">
    <div className='tile-inner'>
    <h1>Deals on Amazon Devices</h1>
    {productItems[2]}
@@ -194,9 +201,9 @@ const products = useSelector(getProducts);
   </span>
    <h2>{productDetails[2] }</h2>
    </div>
-   </div>
+   </div>}
  
- <div className="tile2-detail" style={{marginRight: "2%"}}>
+   {product.category === productCat[3].props.product.category && <div className="tile2-detail" style={{marginRight: "2%"}}>
    <div className='tile-inner'>
    <h1>Very Merry Deals</h1>
    {productItems[3]}
@@ -206,10 +213,11 @@ const products = useSelector(getProducts);
   </span>
    <h2>{productDetails[3] }</h2>
    </div>
-   </div>
+   </div>}
  </section>
+
  <div className='rest-of-products'>
- <div className="tile2-detail" style={{marginTop:"5%", marginRight:"3%"}}>
+ {product.category === productCat[4].props.product.category && <div className="tile2-detail" style={{marginTop:"5%", marginRight:"3%"}}>
    <div className='tile-inner'>
    <h1>Very Merry Deals</h1>
    {productItems[4]}
@@ -219,8 +227,9 @@ const products = useSelector(getProducts);
   </span>
    <h2>{productDetails[4] }</h2>
    </div>
-   </div>
-   <div className="tile2-detail" style={{marginTop:"5%", marginRight:"3%"}}>
+   </div>}
+
+   {product.category === productCat[5].props.product.category && <div className="tile2-detail" style={{marginTop:"5%", marginRight:"3%"}}>
    <div className='tile-inner'>
    <h1>Snap your chops, drop your peas</h1>
    {productItems[5]}
@@ -230,8 +239,9 @@ const products = useSelector(getProducts);
   </span>
    <h2>{productDetails[5] }</h2>
    </div>
-   </div>
-   <div className="tile2-detail" style={{marginTop:"5%", marginRight:"3%"}}>
+   </div>}
+
+   {product.category === productCat[6].props.product.category && <div className="tile2-detail" style={{marginTop:"5%", marginRight:"3%"}}>
    <div className='tile-inner'>
    <h1>Every side is a square!</h1>
    {productItems[6]}
@@ -241,8 +251,9 @@ const products = useSelector(getProducts);
   </span>
    <h2>{productDetails[6] }</h2>
    </div>
-   </div>
-   <div className="tile2-detail" style={{marginTop:"5%", marginRight:"3%"}}>
+   </div>}
+
+   {product.category === productCat[7].props.product.category&& <div className="tile2-detail" style={{marginTop:"5%", marginRight:"3%"}}>
    <div className='tile-inner'>
    <h1>Shop gifts at any price</h1>
    {productItems[7]}
@@ -253,8 +264,9 @@ const products = useSelector(getProducts);
    <h2>{productDetails[7] }</h2>
    </div>
    
-   </div>
-   <div className="tile2-detail" style={{marginTop:"5%", marginRight:"3%"}}>
+   </div>}
+
+   {product.category === productCat[8].props.product.category && <div className="tile2-detail" style={{marginTop:"5%", marginRight:"3%"}}>
    <div className='tile-inner'>
    <h1>It's holiday-party time</h1>
    {productItems[8]}
@@ -264,9 +276,9 @@ const products = useSelector(getProducts);
   </span>
    <h2>{productDetails[8] }</h2>
    </div>
-   </div>
+   </div>}
   
-   <div className="tile2-detail" style={{marginTop:"5%", marginRight:"3%"}}>
+   {product.category ===productCat[9].props.product.category && <div className="tile2-detail" style={{marginTop:"5%", marginRight:"3%"}}>
    <div className='tile-inner'>
    <h1>Deals on last-minute gifts</h1>
    {productItems[9]}
@@ -276,10 +288,9 @@ const products = useSelector(getProducts);
   </span>
    <h2>{productDetails[9] }</h2>
    </div>
-   </div>
-   <div className="tile2-detail" style={{marginTop:"5%", marginRight:"3%"}}>
-  
-   </div>
+   </div>}
+   
+
    </div>
 </>
   );
