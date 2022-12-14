@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useHistory, Link } from 'react-router-dom';
 // import ReviewForm from './ReviewForm';
 import { useDispatch, useSelector } from 'react-redux';
 import productsReducer, { fetchProduct } from '../../store/products';
@@ -11,13 +11,19 @@ import ProductIndexItem from './ProductIndexItem';
 import { getProducts } from '../../store/products';
 import { fetchProducts } from '../../store/products';
 import ProductGetCategory from './productGetCategory';
+import { addToCart } from "../../store/cart";
+
+
 function DetailProductPage() {
 
   const dispatch = useDispatch();
   const {productId}  = useParams();
  
-  const sessionUser = useSelector(state => state.session.user);
+  const userId = useSelector((state) => state.session.user?.id);
   const product = useSelector(state => state.products[productId] ? state.products[productId] : {})
+   const [count, setCount] = useState(1);
+  const history = useHistory();
+
 //   const reviews = useSelector(getProductReviews(parseInt(productId)));
 const products = useSelector(getProducts);
   useEffect(() => {
@@ -73,6 +79,39 @@ const products = useSelector(getProducts);
   });
   console.log("product category")
   console.log(productCat[0].props.product.category === product.category)
+  const countOptions = [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+  ].map((num) => {
+    if (num === "0") {
+      return <option hidden key={num}>{`Qty: ${count}`}</option>;
+    } else {
+      return (
+        <option value={num} key={num}>
+          {num}
+        </option>
+      );
+    }
+  });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (userId) {
+      dispatch(addToCart(product.id, count));
+    } else {
+      history.push("/login");
+    }
+    setCount(1);
+  };
+
 
   return (
     <>
@@ -153,7 +192,25 @@ const products = useSelector(getProducts);
         <p>Ships from Amazish.com</p>
         <p>Sold by Amazish.com</p>
         </div>
-        
+        <div className="stock-label">In Stock.</div>
+        <form className="product-form" onSubmit={handleSubmit}>
+          <div className="select-wrap">
+            <label className="box-shadow">
+              <select
+                className="count-select"
+                value={`Qty: ${count}`}
+                onChange={(e) => setCount(e.target.value)}
+              >
+                {countOptions}
+              </select>
+            </label>
+          </div>
+          <input
+            type="submit"
+            className="product-add-btn"
+            value="Add to Cart"
+          ></input>
+        </form>
         </div>
            
 

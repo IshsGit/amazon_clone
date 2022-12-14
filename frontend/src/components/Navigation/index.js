@@ -62,7 +62,7 @@ function Navigation() {
     const [current, setCurrent] = useState(0);
     
 
-    console.log(current)
+  
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
@@ -162,10 +162,13 @@ function Navigation() {
 
       
         <div className="header__optionBasket">
-          <ShoppingBasketIcon />
-          <span className="header__optionLineTwo header__basketCount">
-            0
-          </span>
+        <Link className="cart-link" to={login ? "/carts" : "/login"}>
+          <div className="nav-right-container">
+            <p className="basket"> <ShoppingBasketIcon /></p>
+          </div>
+        </Link>
+          
+         
         </div>
       
     </div>

@@ -9,11 +9,18 @@ import "./reset.css";
 import { SliderData } from "./components/MainPage/SliderData";
 import CatSearchPage from "./components/CatSearchPage/CatSearchPage";
 import ProductIndex from "./components/ProductIndex/ProductIndex";
+import CartPage from "./components/CartPage";
+
 function App() {
   
   return (
     <>
       <Switch>
+      <Route exact path="/carts">
+          <Navigation />
+          <CatSearchPage />
+          <CartPage />
+        </Route>
         <Route exact path = "/">
           <Navigation />
           <CatSearchPage />
@@ -41,6 +48,7 @@ function App() {
           <CatSearchPage />
           <ProductIndex />
         </Route>
+       
       </Switch>
     </>
   );

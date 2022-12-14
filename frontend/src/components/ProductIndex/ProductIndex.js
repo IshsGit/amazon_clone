@@ -21,8 +21,7 @@ const ProductIndex = () => {
 
   
   const {category}  = useParams();
-  console.log("category")
-  console.log(category)
+
   const dispatch = useDispatch();
   
   const products = useSelector(getProducts);
@@ -86,7 +85,7 @@ const ProductIndex = () => {
 { category === productDetails[0].props.product.category && <div className="tile2">
   <div className='tile-inner'>
   <h1>Revolutionary technology</h1>
-  {productItems[0]}
+  {productItems[0]}   
  <span>
   <p>up to 19% off</p>
  <p> Top deal</p>

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getProducts } from '../../store/products';
 import { fetchProducts } from '../../store/products';
-import Carousel from 'better-react-carousel';
+
 import {SliderData} from "./SliderData"
 import {FaArrowAltCircleRight, FaArrowAltCircleLeft} from 'react-icons/fa'
 import "./mainpage.css";
