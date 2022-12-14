@@ -115,6 +115,54 @@ ApplicationRecord.transaction do
         file: "https://amazish-seeds.s3.amazonaws.com/10-cat-food.jpg",
         fileName: "10-cat-food.jpg",
       }, 
+      {
+        title: "Star Wars The Black Series The Mandalorian, Ahsoka Tano & Grogu Toy 6-Inch-Scale",
+        description: "THE MANDALORIAN, AHSOKA TANO & GROGU: The Mandalorian seeks out Ahsoka Tano to help reveal the Child’s past and light the way to his future
+        THE MANDALORIAN: Fans and collectors can imagine scenes from the Star Wars Galaxy with this premium 3-pack inspired by The Mandalorian live-action series on Disney",
+        category: "toys",
+        price: 66.99,
+        rating: 3,
+        file: "https://amazish-seeds.s3.amazonaws.com/ezgif.com-gif-maker.jpg",
+        fileName: "11-starwars-1.jpg",
+      }, 
+      {
+        title: "Octopus Plush Stuffed Animal 15.8, Cute Soft Squishy Octopus Plushie",
+        description: "High quality short plush fabric, filled with PP cotton. Comfortable and flexible, delicate feel, not easy to deform, super soft & comfortable to touch.",
+        category: "toys",
+        price: 23.99,
+        rating: 5,
+        file: "https://amazish-seeds.s3.amazonaws.com/ezgif.com-gif-maker+(1).jpg",
+        fileName: "12-tako-plushie-1.jpg",
+      }, 
+      {
+        title: "Amazon Basics Stainless Steel Dinner Spoons with Round Edge, Pack of 12",
+        description: "Set of 12 stainless steel spoons for dining room, kitchen or restaurant use",
+        category: "kitchen",
+        price: 10.79,
+        rating: 5,
+        file: "https://amazish-seeds.s3.amazonaws.com/ezgif.com-gif-maker+(2).jpg",
+        fileName: "13-shiny-spoon.jpg",
+      }, 
+      {
+        title: "Lysol Concentrate All Purpose Cleaner Disinfectant, 12 Ounce (Pack of 2)",
+        description: "Lysol Brand Concentrate dilutes to make 9 gallons of Lysol Disinfectant cleaner",
+        category: "cleaning",
+        price: 8.54,
+        rating: 4,
+        file: "https://amazish-seeds.s3.amazonaws.com/ezgif.com-gif-maker+(3).jpg",
+        fileName: "14-lysol-2.jpg",
+      }, 
+      {
+        title: "Senneny Dog Christmas Toys with Squeaker",
+        description: "Dogs Preferred Christmas Gift：An adorable stuffed reindeer with red antlers and a red nose will be your dog’s best friend to accompany him/her through day and night.",
+        category: "pets",
+        price: 12.99,
+        rating: 5,
+        file: "https://amazish-seeds.s3.amazonaws.com/ezgif.com-gif-maker+(4).jpg",
+        fileName: "15-pet-toy.jpg",
+      }, 
+
+
     
     ]
        PRODUCTS.each do |product|
