@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import PostForm  from './PostForm';
-import ProductIndexItem from './ProductIndexItem';
+
 import { getProducts } from '../../store/products';
 import { fetchProducts } from '../../store/products';
 import Carousel from 'better-react-carousel';
@@ -9,6 +9,7 @@ import {SliderData} from "./SliderData"
 import {FaArrowAltCircleRight, FaArrowAltCircleLeft} from 'react-icons/fa'
 import "./mainpage.css";
 import AllProducts from './products';
+import ProductIndexItem from './ProductIndexItem';
 /*
 Export as the default a `PostIndex` component that renders a list (`ul`) of
 `PostIndexItems`. This component should grab the `posts` slice of state from the

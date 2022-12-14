@@ -4,6 +4,7 @@
   display: flex;
   margin-top: 4%;
   font-family: "Amazon Ember", sans-serif;
+  padding-bottom: 3%;
 }
 
 
@@ -144,3 +145,66 @@
      color:#CC0C39;
      font-family: "Amazon Ember",Arial, sans-serif; 
    }
+
+   .fastest-delivery {
+    line-height: 18px;
+  }
+  .fast-delivery-hour {
+    color: #007600;
+  }
+
+  .stock-label > p{
+    margin-bottom: 3%;
+    margin-top: 3%;
+
+  }
+  .stock-labe{
+    display: flex;
+    flex-direction: column;
+  }
+  .sometext-detail{
+    padding-top: 5%;
+   
+    display: flex;
+    justify-content: space-between;
+    background-color: #eaeded;
+    }
+    
+    .tile1-detail{
+      /* width: 50%; height: 100px; float: left; background: green; */
+      height: 300px;
+     margin-top: 19%;
+     
+      color: black;
+      border: solid 2px;
+      border-color: #000;
+      display: flex;
+      align-content: center;
+     width: 20%;
+      transform: scale(1.08);
+    }
+    
+    .tile2-detail{
+      /* width: 50%; margin-left: 50%; height: 100px; background: blue; margin-top: 25%; */
+      background: white;
+      
+      margin-left: 2%;
+     
+      height:150%;
+      color: black;
+  
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+     width: 20%;
+      transform: scale(1.08);
+    }
+  
+    .recommended{
+      padding-top: 25px;
+      margin-bottom: -40px;
+    }
+    .recommended >p{
+      font-weight: bold;
+      font-family: "Amazon Ember", sans-serif;
+    }
