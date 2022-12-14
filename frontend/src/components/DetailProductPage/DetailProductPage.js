@@ -101,7 +101,7 @@ const products = useSelector(getProducts);
   
       <span>
        <p>Top deal</p>
-      <p> {Math.round(getRandomInt(product.price)*100)}-ish%</p>
+      <p> -{Math.round(getRandomInt(product.price)*100)}ish%</p>
       </span>
   
   </div>
@@ -123,7 +123,7 @@ const products = useSelector(getProducts);
           <ul className="about-list">
             <li>{product.description}</li>
           </ul>
-              <div className='recommended'> <p>Related products with free delivery on eligible orders below</p></div>
+              <div className='recommended'> <p>Similar products with free delivery on eligible orders below</p></div>
         </div>
         <div className="product-cart-details">
           

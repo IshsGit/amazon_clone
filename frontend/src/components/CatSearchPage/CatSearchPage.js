@@ -1,0 +1,56 @@
+
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import React, { useState } from "react";
+
+import GetCat from "./ProductCat";
+import { useDispatch, useSelector } from 'react-redux';
+import { getProducts } from '../../store/products';
+import { fetchProducts } from '../../store/products';
+import "./CategoryBar.css";
+
+function CatSearchPage() {
+  const dispatch = useDispatch();
+  
+  const products = useSelector(getProducts);
+    const [current, setCurrent] = useState(0);
+    
+
+    console.log(current)
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
+  const getCat = products.map(product => {
+    return <GetCat key={product.id} product={product} />
+  });
+
+
+
+  const arr =Array(getCat.length)
+  .fill()
+  .map((_, i) => (
+   getCat[i].props.product.category
+  ));
+  const rem = (value, index, self) => {
+    return self.indexOf(value) === index
+  }
+  
+  const categories = arr.filter(rem);
+
+  const catLinks = categories.map((category) => (
+    <Link className="category-link" key={category} to={`/${category}`}>
+      {category}
+    </Link>
+  ));
+
+  return (
+    <div className="category-bar-container">
+      <Link className="category-link" key="products" to="/products">
+        <Link className='all-products' to='/'>All Products </Link>
+      </Link>
+      {catLinks}
+    </div>
+  );
+}
+
+export default CatSearchPage

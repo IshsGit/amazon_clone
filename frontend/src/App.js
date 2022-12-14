@@ -7,8 +7,8 @@ import SignupFormPage from "./components/SignupFormPage";
 import DetailProductPage from "./components/DetailProductPage/DetailProductPage";
 import "./reset.css";
 import { SliderData } from "./components/MainPage/SliderData";
-
-
+import CatSearchPage from "./components/CatSearchPage/CatSearchPage";
+import ProductIndex from "./components/ProductIndex/ProductIndex";
 function App() {
   
   return (
@@ -16,6 +16,7 @@ function App() {
       <Switch>
         <Route exact path = "/">
           <Navigation />
+          <CatSearchPage />
    <MainPage slides={SliderData}/>
         </Route>
         <Route path="/login">
@@ -28,6 +29,17 @@ function App() {
         <Route exact path="/products/:productId">
         <Navigation />
         <DetailProductPage/>
+        </Route>
+        <Route exact path="/:category">
+          <Navigation />
+          <CatSearchPage />
+   
+          <ProductIndex />
+        </Route>
+        <Route exact path="/products">
+          <Navigation />
+          <CatSearchPage />
+          <ProductIndex />
         </Route>
       </Switch>
     </>

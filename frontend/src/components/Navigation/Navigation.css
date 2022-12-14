@@ -332,5 +332,23 @@
   transition-duration: 1s ease;
 } */
 
+.cat-bar{
+  background-color: #232f3e;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
 
+.cat-name {
+  text-decoration: none;
+  color: white;
+  font-family: "Amazon Ember", sans-serif;
+  font-size: 14px;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+}
 
+.cat-name:hover{
+  border: 1px solid white;
+}

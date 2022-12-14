@@ -1,0 +1,205 @@
+@import url("https://fonts.cdnfonts.com/css/amazon-ember");
+
+/* .slider{
+    position: relative;
+    height: 70.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+/* .slider{
+    position: relative;
+    padding-top: 20px;
+    width: 80%;
+    display: flex;
+    padding-left: 10%;
+    
+  
+
+}
+
+.main-page-container{
+    display: flex;
+}
+
+.image{
+    position: relative;
+    width: 100%;
+
+    
+   
+}
+
+.right-arrow{
+
+    position: absolute;
+    top:25%;
+    right: 0%;
+    font-size: 3rem;
+    color:#000;
+    z-index:1;
+    cursor: pointer;
+    user-select: none;
+   
+}
+
+.left-arrow{
+    position: absolute;
+    top:25%;
+    left: 10%;
+    font-size: 3rem;
+    color:#000;
+    z-index:1;
+    cursor: pointer;
+    user-select: none;
+    
+}
+
+.slide{
+    opacity: 0;
+    transition-duration: 1s ease;
+}
+
+.slide.active{
+    display: flex;
+    align-content: center;
+    opacity: 1;
+    transition-duration: 1s;
+    transform: scale(1.08);
+    
+} */
+
+
+
+.slide.active{
+    display: flex;
+    align-content: center;
+    opacity: 1;
+    transition-duration: 1s;
+    transform: scale(1.08);
+    
+  }
+  
+  .sometext{
+  display: flex;
+  justify-content: space-between;
+
+  }
+  
+  .tile1{
+    /* width: 50%; height: 100px; float: left; background: green; */
+    height: 300px;
+   margin-top: 19%;
+   
+    color: black;
+    border: solid 2px;
+    border-color: #000;
+    display: flex;
+    align-content: center;
+   width: 20%;
+    transform: scale(1.08);
+  }
+  
+  .tile2{
+    /* width: 50%; margin-left: 50%; height: 100px; background: blue; margin-top: 25%; */
+    background: white;
+    margin-top: 19%;
+    margin-left: 2%;
+   
+    height:150%;
+    color: black;
+
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+   width: 20%;
+    transform: scale(1.08);
+  }
+
+  .productImg{
+    max-height: 200px;
+    width:100%;
+    object-fit: contain;
+    margin-bottom: 15px;
+   
+  }
+
+  .tile-inner > h1 {
+   
+    font-size: 21px!important;
+    line-height: 27.3px!important;
+    margin-bottom: 10%;
+    font-family: "Amazon Ember",Arial, Helvetica, sans-serif; 
+    font-weight: 700;
+  }
+  .tile-inner{
+    justify-content: center;
+    margin: 5%;
+  }
+  
+  .tile-inner > h2 {
+    font-size: 13px;
+    font-family: "Amazon Ember",Arial, sans-serif; 
+  }
+
+  .tile-inner> span {
+    display: flex; 
+  }
+
+  .tile-inner > span > p:first-child {
+  
+   background-color:#CC0C39;
+   color:#ffffff;
+    padding-right: 10px;
+  }
+
+  .tile-inner> span > p:last-child {
+    font-size: 12px;
+    padding-left: 5px;
+    color:#CC0C39;
+    font-family: "Amazon Ember",Arial, sans-serif; 
+  }
+  .tile3{
+    /* width: 50%; margin-left: 50%; height: 100px; background: blue; margin-top: 25%; */
+    background: pink;
+    margin-top: 19%;
+    height: 300px;
+    color: black;
+    border: solid 2px;
+    border-color: #000;
+    display: flex;
+    align-content: center;
+   width: 20%;
+    transform: scale(1.08);
+  }
+  .tile4{
+    /* width: 50%; margin-left: 50%; height: 100px; background: blue; margin-top: 25%; */
+    background: orange;
+    margin-top: 19%;
+    height: 300px;
+    color: black;
+    border: solid 2px;
+    border-color: #000;
+    display: flex;
+    align-content: center;
+   width: 20%;
+    transform: scale(1.08);
+  }
+
+  .rest-of-products{
+    background-color: #eaeded;
+    display: flex;
+    flex-wrap: wrap;
+    
+  }
+
+  .left-container {
+    margin-left: 10%;
+    width: 20%;
+    height: 20%;
+    max-height: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }

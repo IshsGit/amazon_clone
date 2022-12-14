@@ -10,7 +10,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-
+import GetCat from "./ProductCat";
 import { useDispatch, useSelector } from 'react-redux';
 // import PostForm  from './PostForm';
 import ProductIndexItem from './ProductIndexItem';
@@ -71,6 +71,26 @@ function Navigation() {
     return <ProductIndexItem key={product.id} product={product} />
   });
 
+  const getCat = products.map(product => {
+    return <GetCat key={product.id} product={product} />
+  });
+
+
+
+  const arr =Array(getCat.length)
+  .fill()
+  .map((_, i) => (
+   getCat[i].props.product.category
+  ));
+
+  const rem = (value, index, self) => {
+    return self.indexOf(value) === index
+  }
+  
+  const unique = arr.filter(rem);
+
+
+
 
   return (
     <>
@@ -128,9 +148,6 @@ function Navigation() {
           </div>
         </div>
       
-      
-
-      
         <div className="header__option">
           <span className="header__optionLineOne">Returns</span>
           <span className="header__optionLineTwo">& Orders</span>
@@ -156,35 +173,14 @@ function Navigation() {
  
 
     </div>
-    {/* <div className="nav-bar">
-      <div className="nav-left">
-        <Link to="/" className="nav-logo">
-          <img src={logo} alt="icon-logo" className="nav-logo"></img>
-        </Link>
-      </div>
-      <div className="nav-center">
-        <form className="nav-search">
-          <input type="text" className="nav-search-field"></input>
-          <input type="submit" className="nav-search-button"></input>
-        </form>
-      </div>
-      <div className="nav-right">
-        {login && <button onClick={logout}>Logout</button>}
-        <div className="nav-right-container">
-          <Link to="/login">
-            <span>Hello, {display}</span>
-            <p>Accounts & Lists</p>
-          </Link>
-        </div>
-        <div className="nav-right-container">
-          <span>Returns</span>
-          <p>& Orders</p>
-        </div>
-        <div className="nav-right-container">
-          <p>Cart</p>
-        </div>
-      </div>
+    {/* <div className='cat-bar'>
+    {Array(unique.length)
+            .fill()
+            .map((_, i) => (
+              <Link className='cat-name'>{unique[i]}</Link> 
+            ))}
     </div> */}
+   
     </>
   );
 }
