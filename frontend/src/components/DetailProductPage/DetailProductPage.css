@@ -174,7 +174,7 @@
       /* width: 50%; height: 100px; float: left; background: green; */
       height: 300px;
      margin-top: 12%;
-    
+    display: flex;
       color: black;
       border: solid 2px;
       border-color: #000;
@@ -184,6 +184,7 @@
       transform: scale(1.08);
     }
     
+   
     .tile2-detail{
       /* width: 50%; margin-left: 50%; height: 100px; background: blue; margin-top: 25%; */
       background: white;

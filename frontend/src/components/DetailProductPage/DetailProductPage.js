@@ -77,8 +77,7 @@ const products = useSelector(getProducts);
     
     return <ProductGetCategory key={product.id} product={product} />
   });
-  console.log("product category")
-  console.log(productCat[0].props.product.category === product.category)
+
   const countOptions = [
     "0",
     "1",
@@ -345,6 +344,64 @@ const products = useSelector(getProducts);
   </span>
    <h2>{productDetails[9] }</h2>
    </div>
+   </div>
+   }
+   {product.category ===productCat[10].props.product.category && <div className="tile2-detail" style={{marginTop:"5%", marginRight:"3%"}}>
+   <div className='tile-inner'>
+   <h1>Deals on last-minute gifts</h1>
+   {productItems[10]}
+  <span>
+   <p>up to 18% off</p>
+  <p> Top deal</p>
+  </span>
+   <h2>{productDetails[10] }</h2>
+   </div>
+   </div>}
+   {product.category ===productCat[11].props.product.category && <div className="tile2-detail" style={{marginTop:"5%", marginRight:"3%"}}>
+   <div className='tile-inner'>
+   <h1>Deals on last-minute gifts</h1>
+   {productItems[11]}
+  <span>
+   <p>up to 18% off</p>
+  <p> Top deal</p>
+  </span>
+   <h2>{productDetails[11] }</h2>
+   </div>
+   </div>}
+   {product.category ===productCat[12].props.product.category && <div className="tile2-detail" style={{marginTop:"5%", marginRight:"3%"}}>
+   <div className='tile-inner'>
+   <h1>Deals on last-minute gifts</h1>
+   {productItems[12]}
+  <span>
+   <p>up to 18% off</p>
+  <p> Top deal</p>
+  </span>
+   <h2>{productDetails[12] }</h2>
+   </div>
+   </div>}
+   {product.category ===productCat[13].props.product.category && <div className="tile2-detail" style={{marginTop:"5%", marginRight:"3%"}}>
+   <div className='tile-inner'>
+   <h1>Deals on last-minute gifts</h1>
+   {productItems[13]}
+  <span>
+   <p>up to 18% off</p>
+  <p> Top deal</p>
+  </span>
+   <h2>{productDetails[13] }</h2>
+   </div>
+   </div>}
+   {product.category ===productCat[14].props.product.category && <div className="tile2-detail" style={{marginTop:"5%", marginRight:"3%"}}>
+   <div className='tile-inner'>
+   <h1>Deals on last-minute gifts</h1>
+   {productItems[14]}
+  <span>
+   <p>up to 18% off</p>
+  <p> Top deal</p>
+  </span>
+   <h2>{productDetails[14] }</h2>
+   
+   </div>
+   
    </div>}
    
 
@@ -358,87 +415,3 @@ const products = useSelector(getProducts);
 export default DetailProductPage;
 
 
-// import { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { useParams } from "react-router-dom";
-// import { fetchProduct, getProduct } from "../../store/products";
-// // import { addToCart } from "../../store/cart";
-// // import "./ProductShow.css";
-// // import prime from "../../assets/prime.png";
-// import { Link } from "react-router-dom";
-
-// function ProductShowPage() {
-//   const dispatch = useDispatch();
-
-//   const { productId } = useParams();
-//   const product = useSelector(getProduct(productId)) || {};
-//   console.log(product);
-//   const [count, setCount] = useState(1);
-//   const userId = useSelector((state) => state.session.user?.id);
-//   console.log(product);
-//   useEffect(() => {
-//     dispatch(fetchProduct(productId));
-//   }, [productId, dispatch]);
-  
-
- 
-
- 
-
- 
-
- 
-//   if (!product) return null;
-//   return (
-//     <div className="display-show-container">
-//       <div className="left-container">
-//         <img
-//           className="product-image-show"
-//           src={product.photoUrl}
-//           alt="product-display"
-//         ></img>
-//       </div>
-//       <div className="center-container">
-//         <span className="product-name">{product.title}</span>
-//         <hr />
-        
-//         <div>
-         
-//         </div>
-//         {/* </div>
-//         <table className="price-table">
-//           <tbody>
-//             <tr className="price-table-row1">
-//               <td className="price-label">Price:</td>
-//               <td className="price-amt">${product.price}</td>
-//             </tr>
-//           </tbody>
-//         </table> */}
-//         <hr />
-//         <div className="center-bottom-container">
-//           <div className="about-label">About this item:</div>
-//           <ul className="about-list">
-//             <li>{product.description}</li>
-//           </ul>
-//         </div>
-//       </div>
-//       <div className="right-container">
-//         <div className="product-price">
-//           <span className="price-symbol">$</span>
-        
-//         </div>
-//         <div>
-       
-//         <span className="prime-label">One-Day</span>
-//         </div>
-//         <div className="return-label">FREE Returns</div>
-       
-        
-     
-//       </div>
-      
-//     </div>
-//   );
-// }
-
-// export default ProductShowPage;

@@ -35,6 +35,7 @@ function App() {
         </Route>
         <Route exact path="/products/:productId">
         <Navigation />
+        <CatSearchPage />
         <DetailProductPage/>
         </Route>
         <Route exact path="/:category">

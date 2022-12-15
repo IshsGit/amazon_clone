@@ -201,6 +201,62 @@ const ProductIndex = () => {
   <h2>{productDetails[9] }</h2>
   </div>
   </div>}
+ 
+  { category === productDetails[10].props.product.category && <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+  <div className='tile-inner'>
+  <h1>Deals on last-minute gifts</h1>
+  {productItems[10]}
+ <span>
+  <p>up to 18% off</p>
+ <p> Top deal</p>
+ </span>
+  <h2>{productDetails[10] }</h2>
+  </div>
+  </div>}
+  { category === productDetails[11].props.product.category && <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+  <div className='tile-inner'>
+  <h1>Deals on last-minute gifts</h1>
+  {productItems[11]}
+ <span>
+  <p>up to 18% off</p>
+ <p> Top deal</p>
+ </span>
+  <h2>{productDetails[11] }</h2>
+  </div>
+  </div>}
+  { category === productDetails[12].props.product.category && <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+  <div className='tile-inner'>
+  <h1>Deals on last-minute gifts</h1>
+  {productItems[12]}
+ <span>
+  <p>up to 18% off</p>
+ <p> Top deal</p>
+ </span>
+  <h2>{productDetails[12] }</h2>
+  </div>
+  </div>}
+  { category === productDetails[13].props.product.category && <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+  <div className='tile-inner'>
+  <h1>Deals on last-minute gifts</h1>
+  {productItems[13]}
+ <span>
+  <p>up to 18% off</p>
+ <p> Top deal</p>
+ </span>
+  <h2>{productDetails[13] }</h2>
+  </div>
+  </div>}
+  { category === productDetails[14].props.product.category && <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+  <div className='tile-inner'>
+  <h1>Deals on last-minute gifts</h1>
+  {productItems[14]}
+ <span>
+  <p>up to 18% off</p>
+ <p> Top deal</p>
+ </span>
+  <h2>{productDetails[14] }</h2>
+  </div>
+  </div>}
   
   </div>
 

@@ -61,13 +61,13 @@ function CartPage() {
           {calculateCartSize() > 1 ? "items" : "item"}):&nbsp;
           <span className="sub-total-amt">${subTotal}</span>
         </div>
-        <form onSubmit={(e) => dispatch(clearCart())}>
+        {<form onSubmit={(e) => dispatch(clearCart())}>
           <input
             type="submit"
             className="checkout-btn"
             value="Proceed to Checkout"
           ></input>
-        </form>
+        </form>}
       </div>
     </div>
   );

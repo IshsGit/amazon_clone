@@ -1,10 +1,9 @@
 // frontend/src/components/Navigation/index.js
 
 import React, { useState } from "react";
-import { NavLink, Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useEffect} from 'react';
 import "./Navigation.css";
-import logo from "../../assets/logo.png";
 import * as sessionActions from "../../store/session";
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
@@ -12,13 +11,9 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GetCat from "./ProductCat";
 import { useDispatch, useSelector } from 'react-redux';
-// import PostForm  from './PostForm';
 import ProductIndexItem from './ProductIndexItem';
 import { getProducts } from '../../store/products';
 import { fetchProducts } from '../../store/products';
-import Carousel from 'better-react-carousel';
-import {SliderData} from "./SliderData"
-import {FaArrowAltCircleRight, FaArrowAltCircleLeft} from 'react-icons/fa'
 
 function Navigation() {
 
@@ -111,7 +106,7 @@ function Navigation() {
         
        
     <div className="header__search">
-      <input className="header__searchInput" type="text" />
+      <input className="header__searchInput" type="text" placeholder="Search bar coming soon"/>
       <SearchIcon className="header__searchIcon" />
     </div>
 
@@ -120,11 +115,7 @@ function Navigation() {
         <div className="header__option">
        
        
-          {/* <Link to="/login">
-          <span className="header__optionOneLineOne">Hello, sign in</span>
-          {login && <button onClick={logout}>Logout</button>}
-          {!login && <span className="header__optionLineTwo">Accounts & Lists</span>}
-          </Link> */}
+
 
           <div className="dropdown">
             <button className="dropbtn">
@@ -160,9 +151,9 @@ function Navigation() {
         <span className="header__optionLineTwo">Prime</span>
       </div>
 
-      
+      {/* {login ? "/carts" : "/login"} */}
         <div className="header__optionBasket">
-        <Link className="cart-link" to={login ? "/carts" : "/login"}>
+        <Link className="cart-link" to=''>
           <div className="nav-right-container">
             <p className="basket"> <ShoppingBasketIcon /></p>
           </div>
@@ -176,13 +167,7 @@ function Navigation() {
  
 
     </div>
-    {/* <div className='cat-bar'>
-    {Array(unique.length)
-            .fill()
-            .map((_, i) => (
-              <Link className='cat-name'>{unique[i]}</Link> 
-            ))}
-    </div> */}
+   
    
     </>
   );
