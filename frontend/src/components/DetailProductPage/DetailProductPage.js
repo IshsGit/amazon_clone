@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useHistory, Link } from 'react-router-dom';
-// import ReviewForm from './ReviewForm';
+import { useParams, useHistory} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import productsReducer, { fetchProduct } from '../../store/products';
+import { fetchProduct } from '../../store/products';
 import prime from "../../assets/prime.png";
 import "./DetailProductPage.css";
-import Rating from "@mui/material/Rating";
 import AllProducts from './products';
 import ProductIndexItem from './ProductIndexItem';
 import { getProducts } from '../../store/products';
-import { fetchProducts } from '../../store/products';
 import ProductGetCategory from './productGetCategory';
 import { addToCart } from "../../store/cart";
 

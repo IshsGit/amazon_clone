@@ -214,8 +214,6 @@ SliderData.map((slide, index)=>{
   </div>
   </div>
 
-  
-
   <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
   <div className='tile-inner'>
   <h1>Deals on last-minute gifts</h1>
