@@ -32,15 +32,10 @@ function SignupFormPage() {
     
   }
 
-  
   if (sessionUser) return <Redirect to="/" />;
-
- 
-
   const handleSubmit = (e) => {
     e.preventDefault();
    
-
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(sessionActions.signup({ email, name, password }))
@@ -128,86 +123,11 @@ function SignupFormPage() {
           Demo Login
         </button>
       <p className="terms">By creating an account, you agree to Amazish Conditions of Use and Privacy Notice.</p>
-        <div className="divider"></div>
-        <div className="divider"></div>
+      
         <p className="options-tag">Already have an account? <Link className="a-link" to="/login">Sign In</Link></p>
       
+    </div> 
     </div>
-      
-    </div>
-
-    {/* <div className="signup-container">
-       
-    
-       <Link to="/">
-        <img src={logo} alt="icon-logo" className="login__logo"></img>
-      </Link>
-
-    
-        <div className="login__container">
-          <div className="create-account-container">
-            <p className="create-account">Create Account</p>
-            <h5>Your name</h5>
-            <input></input>
-          </div>
-      
-        <form onSubmit={handleSubmit}>
-          <ul>
-            {errors.map(error => <li key={error}>{error}</li>)}
-          </ul>
-    
-          <label className="sign-up-label">
-            Your name
-            <input
-            className='test-input-one'
-              type="text"d
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="First and last name"
-              required
-            />
-          </label>
-         
-          <label className="sign-up-label">
-            Email
-            <input
-            className='test-input-two'
-              type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-           
-          </label>
-          <label className="sign-up-label">
-            Password
-            <input
-            className='test-input-three'
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              placeholder="At least 6 characters"
-            />
-            <p className="icon-content" placeholder='At least 6 characters'></p>
-          </label>
-          <label className="sign-up-label">
-            Re-enter Password
-            <input
-            className='test-input-four'
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
-          </label>
-          <button className="sign-up-button" type="submit">Continue</button>
-        </form>
-        <p className="terms">By creating an account, you agree to Amazish Conditions of Use and Privacy Notice.</p>
-        <div className="divider"></div>
-        <p className="options-tag">Already have an account? <Link className="a-link" to="/login">Sign In</Link></p>
-        </div>
-    </div> */}
     </>
   );
 }

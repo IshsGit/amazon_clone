@@ -1,80 +1,5 @@
 @import url("https://fonts.cdnfonts.com/css/amazon-ember");
 
-/* .signup-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: "Amazon Ember", sans-serif;
-}
-
-
-
-.create-account-container{
-    font-weight: 400;
-    font-size: 28px;
-    line-height: 1.2;
-    margin-bottom: 10px;
-}
-.your-name-container{
-    display: block;
-    padding-left: 2px;
-    padding-bottom: 2px;
-    font-weight: 700;
-    
-    
-}
-
-  .signup-logo {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    object-fit: contain;
-    width: 100px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-  
-  /* .signup-logo {
-    object-fit: contain;
-    width: 300px;
-  } */
-
- 
-
-
-/* .signup-form > form > label {
-  margin-bottom: 2px;
-  display: flex;
-  flex-direction: column;
-  font-size: 13px;
-  font-weight: 700;
-  padding-bottom: 2px;
-  padding-left: 2px;
-  margin-bottom: 14px;
-} */
-
-
-
-/* .signup-form > form > label > input:focus {
-  outline: 0;
-  border-color: #e77600;
-  box-shadow: 0 0 0 2px rgb(250, 153, 17);
-  
-} */
-
-/* 
-  .sign-up-button{
-    border-radius: 2px;
-    width: 100%;
-    height: 30px;
-    border: 1px solid;
-    margin-top: 10px;
-    background: #f0c14b;
-    border-color: #a88734 #9c7e31 #846a29;
-    color: #111;
-  }  */
-
-
-
   .signup-form {
     width: 300px;
       height: fit-content;
@@ -102,16 +27,11 @@
     background-color: #fff;
     margin-bottom: 10px;
     width: 95%;
-   
-    
-      box-shadow: 0 0 0 3px rgb(221 0 0 / 10%) inset; 
-      border-color: #d00;
-    
-  
+   box-shadow: 0 0 0 3px rgb(221 0 0 / 10%) inset; 
+   border-color: #d00;
     
   }
 
-  
   .login {
     background-color: white;
     height: 100vh;
@@ -125,55 +45,7 @@
   font-family: "Amazon Ember", sans-serif;
 }
 
-.login__logo {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    object-fit: contain;
-    width: 100px;
-    margin-right: auto;
-    margin-left: auto;
-  }
 
-.login__container {
-    width: 300px;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    border: 1px solid lightgray;
-    padding: 20px;
-}
-
-.login__container > h1 {
-    font-weight: 500;
-    margin-bottom: 20px;
-  }
-
-.login__container > form > h5 {
-    margin-bottom: 5px;
-}
-
-.login__container > form > input {
-    height: 30px;
-    margin-bottom: 10px;
-    background-color: white;
-    width: 98%;
-  }
-
-.login__container > p {
-    margin-top: 15px;
-    font-size: 12px;
-}
-
-.login__signInButton {
-    background: #f0c14b;
-    border-radius: 2px;
-    width: 100%;
-    height: 30px;
-    border: 1px solid;
-    margin-top: 10px;
-    border-color: #a88734 #9c7e31 #846a29;
-  }
 
   .login__registerButton {
     border-radius: 2px;

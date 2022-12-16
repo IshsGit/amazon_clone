@@ -11,6 +11,7 @@ import CatSearchPage from "./components/CatSearchPage/CatSearchPage";
 import ProductIndex from "./components/ProductIndex/ProductIndex";
 import CartPage from "./components/CartPage";
 
+
 function App() {
   
   return (
@@ -38,7 +39,7 @@ function App() {
         <CatSearchPage />
         <DetailProductPage/>
         </Route>
-        <Route exact path="/:category">
+        <Route path="/:category">
           <Navigation />
           <CatSearchPage />
    
@@ -49,7 +50,11 @@ function App() {
           <CatSearchPage />
           <ProductIndex />
         </Route>
-       
+       <Route path="/:search">
+          <Navigation />
+          <CatSearchPage />
+          <ProductIndex/>
+       </Route>
       </Switch>
     </>
   );

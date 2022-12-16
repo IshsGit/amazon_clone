@@ -18,11 +18,10 @@ function DetailProductPage() {
  
   const userId = useSelector((state) => state.session.user?.id);
   const product = useSelector(state => state.products[productId] ? state.products[productId] : {})
-   const [count, setCount] = useState(1);
+  const [count, setCount] = useState(1);
   const history = useHistory();
+  const products = useSelector(getProducts);
 
-//   const reviews = useSelector(getProductReviews(parseInt(productId)));
-const products = useSelector(getProducts);
   useEffect(() => {
     dispatch(fetchProduct(productId));
   }, [productId, dispatch]);
@@ -31,12 +30,11 @@ const products = useSelector(getProducts);
     return null;
   }
 
-  // const { title, description, category, price, photoUrl } = product;
-  // const hasReviewed = sessionUser && reviews.some(review => review.authorId === sessionUser.id);
+  // Random num gen, to be updated with dom manipulation
   function getRandomInt(price) {
     const min = Math.ceil(.75);
     const max = Math.floor(.15);
-    return (Math.random(min,max)); // The maximum is exclusive and the minimum is inclusive
+    return (Math.random(min,max)); 
   };
 
   function getRandomReviews(){
@@ -45,8 +43,6 @@ const products = useSelector(getProducts);
     return Math.floor(Math.random() * (max - min + 1)) + min;
    
   }
-
-
 
   const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
@@ -60,44 +56,46 @@ const products = useSelector(getProducts);
   }
   const productItems = products.map((product) => {
     
-    return <ProductIndexItem key={product.id} product={product} 
-    
-    />
+    return <ProductIndexItem key={product.id} product={product} />
   });
 
   const productDetails = products.map(product => {
-    
     return <AllProducts key={product.id} product={product} />
   });
 
   const productCat = products.map(product => {
-    
     return <ProductGetCategory key={product.id} product={product} />
   });
 
-  const countOptions = [
-    "0",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-  ].map((num) => {
-    if (num === "0") {
-      return <option hidden key={num}>{`Qty: ${count}`}</option>;
-    } else {
-      return (
-        <option value={num} key={num}>
-          {num}
-        </option>
-      );
-    }
+   const numArr = [];
+   for(let i=0; i<11; i++){
+      numArr.push(i.toString());
+   }
+
+  //  const quantities = [];
+   
+  //  for(let i=0; i<numArr.length; i++){
+    
+  //   if(numArr[i] === '0'){
+  //     quantities.push(<option hidden key={numArr[i]}>{`Qty: ${count}`}</option>)
+  //     debugger;
+  //   } else{
+  //     return(
+  //       quantities.push(<option value={numArr[i]} key={numArr[i]}>
+  //               {numArr[i]}
+  //             </option>)
+  //     );
+  //   }
+  //  };
+
+  //  debugger;
+  const quantities = numArr.map((idx) => {
+      if(numArr[idx]==='0') 
+        {return <option hidden key={numArr[idx]}>{`Qty: ${count}`}</option>;} 
+      else 
+        { return(<option value={numArr[idx]} key={numArr[idx]}> {numArr[idx]}  </option>)}
   });
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     if (userId) {
@@ -121,13 +119,13 @@ const products = useSelector(getProducts);
     <div className="product-title-details">
       {product.title}
       <div className="product__rating">
-          Rating: {Array(product.rating)
+          Rating:&nbsp;{Array(product.rating)
             .fill()
             .map((_, i) => (
               <p>🌟</p> 
-            ))}
+            ))} &nbsp;&nbsp;
             {Math.round(getRandomReviews())}
-           <p>{Math.round(Math.random(1,1000))}</p>
+           <p>{Math.round(Math.random(1,1000))} reviews</p>
         </div>
       <p>Brand: Zish Services</p>
         <hr></hr>
@@ -197,7 +195,7 @@ const products = useSelector(getProducts);
                 value={`Qty: ${count}`}
                 onChange={(e) => setCount(e.target.value)}
               >
-                {countOptions}
+                {quantities}
               </select>
             </label>
           </div>

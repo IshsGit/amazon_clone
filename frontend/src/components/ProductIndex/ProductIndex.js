@@ -9,18 +9,12 @@ import "./mainpage.css";
 import AllProducts from './products';
 import ProductIndexItem from './ProductIndexItem';
 import ProductGetCategory from './productGetCategory';
-/*
-Export as the default a `PostIndex` component that renders a list (`ul`) of
-`PostIndexItems`. This component should grab the `posts` slice of state from the
-store. It should also fetch the posts from the backend after the first render.
-(You should be able to handle the case where the store is empty--`{}`--on first
-render.) Below the `ul`, render a new post form.
-*/
+
 
 const ProductIndex = () => {
 
   
-  const {category}  = useParams();
+  const {category, search}  = useParams();
 
   const dispatch = useDispatch();
   
@@ -52,6 +46,8 @@ const ProductIndex = () => {
     return <ProductGetCategory key={product.id} product={product} />
   });
 
+
+
   // const productDetails = AllProducts.map(product => {
   //   return <ProductIndexItem key={product.id} product={product} />
   // });
@@ -70,6 +66,8 @@ const ProductIndex = () => {
 //   </div>
 //   </div>
 
+const filter = (idx) => {return (category.toLowerCase() === productDetails[idx].props.product.category.toLowerCase()) || (productDetails[idx].props.product.category.toLowerCase().includes(category.toLowerCase())) || (productDetails[idx].props.product.title.toLowerCase().includes(category.toLowerCase()))}
+
   return (
     <>
    <section className="slider">
@@ -77,12 +75,12 @@ const ProductIndex = () => {
 
 
 
-<section className="sometext">
+<section className="some-cat">
  
 
 
 
-{ category === productDetails[0].props.product.category && <div className="tile2">
+{ ((category.toLowerCase() === productDetails[0].props.product.category.toLowerCase()) || (productDetails[0].props.product.category.toLowerCase().includes(category.toLowerCase())) || (productDetails[0].props.product.title.toLowerCase().includes(category.toLowerCase())))  && <div className="tile-cat" style={{backgroundColor:'#eaeded'}}>
   <div className='tile-inner'>
   <h1>Revolutionary technology</h1>
   {productItems[0]}   
@@ -94,7 +92,7 @@ const ProductIndex = () => {
   </div>
   </div>}
 
-  { category === productDetails[1].props.product.category &&  <div className="tile2">
+  { ((category.toLowerCase() === productDetails[1].props.product.category.toLowerCase()) || (productDetails[1].props.product.category.toLowerCase().includes(category.toLowerCase())) || (productDetails[1].props.product.title.toLowerCase().includes(category.toLowerCase()))) &&  <div className="tile-cat" style={{backgroundColor:'#eaeded'}}>
   <div className='tile-inner'>
   <h1>Very Merry Deals</h1>
   {productItems[1]}
@@ -106,7 +104,7 @@ const ProductIndex = () => {
   </div>
   </div>}
 
-  { category === productDetails[2].props.product.category &&   <div className="tile2">
+  { ((category.toLowerCase() === productDetails[2].props.product.category.toLowerCase()) || (productDetails[2].props.product.category.toLowerCase().includes(category.toLowerCase())) || (productDetails[2].props.product.title.toLowerCase().includes(category.toLowerCase()))) &&   <div className="tile-cat" style={{backgroundColor:'#eaeded'}}>
   <div className='tile-inner'>
   <h1>Deals on Amazon Devices</h1>
   {productItems[2]}
@@ -118,7 +116,7 @@ const ProductIndex = () => {
   </div>
   </div>}
 
-  { category === productDetails[3].props.product.category &&  <div className="tile2" style={{marginRight: "2%"}}>
+  { ((category.toLowerCase() === productDetails[3].props.product.category.toLowerCase()) || (productDetails[3].props.product.category.toLowerCase().includes(category.toLowerCase())) || (productDetails[3].props.product.title.toLowerCase().includes(category.toLowerCase()))) &&  <div className="tile-cat" style={{backgroundColor:'#eaeded'}}>
   <div className='tile-inner'>
   <h1>Very Merry Deals</h1>
   {productItems[3]}
@@ -129,9 +127,9 @@ const ProductIndex = () => {
   <h2>{productDetails[3] }</h2>
   </div>
   </div>}
-</section>
-<div className='rest-of-products'>
-{ category === productDetails[4].props.product.category && <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+
+
+{ ((category.toLowerCase() === productDetails[4].props.product.category.toLowerCase()) || (productDetails[4].props.product.category.toLowerCase().includes(category.toLowerCase())) || (productDetails[4].props.product.title.toLowerCase().includes(category.toLowerCase()))) && <div className="tile-cat" style={{backgroundColor:'#eaeded'}}>
   <div className='tile-inner'>
   <h1>Very Merry Deals</h1>
   {productItems[4]}
@@ -144,7 +142,7 @@ const ProductIndex = () => {
   </div> }
   
   
-  { category === productDetails[5].props.product.category && <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+  { ((category.toLowerCase() === productDetails[5].props.product.category.toLowerCase()) || (productDetails[5].props.product.category.toLowerCase().includes(category.toLowerCase())) || (productDetails[5].props.product.title.toLowerCase().includes(category.toLowerCase()))) && <div className="tile-cat" style={{backgroundColor:'#eaeded'}}>
   <div className='tile-inner'>
   <h1>Snap your chops, drop your peas</h1>
   {productItems[5]}
@@ -155,7 +153,7 @@ const ProductIndex = () => {
   <h2>{productDetails[5] }</h2>
   </div>
   </div>}
-  { category === productDetails[6].props.product.category && <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+  { ((category.toLowerCase() === productDetails[6].props.product.category.toLowerCase()) || (productDetails[6].props.product.category.toLowerCase().includes(category.toLowerCase())) || (productDetails[6].props.product.title.toLowerCase().includes(category.toLowerCase()))) && <div className="tile-cat" style={{backgroundColor:'#eaeded'}}>
   <div className='tile-inner'>
   <h1>Every side is a square!</h1>
   {productItems[6]}
@@ -166,7 +164,7 @@ const ProductIndex = () => {
   <h2>{productDetails[6] }</h2>
   </div>
   </div>}
-  { category === productDetails[7].props.product.category && <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+  { filter(7) && <div className="tile-cat" style={{backgroundColor:'#eaeded'}}>
   <div className='tile-inner'>
   <h1>Shop gifts at any price</h1>
   {productItems[7]}
@@ -178,7 +176,7 @@ const ProductIndex = () => {
   </div>
   
   </div>}
-  { category === productDetails[8].props.product.category && <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+  { filter(8) && <div className="tile-cat" style={{backgroundColor:'#eaeded'}}>
   <div className='tile-inner'>
   <h1>It's holiday-party time</h1>
   {productItems[8]}
@@ -190,7 +188,7 @@ const ProductIndex = () => {
   </div>
   </div>}
  
-  { category === productDetails[9].props.product.category && <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+  { filter(9) && <div className="tile-cat" style={{backgroundColor:'#eaeded'}}>
   <div className='tile-inner'>
   <h1>Deals on last-minute gifts</h1>
   {productItems[9]}
@@ -202,7 +200,7 @@ const ProductIndex = () => {
   </div>
   </div>}
  
-  { category === productDetails[10].props.product.category && <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+  { filter(10) && <div className="tile-cat" style={{backgroundColor:'#eaeded'}}>
   <div className='tile-inner'>
   <h1>Deals on last-minute gifts</h1>
   {productItems[10]}
@@ -213,7 +211,7 @@ const ProductIndex = () => {
   <h2>{productDetails[10] }</h2>
   </div>
   </div>}
-  { category === productDetails[11].props.product.category && <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+  { filter(11) && <div className="tile-cat" style={{backgroundColor:'#eaeded'}}>
   <div className='tile-inner'>
   <h1>Deals on last-minute gifts</h1>
   {productItems[11]}
@@ -224,7 +222,7 @@ const ProductIndex = () => {
   <h2>{productDetails[11] }</h2>
   </div>
   </div>}
-  { category === productDetails[12].props.product.category && <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+  { filter(12) && <div className="tile-cat" style={{backgroundColor:'#eaeded'}}>
   <div className='tile-inner'>
   <h1>Deals on last-minute gifts</h1>
   {productItems[12]}
@@ -235,7 +233,7 @@ const ProductIndex = () => {
   <h2>{productDetails[12] }</h2>
   </div>
   </div>}
-  { category === productDetails[13].props.product.category && <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+  { filter(13) && <div className="tile-cat" style={{backgroundColor:'#eaeded'}}>
   <div className='tile-inner'>
   <h1>Deals on last-minute gifts</h1>
   {productItems[13]}
@@ -246,7 +244,7 @@ const ProductIndex = () => {
   <h2>{productDetails[13] }</h2>
   </div>
   </div>}
-  { category === productDetails[14].props.product.category && <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+  { filter(14) && <div className="tile-cat" style={{backgroundColor:'#eaeded'}}>
   <div className='tile-inner'>
   <h1>Deals on last-minute gifts</h1>
   {productItems[14]}
@@ -258,8 +256,9 @@ const ProductIndex = () => {
   </div>
   </div>}
   
-  </div>
+  
 
+</section>
 </section>
     </>
   );

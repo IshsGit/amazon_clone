@@ -1,7 +1,7 @@
 // frontend/src/components/Navigation/index.js
 
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useEffect} from 'react';
 import "./Navigation.css";
 import * as sessionActions from "../../store/session";
@@ -19,7 +19,9 @@ function Navigation() {
 
 
   const sessionUser = useSelector((state) => state.session.user);
-
+  const [searchTerm, setSearchTerm] = React.useState("");
+  const history = useHistory();
+ const [searchResults, setSearchResults] = useState([]);
   let display;
   let login;
   if (sessionUser) {
@@ -81,11 +83,23 @@ function Navigation() {
   const rem = (value, index, self) => {
     return self.indexOf(value) === index
   }
-  
-  const unique = arr.filter(rem);
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    // setSearchTerm(e.target.value);
+    // if (searchTerm.length > 0) {
+    //   history.push(`/${searchTerm}`);
+    // }
+    setSearchTerm(e.target.value);
+    // debugger;    
+  };
 
-
+  useEffect(() => {
+    const results = arr.filter(person =>
+      person.toLowerCase().includes(searchTerm)
+    );
+    setSearchResults(results);
+  }, [searchTerm]);
 
   return (
     <>
@@ -93,26 +107,26 @@ function Navigation() {
   <div className="header">
   <Link to="/" >
       <img
-        className="header__logo"
+        className="header-logo"
         src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
       />
         </Link>
         <div className="external-link" >  <a  className='github' href="https://github.com/IshsGit/amazon_clone"><GitHubIcon /></a>
         <a className='linkedin' href="https://www.linkedin.com/"><LinkedInIcon /></a>
         </div>
+
+    <div className="header-search">
+    <input className="header-searchInput" type="text" value={searchTerm} onChange={handleSearch}/>
+    <Link className="category-link" key={searchTerm} to={`/${searchTerm}`} ><SearchIcon className="header-searchIcon" /></Link>
+     
+      {/* <SearchIcon className="header-searchIcon" /> */}
       
-        
-       
-        
-       
-    <div className="header__search">
-      <input className="header__searchInput" type="text" placeholder="Search bar coming soon"/>
-      <SearchIcon className="header__searchIcon" />
     </div>
 
-    <div className="header__nav">
+
+    <div className="header-nav">
       
-        <div className="header__option">
+        <div className="header-option">
        
        
 
@@ -121,8 +135,8 @@ function Navigation() {
             <button className="dropbtn">
             {login&&<div>Welcome, {sessionUser.name}</div>}
             <Link to="/login">
-            {!login && <span className="header__optionOneLineOne">Hello, sign in</span>}
-           <span className="header__optionLineTwo">Accounts & Lists</span>
+            {!login && <span className="header-optionOneLineOne">Hello, sign in</span>}
+           <span className="header-optionLineTwo">Accounts & Lists</span>
            </Link>
             </button>
            {!login&& <div><div className="dropdown-content">
@@ -139,23 +153,23 @@ function Navigation() {
           </div>
         </div>
       
-        <div className="header__option">
-          <span className="header__optionLineOne">Returns</span>
-          <span className="header__optionLineTwo">& Orders</span>
+        <div className="header-option">
+          <span className="header-optionLineOne">Returns</span>
+          <span className="header-optionLineTwo">& Orders</span>
         </div>
       
       
 
-      <div className="header__option">
-        <span className="header__optionLineOne">Your</span>
-        <span className="header__optionLineTwo">Prime</span>
+      <div className="header-option">
+        <span className="header-optionLineOne">Your</span>
+        <span className="header-optionLineTwo">Prime</span>
       </div>
 
       {/* {login ? "/carts" : "/login"} */}
-        <div className="header__optionBasket">
+        <div className="header-cart">
         <Link className="cart-link" to=''>
           <div className="nav-right-container">
-            <p className="basket"> <ShoppingBasketIcon /></p>
+            <p className="cart"> <ShoppingBasketIcon /></p>
           </div>
         </Link>
           

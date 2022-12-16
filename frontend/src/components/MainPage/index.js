@@ -1,22 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import PostForm  from './PostForm';
-
 import { getProducts } from '../../store/products';
 import { fetchProducts } from '../../store/products';
-
 import {SliderData} from "./SliderData"
 import {FaArrowAltCircleRight, FaArrowAltCircleLeft} from 'react-icons/fa'
 import "./mainpage.css";
 import AllProducts from './products';
 import ProductIndexItem from './ProductIndexItem';
-/*
-Export as the default a `PostIndex` component that renders a list (`ul`) of
-`PostIndexItems`. This component should grab the `posts` slice of state from the
-store. It should also fetch the posts from the backend after the first render.
-(You should be able to handle the case where the store is empty--`{}`--on first
-render.) Below the `ul`, render a new post form.
-*/
 
 const MainPage = ({slides}) => {
 
@@ -51,27 +41,9 @@ const MainPage = ({slides}) => {
     return <AllProducts key={product.id} product={product} />
   });
 
-  // const productDetails = AllProducts.map(product => {
-  //   return <ProductIndexItem key={product.id} product={product} />
-  // });
-
   if(!Array.isArray(slides) || slides.length <=0){
     return null;
   }
-
-
-//   <div className="tile2">
-//   <div className='tile-inner'>
-//   <h1>Very Merry Deals</h1>
-//   {productItems[0]}
-//  <span>
-//   <p>up to 50% off</p>
-//  <p> Top deal</p>
-//  </span>
-//   <h2>{productDetails[0] }</h2>
-//   </div>
-//   </div>
-
 
   return (
     <>
@@ -86,16 +58,12 @@ SliderData.map((slide, index)=>{
             {index===current && ( <img className="image" src={slide.image} alt='product' />)}
          
         </div>
-
     )
 })
 
 }
 <section className="sometext">
  
-
-
-
 <div className="tile2">
   <div className='tile-inner'>
   <h1>Revolutionary technology</h1>
