@@ -54,6 +54,7 @@ const filter = (idx) => {return (category.toLowerCase() === productDetails[idx].
 
 <section className="some-cat">
  
+
 { ((category.toLowerCase() === productDetails[0].props.product.category.toLowerCase()) || (productDetails[0].props.product.category.toLowerCase().includes(category.toLowerCase())) || (productDetails[0].props.product.title.toLowerCase().includes(category.toLowerCase())))  && <div className="tile-cat" style={{backgroundColor:'#eaeded'}}>
   <div className='tile-inner'>
   <h1>Revolutionary technology</h1>
