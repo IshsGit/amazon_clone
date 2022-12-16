@@ -56,10 +56,7 @@ function Navigation() {
   const dispatch = useDispatch();
   
   const products = useSelector(getProducts);
-    const [current, setCurrent] = useState(0);
-    
 
-  
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
@@ -71,8 +68,6 @@ function Navigation() {
   const getCat = products.map(product => {
     return <GetCat key={product.id} product={product} />
   });
-
-
 
   const arr =Array(getCat.length)
   .fill()
@@ -86,12 +81,7 @@ function Navigation() {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // setSearchTerm(e.target.value);
-    // if (searchTerm.length > 0) {
-    //   history.push(`/${searchTerm}`);
-    // }
-    setSearchTerm(e.target.value);
-    // debugger;    
+    setSearchTerm(e.target.value);   
   };
 
   useEffect(() => {
@@ -118,19 +108,11 @@ function Navigation() {
     <div className="header-search">
     <input className="header-searchInput" type="text" value={searchTerm} onChange={handleSearch}/>
     <Link className="category-link" key={searchTerm} to={`/${searchTerm}`} ><SearchIcon className="header-searchIcon" /></Link>
-     
-      {/* <SearchIcon className="header-searchIcon" /> */}
-      
     </div>
 
 
     <div className="header-nav">
-      
         <div className="header-option">
-       
-       
-
-
           <div className="dropdown">
             <button className="dropbtn">
             {login&&<div>Welcome, {sessionUser.name}</div>}
@@ -147,19 +129,14 @@ function Navigation() {
             {login&&  <div><div className="dropdown-content">
             <button onClick={logout}>Logout</button>
             </div></div>}
-
-            
-            
           </div>
         </div>
-      
+
         <div className="header-option">
           <span className="header-optionLineOne">Returns</span>
           <span className="header-optionLineTwo">& Orders</span>
         </div>
-      
-      
-
+    
       <div className="header-option">
         <span className="header-optionLineOne">Your</span>
         <span className="header-optionLineTwo">Prime</span>
@@ -167,22 +144,15 @@ function Navigation() {
 
       {/* {login ? "/carts" : "/login"} */}
         <div className="header-cart">
-        <Link className="cart-link" to=''>
+        <Link className="cart-link" to={login ? "/carts" : "/login"} >
           <div className="nav-right-container">
             <p className="cart"> <ShoppingBasketIcon /></p>
           </div>
         </Link>
-          
-         
         </div>
-      
     </div>
   </div>
- 
-
     </div>
-   
-   
     </>
   );
 }

@@ -9,7 +9,7 @@ import "./reset.css";
 import { SliderData } from "./components/MainPage/SliderData";
 import CatSearchPage from "./components/CatSearchPage/CatSearchPage";
 import ProductIndex from "./components/ProductIndex/ProductIndex";
-import CartPage from "./components/CartPage";
+import ProductCart from "./components/ProductCart/ProductCart";
 
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
       <Route exact path="/carts">
           <Navigation />
           <CatSearchPage />
-          <CartPage />
+          <ProductCart />
         </Route>
         <Route exact path = "/">
           <Navigation />

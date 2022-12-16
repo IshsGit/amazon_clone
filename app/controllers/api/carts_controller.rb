@@ -9,7 +9,6 @@ class Api::CartsController < ApplicationController
         @user = current_user
         
         @cart = Cart.find_by(user_id: @user.id, product_id: cart_params[:product_id])
-        # @cart = Cart.new(cart_params)
         if @cart
             @cart = @cart.update(quantity: cart_params[:quantity].to_i + @cart.quantity)
         else
@@ -37,7 +36,7 @@ class Api::CartsController < ApplicationController
         render :show
     end
 
-    def clear_cart
+    def delete_cart
         @user = current_user
         @cart = Cart.where(user_id: @user.id).destroy_all
 

@@ -14,15 +14,11 @@ import ProductGetCategory from './productGetCategory';
 const ProductIndex = () => {
 
   
-  const {category, search}  = useParams();
+  const {category}  = useParams();
 
   const dispatch = useDispatch();
   
-  const products = useSelector(getProducts);
-    const [current, setCurrent] = useState(0);
-   
-
-    
+  const products = useSelector(getProducts);   
    
   useEffect(() => {
     dispatch(fetchProducts());
@@ -47,25 +43,6 @@ const ProductIndex = () => {
   });
 
 
-
-  // const productDetails = AllProducts.map(product => {
-  //   return <ProductIndexItem key={product.id} product={product} />
-  // });
-
-
-
-//   <div className="tile2">
-//   <div className='tile-inner'>
-//   <h1>Very Merry Deals</h1>
-//   {productItems[0]}
-//  <span>
-//   <p>up to 50% off</p>
-//  <p> Top deal</p>
-//  </span>
-//   <h2>{productDetails[0] }</h2>
-//   </div>
-//   </div>
-
 const filter = (idx) => {return (category.toLowerCase() === productDetails[idx].props.product.category.toLowerCase()) || (productDetails[idx].props.product.category.toLowerCase().includes(category.toLowerCase())) || (productDetails[idx].props.product.title.toLowerCase().includes(category.toLowerCase()))}
 
   return (
@@ -77,9 +54,6 @@ const filter = (idx) => {return (category.toLowerCase() === productDetails[idx].
 
 <section className="some-cat">
  
-
-
-
 { ((category.toLowerCase() === productDetails[0].props.product.category.toLowerCase()) || (productDetails[0].props.product.category.toLowerCase().includes(category.toLowerCase())) || (productDetails[0].props.product.title.toLowerCase().includes(category.toLowerCase())))  && <div className="tile-cat" style={{backgroundColor:'#eaeded'}}>
   <div className='tile-inner'>
   <h1>Revolutionary technology</h1>
