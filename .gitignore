@@ -29,3 +29,5 @@
 /config/master.key
 
 /credentials.yml.enc
+
+/public

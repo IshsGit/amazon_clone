@@ -80,7 +80,6 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
+  production:
   <<: *default
-  database: amazish_production
-  username: amazish
-  password: <%= ENV["AMAZISH_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

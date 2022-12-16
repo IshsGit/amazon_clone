@@ -4,5 +4,33 @@
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.11.0",
     "better-react-carousel": "^1.1.1"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "name": "amazish",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IshsGit/amazon_clone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IshsGit/amazon_clone/issues"
+  },
+  "homepage": "https://github.com/IshsGit/amazon_clone#readme",
+  "engines": {
+    "node": "16.18.0"
   }
 }
