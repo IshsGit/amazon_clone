@@ -1,8 +1,6 @@
 
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import React, { useState } from "react";
-
 import GetCat from "./ProductCat";
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../../store/products';
@@ -11,20 +9,13 @@ import "./CategoryBar.css";
 
 function CatSearchPage() {
   const dispatch = useDispatch();
-  
   const products = useSelector(getProducts);
-    const [current, setCurrent] = useState(0);
-    
-
-    console.log(current)
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
   const getCat = products.map(product => {
     return <GetCat key={product.id} product={product} />
   });
-
-
 
   const arr =Array(getCat.length)
   .fill()
