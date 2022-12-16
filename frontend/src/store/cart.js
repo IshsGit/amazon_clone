@@ -1,7 +1,6 @@
 import csrfFetch from "./csrf";
 export const RECEIVE_CART = "cart/RECEIVE_CART";
-// export const DELETE_CART = "cart/DELETE_CART";
-// export const CLEAR_CART = "cart/CLEAR_CART";
+export const DELETE_CART = "cart/DELETE_CART";
 
 export const receiveCart = (cart) => ({
   type: RECEIVE_CART,
@@ -53,8 +52,8 @@ export const deleteFromCart = (user_id, product_id) => async (dispatch) => {
   dispatch(receiveCart(data));
 };
 
-export const clearCart = () => async (dispatch) => {
-  const res = await csrfFetch("/api/clear_cart", {
+export const deleteCart = () => async (dispatch) => {
+  const res = await csrfFetch("/api/delete_cart", {
     method: "DELETE",
     headers: {
       "content-type": "application/json",
@@ -65,12 +64,11 @@ export const clearCart = () => async (dispatch) => {
 };
 
 const cartReducer = (state = {}, action) => {
-  const newState = { ...state };
   switch (action.type) {
     case RECEIVE_CART:
       return action.cart;
-    // case CLEAR_CART:
-    //     return {};
+    case DELETE_CART:
+      return {};
     default:
       return state;
   }
