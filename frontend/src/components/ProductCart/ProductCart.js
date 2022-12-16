@@ -35,13 +35,13 @@ function ProductCart() {
       <p>Items in cart</p>
         <div>{cartItems}</div>
         <div>
-          Subtotal ({cart.forEach((product) => (size += product.quantity ))}{" "}
+          total ({cart.forEach((product) => (size += product.quantity ))}{" "}
           {cart.forEach((product) => (size += product.quantity )) > 1 ? "items" : "item"})
          <div>:&nbsp;${sum}</div>
         </div>
       </div>
       <div className="checkout-page">
-          Subtotal ({cart.forEach((product) => (size += product.quantity ))}:&nbsp{cart.forEach((product) => (size += product.quantity )) > 1 ? "items" : "item"}):&nbsp;
+          total ({cart.forEach((product) => (size += product.quantity ))}:&nbsp{cart.forEach((product) => (size += product.quantity )) > 1 ? "items" : "item"}):&nbsp;
           <span className="sub-total-amt">${sum}</span>
         {<form onSubmit={(e) => dispatch(deleteCart())}>
           <input

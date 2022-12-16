@@ -1,8 +1,6 @@
 ## Background
 <a href='https://amazon-clone-uls3.onrender.com' alt=''>Amazish</a> is a clone of amazon.com where a user can explore functionality very similar to the actual site. Just as amazon, you can traverse through an intuitive user interface, viewing products, viewing their listing pages, adding the items to cart, checking out and more! 
 
-<a href='https://amazon-clone-uls3.onrender.com' alt=''>Amazish</a>, is an amazon clone where a user may log in and browse products to purchase.
-
 ### 1 Hosting on Render (_less than a day_)
 
 ### 2. User Auth (_Around two days_)
