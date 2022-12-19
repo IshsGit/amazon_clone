@@ -24,7 +24,7 @@ const MainPage = ({slides}) => {
         setCurrent(current === 0 ? length -1 : current -1)
     }
 
-    console.log(current)
+
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
