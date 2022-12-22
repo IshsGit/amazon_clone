@@ -118,7 +118,7 @@ function LoginFormPage() {
           Create your Amazish account
         </button>
       </Link>
-      <button className="login-button" type="submit" onClick={loginDemo}>
+      <button className="signup-button" type="submit" onClick={loginDemo}>
           Demo Login
         </button>
     </div>

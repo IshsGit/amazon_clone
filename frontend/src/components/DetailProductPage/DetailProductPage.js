@@ -72,23 +72,7 @@ function DetailProductPage() {
       numArr.push(i.toString());
    }
 
-  //  const quantities = [];
-   
-  //  for(let i=0; i<numArr.length; i++){
-    
-  //   if(numArr[i] === '0'){
-  //     quantities.push(<option hidden key={numArr[i]}>{`Qty: ${count}`}</option>)
-  //     debugger;
-  //   } else{
-  //     return(
-  //       quantities.push(<option value={numArr[i]} key={numArr[i]}>
-  //               {numArr[i]}
-  //             </option>)
-  //     );
-  //   }
-  //  };
 
-  //  debugger;
   const quantities = numArr.map((idx) => {
       if(numArr[idx]==='0') 
         {return <option hidden key={numArr[idx]}>{`Qty: ${count}`}</option>;} 
