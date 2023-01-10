@@ -173,9 +173,9 @@ ApplicationRecord.transaction do
            price: product[:price],
            rating: product[:rating]
          }
-        #  obj = Product.create(keys)
-        #  file = URI.open(product[:file])
-        #  obj.photo.attach(io: file, filename: product[:fileName])
+         obj = Product.create(keys)
+         file = URI.open(product[:file])
+         obj.photo.attach(io: file, filename: product[:fileName])
        end
      
        puts "Done!"
