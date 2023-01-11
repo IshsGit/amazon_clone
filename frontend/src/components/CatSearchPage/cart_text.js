@@ -22,5 +22,17 @@ function Cart() {
     dispatch(reset());
   }
 
+  return (
+    <div className="cart">
+      <ul>
+        {cartItems.map(item => <CartItem key={item.id} item={item}/>)}
+      </ul>
+      <hr />
+      <form onSubmit={onSubmit}>
+        <button type="submit">Purchase</button>
+      </form>
+    </div>
+  )
+}
 
 export default Cart;
