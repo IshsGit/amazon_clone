@@ -10,7 +10,7 @@ const ProductIndexItem = (props) => {
 
   return (
    
-   
+    <Link to={`/products/${product.id}`}><img className='productImg' src={product.photo}></img></Link>
     
  
   );
