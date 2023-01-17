@@ -16,7 +16,9 @@ function ProfileButton({ user }) {
   useEffect(() => {
     if (!showMenu) return;
 
-   
+    const closeMenu = () => {
+      setShowMenu(false);
+    };
 
     document.addEventListener('click', closeMenu);
   
