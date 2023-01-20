@@ -55,6 +55,7 @@ function App() {
           <CatSearchPage />
           <ProductIndex/>
        </Route>
+    
       </Switch>
     </>
   );
