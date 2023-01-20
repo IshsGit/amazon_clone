@@ -1,98 +1,191 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPost, fetchPost, createPost, updatePost } from "../store/posts";
+import { Redirect, useParams, useHistory, Link } from "react-router-dom";
+import {
+  getReviews,
+  fetchReviewsByProduct,
+  deleteReview,
+} from "../../store/review";
+import "./Reviews.css";
+import emptyStar from "../../assets/review_empty_star.png";
+import filledStar from "../../assets/review_filled_star.png";
+import placeholder from "../../assets/placeholder_profile_ava.jpg";
 
-/*
-Export as the default a `PostForm` component that renders a form to either
-create or edit a post. The form should determine whether it is a create or edit
-form based on the URL. For a create form, it should pre-fill the form's `title`
-and `body` fields from a blank post. For edit, it should grab the specified post
-from the store and pre-fill the form's fields with the data from that post. (It
-should also fetch the specified post from the database to ensure that it is in
-the store.)  
-
-Use controlled inputs and trigger the appropriate action upon submission. Label
-the `title` field `Title` and use a text input; label the `body` field `Body`
-and use a `textarea`. 
-*/
-
-export default function PostForm() {
+function Reviews({ productId }) {
   const dispatch = useDispatch();
-  const { postId } = useParams();
-  const post = useSelector(getPost(postId));
-
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-
-  const [updatedTitle, setUpdatedTitle] = useState(post ? post.title : "");
-  const [updatedBody, setUpdatedBody] = useState(post ? post.body : "");
-
-  const handleCreate = (e) => {
-    e.preventDefault();
-    const post = { title, body };
-    dispatch(createPost(post));
-  };
-
-  const handleUpdate = (e) => {
-    e.preventDefault();
-    const updatedPost = { ...post, title: updatedTitle, body: updatedBody };
-    dispatch(updatePost(updatedPost));
-  };
+  const reviews = useSelector(getReviews);
+  const history = useHistory();
+  const userId = useSelector((state) => state.session.user?.id);
 
   useEffect(() => {
-    if (postId) {
-      dispatch(fetchPost(postId));
-    }
-  }, [dispatch, postId]);
+    dispatch(fetchReviewsByProduct(productId));
+  }, [dispatch, productId]);
 
-  return (
-    <div>
-      {postId && post ? (
-        <>
-          <h1>Update Post</h1>
-          <form onSubmit={handleUpdate}>
-            <label htmlFor="title">Title</label>
-            <input
-              type="text"
-              name="title"
-              id="title"
-              value={updatedTitle}
-              onChange={(e) => setUpdatedTitle(e.target.value)}
-            />
-            <label htmlFor="body">Body</label>
-            <textarea
-              name="body"
-              id="body"
-              value={updatedBody}
-              onChange={(e) => setUpdatedBody(e.target.value)}
-            />
-            <button type="submit">Update Post</button>
-          </form>
-        </>
-      ) : (
-        <>
-          <h1>Create Post</h1>
-          <form onSubmit={handleCreate}>
-            <label htmlFor="title">Title</label>
-            <input
-              type="text"
-              name="title"
-              id="title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-            <label htmlFor="body">Body</label>
-            <textarea
-              name="body"
-              id="body"
-              value={body}
-              onChange={(e) => setBody(e.target.value)}
-            />
-            <button type="submit">Create Post</button>
-          </form>
-        </>
+  let rating = 0;
+  reviews.forEach((review) => {
+    rating += review.rating;
+  });
+  if (rating > 0) {
+    rating = (rating / reviews.length).toFixed(1);
+  }
+  const displayProductRating = (rating) => {
+    let stars = [];
+    for (let i = 0; i < Math.floor(rating); i++) {
+      stars.push(
+        <img
+          className="star-ratings-image"
+          src={filledStar}
+          alt="filled-star"
+        ></img>
+      );
+    }
+    for (let i = rating; i < 5; i++) {
+      stars.push(
+        <img
+          className="star-ratings-image"
+          src={emptyStar}
+          alt="empty-star"
+        ></img>
+      );
+    }
+    return stars;
+  };
+
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  const handleEditClick = (e, review) => {
+    history.push(`/products/${productId}/review/${review.id}`);
+  };
+
+  const createdToDate = (date) => {
+    date = new Date(date);
+    let str = date.toDateString();
+    str = str.split(" ");
+    return `${monthNames[date.getMonth()]} ${str[2]}, ${str[3]}`;
+  };
+
+  const displayStarRating = (review) => {
+    let stars = [];
+    for (let i = 0; i < review.rating; i++) {
+      stars.push(
+        <img
+          className="star-ratings-image"
+          src={filledStar}
+          alt="filled-star"
+        ></img>
+      );
+    }
+    for (let i = review.rating; i < 5; i++) {
+      stars.push(
+        <img
+          className="star-ratings-image"
+          src={emptyStar}
+          alt="empty-star"
+        ></img>
+      );
+    }
+    return stars;
+  };
+
+  const listReviews = reviews.map((review) => (
+    <div key={review.id} className="product-review">
+      <div className="review-name-container">
+        <div className="placeholder-pic">
+          <img className="placeholder" src={placeholder} alt="avatar"></img>
+          <span className="review-name">{review.user.name}</span>
+        </div>
+      </div>
+      <div
+        className="review-rating"
+        onClick={(e) => handleEditClick(e, review)}
+      >
+        <div className="review-star-ratings">
+          {displayStarRating(review)}{" "}
+          <span className="review-heading">{review.headline}</span>
+        </div>
+      </div>
+      <div className="review-location-label">
+        Reviewed in the United States on {createdToDate(review.createdAt)}
+      </div>
+      <div className="review-body">{review.body}</div>
+      {review.userId === userId && (
+        <div className="authorized-review-buttons">
+          <div className="edit-button-container">
+            <Link to={`/products/${productId}/review/${review.id}/edit`}>
+              <div className="authorized-button-label">Edit</div>
+            </Link>
+          </div>
+          <div className="delete-button-container">
+            <button
+              className="delete-button"
+              onClick={(e) => dispatch(deleteReview(review.id))}
+            >
+              <div className="authorized-button-label">Delete</div>
+            </button>
+          </div>
+        </div>
       )}
     </div>
+  ));
+
+  return (
+    <>
+      <hr />
+      <div className="main-review-container">
+        <div className="left-review-container">
+          <div className="product-ratings-container">
+            <div className="product-ratings-label">Customer Reviews</div>
+            <div className="product-ratings-score">
+              {displayProductRating(rating)} <span>{rating} out of 5</span>
+            </div>
+          </div>
+          <hr />
+          <div className="review-creator-container">
+            <div className="review-creator-label">Review this product</div>
+            <div className="review-creator-comment">
+              Share your thoughts with other customers
+            </div>
+            <div className="review-creator-button-container">
+              <Link
+                className="review-creator-button"
+                to={`/products/${productId}/review/`}
+              >
+                Write a customer review
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className="product-reviews-container">
+          <div className="product-review-label">
+            Top reviews from the United States
+          </div>
+          {listReviews}
+        </div>
+      </div>
+    </>
   );
 }
+
+export default Reviews;
