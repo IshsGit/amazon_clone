@@ -4,8 +4,6 @@ import { useParams, useHistory, Link } from "react-router-dom";
 import { fetchReview, getReview } from "../../store/review";
 import { deleteReview } from "../../store/review";
 import "./ReviewDetail.css";
-import emptyStar from "../../assets/review_empty_star.png";
-import filledStar from "../../assets/review_filled_star.png";
 import placeholder from "../../assets/placeholder_profile_ava.jpg";
 
 function ReviewShowPage() {
@@ -19,6 +17,8 @@ function ReviewShowPage() {
     dispatch(fetchReview(productId, userId));
   }, [dispatch, productId, userId]);
 
+  console.log("this is user id");
+  console.log(userId)
   const monthNames = [
     "January",
     "February",
@@ -33,15 +33,7 @@ function ReviewShowPage() {
     "November",
     "December",
   ];
-  const days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+
   const createdToDate = (date) => {
     date = new Date(date);
     let str = date.toDateString();
@@ -55,29 +47,6 @@ function ReviewShowPage() {
     history.push(`/products/${productId}`);
   };
 
-  const displayStarRating = (review) => {
-    let stars = [];
-    for (let i = 0; i < review.rating; i++) {
-      stars.push(
-        <img
-          className="star-ratings-image"
-          src={filledStar}
-          alt="filled-star"
-        ></img>
-      );
-    }
-    for (let i = review.rating; i < 5; i++) {
-      stars.push(
-        <img
-          className="star-ratings-image"
-          src={emptyStar}
-          alt="empty-star"
-        ></img>
-      );
-    }
-    return stars;
-  };
-
   return (
     <div className="product-review">
       <div className="customer-review-label">Customer Review</div>
@@ -88,10 +57,6 @@ function ReviewShowPage() {
         </div>
       </div>
       <div className="review-rating">
-        <div className="review-star-ratings">
-          {displayStarRating(review)}{" "}
-          <span className="review-heading">{review.headline}</span>
-        </div>
       </div>
       <div className="review-location-label">
         Reviewed in the United States on {createdToDate(review.createdAt)}

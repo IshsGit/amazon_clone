@@ -1,45 +1,3 @@
-.main-review-container {
-    display: flex;
-    margin-left: 100px;
-    margin-top: 24px;
-  }
-  
-  .left-review-container {
-    width: 20%;
-  }
-  
-  .product-reviews-container {
-    padding-left: 100px;
-    width: 50%;
-  }
-  
-  .product-ratings-label {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .product-review-label {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 16px;
-    line-height: 24px;
-  }
-  
-  .review-location-label {
-    font-size: 14px;
-    color: #565959;
-  }
-  
-  .placeholder-pic {
-    display: inline-flex;
-  }
-  
-  .placeholder {
-    width: 30px;
-    margin-right: 10px;
-  }
-  
   .review-name {
     font-size: 13px;
     line-height: 19px;
@@ -86,14 +44,7 @@
     white-space: nowrap;
   }
   
-  /* .review-creator-button {
-    color: #0f1111;
-    padding: 0 10px 0 11px;
-    font-size: 13px;
-    white-space: nowrap;
-    background-color: transparent;
-    border: 0;
-  } */
+  
   
   .review-creator-button {
     color: #0f1111;

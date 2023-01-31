@@ -1,38 +1,5 @@
 @import url("https://fonts.cdnfonts.com/css/amazon-ember");
 
-.create-review-container {
-  font-family: "Amazon Ember", sans-serif;
-  margin: 0 auto;
-  width: 768px;
-  padding-top: 20px;
-  padding: 14px;
-}
-
-.create-review-label {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 24px;
-}
-
-.create-review-product-name {
-  font-size: 14px;
-  line-height: 20px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  min-width: 0;
-}
-
-.create-review-product-container {
-  display: flex;
-}
-
-.create-review-product-name {
-  display: flex;
-  align-items: flex-start;
-  margin-left: 13px;
-}
-
 .create-review-headline-label,
 .create-review-body-label,
 .create-review-rating-label {

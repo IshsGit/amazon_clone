@@ -11,8 +11,8 @@ import CatSearchPage from "./components/CatSearchPage/CatSearchPage";
 import ProductIndex from "./components/ProductIndex/ProductIndex";
 import ProductCart from "./components/ProductCart/ProductCart";
 import ReviewCreateForm from "./components/ReviewProduct/ReviewCreate";
-import ReviewEditForm from "./components/ReviewProduct/ReviewCreate";
-import ReviewShowPage from "./components/ReviewProduct/ReviewCreate";
+// import ReviewEditForm from "./components/ReviewProduct/ReviewEdit"
+// import ReviewShowPage from "./components/ReviewProduct/ReviewDetails";
 
 function App() {
   
@@ -29,11 +29,11 @@ function App() {
           <CatSearchPage />
    <MainPage slides={SliderData}/>
         </Route>
-        <Route path="/login">
+        <Route exact path="/login">
        
           <LoginFormPage />
         </Route>
-        <Route path="/signup">
+        <Route exact path="/signup">
           <SignupFormPage />
         </Route>
         <Route exact path="/products/:productId">
@@ -41,7 +41,7 @@ function App() {
         <CatSearchPage />
         <DetailProductPage/>
         </Route>
-        <Route path="/:category">
+        <Route exact path="/:category">
           <Navigation />
           <CatSearchPage />
    
@@ -52,7 +52,7 @@ function App() {
           <CatSearchPage />
           <ProductIndex />
         </Route>
-       <Route path="/:search">
+       <Route exact path="/:search">
           <Navigation />
           <CatSearchPage />
           <ProductIndex/>
@@ -63,18 +63,7 @@ function App() {
           <ReviewCreateForm />
       
         </Route>
-        <Route exact path="/products/:productId/review/:reviewId">
-          <Navigation />
-          <CatSearchPage />
-          <ReviewShowPage />
-         
-        </Route>
-        <Route exact path="/products/:productId/review/:reviewId/edit">
-          <Navigation />
-          <CatSearchPage />
-          <ReviewEditForm />
       
-        </Route>
       </Switch>
     </>
   );

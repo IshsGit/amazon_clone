@@ -19,7 +19,7 @@ function ReviewCreateForm() {
   const [body, setBody] = useState("");
 
   if (userId === undefined) history.push("/login");
-
+  console.log("IN REVIEW CREATE")
   useEffect(() => {
     dispatch(fetchProduct(productId));
   }, [dispatch, productId]);
@@ -57,9 +57,7 @@ function ReviewCreateForm() {
         1: "Please enter your headline.",
         2: "Please enter at most 100 characters.",
       },
-      rating: {
-        1: "Please select a star rating",
-      },
+     
       body: {
         1: "Please add a written review",
         2: "Please enter at most 20000 characters",
@@ -84,22 +82,12 @@ function ReviewCreateForm() {
 
   const handleRatingClick = (e, num) => {
     e.preventDefault();
-    const stars = document.querySelectorAll(".review-star-image");
-
-    stars.forEach((star, i) => {
-      let pos = i + 1;
-      if (pos <= num) {
-        star.src = 'filledStar;'
-      }
-      if (pos > num) {
-        // star.src = emptyStar;
-      }
-    });
-    setRating(num);
+    
   };
   if (!product) return null;
   return (
     <div className="create-review-container">
+     
       <form onSubmit={handleSubmit}>
         <div className="create-review-top-container">
           <div className="create-review-label">Create Review</div>
@@ -117,58 +105,7 @@ function ReviewCreateForm() {
         <hr />
         <div className="create-review-rating-container">
           <div className="create-review-rating-label">Overall Rating</div>
-          <div className="create-review-star-rating-container">
-            <button
-              className="review-star"
-              onClick={(e) => handleRatingClick(e, 1)}
-            >
-              <img
-                className="review-star-image"
-                src='{emptyStar}'
-                alt="star-rating"
-              ></img>
-            </button>
-            <button
-              className="review-star"
-              onClick={(e) => handleRatingClick(e, 2)}
-            >
-              <img
-                className="review-star-image"
-                src='{emptyStar}'
-                alt="star-rating"
-              ></img>
-            </button>
-            <button
-              className="review-star"
-              onClick={(e) => handleRatingClick(e, 3)}
-            >
-              <img
-                className="review-star-image"
-                src='{emptyStar}'
-                alt="star-rating"
-              ></img>
-            </button>
-            <button
-              className="review-star"
-              onClick={(e) => handleRatingClick(e, 4)}
-            >
-              <img
-                className="review-star-image"
-                src='{emptyStar}'
-                alt="star-rating"
-              ></img>
-            </button>
-            <button
-              className="review-star"
-              onClick={(e) => handleRatingClick(e, 5)}
-            >
-              <img
-                className="review-star-image"
-                src='{emptyStar}'
-                alt="star-rating"
-              ></img>
-            </button>
-          </div>
+       
           <div className="review-error">{displayError("rating")}</div>
         </div>
         <hr />
