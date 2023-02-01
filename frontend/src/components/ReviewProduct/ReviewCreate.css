@@ -1,5 +1,30 @@
 @import url("https://fonts.cdnfonts.com/css/amazon-ember");
 
+.username{
+  font-family: inherit;
+  padding-bottom: 20px;
+  padding-top: 15px;
+  display: flex;
+  padding-left: 600px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.username-container{
+  background-color: rgb(218, 239, 245);
+}
+
+
+.create-review-container{
+  font-family: "Amazon Ember", sans-serif;
+  margin: 0 auto;
+  width: 768px;
+  padding-top: 20px;
+  padding: 14px;
+}
+
+
+
 .create-review-headline-label,
 .create-review-body-label,
 .create-review-rating-label {
@@ -8,6 +33,10 @@
   margin-bottom: 10px;
 }
 
+.create-review-label{
+  font-size: 24px;
+  font-weight: bold;
+}
 .headline-input,
 .body-input {
   width: 100%;

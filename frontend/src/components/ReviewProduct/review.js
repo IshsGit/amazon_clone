@@ -1,73 +1,76 @@
 import { useEffect} from "react";
-import {getReviews,fetchReviewsByProduct,deleteReview} from "../../store/review";
+import {getReviews,fetchReviewsByProduct} from "../../store/review";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import "./review.css";
 
 
-function Reviews({ productId }) {
+function Reviews(productId) {
+  console.log('review',productId)
+  const result="hello";
   const dispatch = useDispatch();
-  const reviews = useSelector(getReviews);
-  const history = useHistory();
+  // const reviews = useSelector(getReviews);
+  // const history = useHistory();
   
 
-  useEffect(() => {
-    dispatch(fetchReviewsByProduct(productId));
-  }, [dispatch, productId]);
+  // useEffect(() => {
+  //   dispatch(fetchReviewsByProduct(productId));
+  // }, [dispatch, productId]);
 
 
-  const monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
+  // const monthNames = [
+  //   "January",
+  //   "February",
+  //   "March",
+  //   "April",
+  //   "May",
+  //   "June",
+  //   "July",
+  //   "August",
+  //   "September",
+  //   "October",
+  //   "November",
+  //   "December",
+  // ];
 
-  const handleEditClick = (e, review) => {
-    history.push(`/products/${productId}/review/${review.id}`);
-  };
+  // const handleEditClick = (e, review) => {
+  //   history.push(`/products/${productId}/review/${review.id}`);
+  // };
 
-  const createdToDate = (date) => {
-    date = new Date(date);
-    let str = date.toDateString();
-    str = str.split(" ");
-    return `${monthNames[date.getMonth()]} ${str[2]}, ${str[3]}`;
-  };
+  // const createdToDate = (date) => {
+  //   date = new Date(date);
+  //   let str = date.toDateString();
+  //   str = str.split(" ");
+  //   return `${monthNames[date.getMonth()]} ${str[2]}, ${str[3]}`;
+  // };
 
 
 
-  const listReviews = reviews.map((review) => (
-    <div key={review.id} className="product-review">
-      <div className="review-name-container">
-        <div className="placeholder-pic">
-          <img className="placeholder" src='{placeholder}' alt="avatar"></img>
-          <span className="review-name">{review.user.name}</span>
-        </div>
-      </div>
-      <div
-        className="review-rating"
-        onClick={(e) => handleEditClick(e, review)}
-      >
+  // const listReviews = reviews.map((review) => (
+  //   <div key={review.id} className="product-review">
+  //     <div className="review-name-container">
+  //       <div className="placeholder-pic">
+  //         <img className="placeholder" src='{placeholder}' alt="avatar"></img>
+  //         <span className="review-name">{review.user.name}</span>
+  //       </div>
+  //     </div>
+  //     <div
+  //       className="review-rating"
+  //       onClick={(e) => handleEditClick(e, review)}
+  //     >
        
-      </div>
-      <div className="review-location-label">
-        Reviewed in the United States on {createdToDate(review.createdAt)}
-      </div>
-      <div className="review-body">{review.body}</div>
-    </div>
-  ));
+  //     </div>
+  //     <div className="review-location-label">
+  //       Reviewed in the United States on {createdToDate(review.createdAt)}
+  //     </div>
+  //     <div className="review-body">{review.body}</div>
+  //   </div>
+  // ));
 
   return (
     <>
-      <hr />
+    <div>{result}</div>
+      {/* <hr />
       <div className="main-review-container">
         <div className="left-review-container">
           <div className="product-ratings-container">
@@ -96,7 +99,7 @@ function Reviews({ productId }) {
           </div>
           {listReviews}
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

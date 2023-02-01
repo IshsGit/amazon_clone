@@ -10,10 +10,11 @@ import { SliderData } from "./components/MainPage/SliderData";
 import CatSearchPage from "./components/CatSearchPage/CatSearchPage";
 import ProductIndex from "./components/ProductIndex/ProductIndex";
 import ProductCart from "./components/ProductCart/ProductCart";
+import CheckoutPage from "./components/CheckoutPage/checkout";
 import ReviewCreateForm from "./components/ReviewProduct/ReviewCreate";
 // import ReviewEditForm from "./components/ReviewProduct/ReviewEdit"
 // import ReviewShowPage from "./components/ReviewProduct/ReviewDetails";
-
+import ReviewShowPage from "./components/ReviewProduct/ReviewDetails";
 function App() {
   
   return (
@@ -63,7 +64,18 @@ function App() {
           <ReviewCreateForm />
       
         </Route>
+        <Route exact path="/products/:productId/review/:reviewId">
+          <Navigation />
+          <CatSearchPage />
+          <ReviewShowPage />
+        </Route>
       
+        <Route exact path="/carts/checkout">
+          <Navigation />
+          <CatSearchPage />
+          <CheckoutPage />
+
+        </Route>
       </Switch>
     </>
   );

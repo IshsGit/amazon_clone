@@ -23,7 +23,8 @@ function DetailProductPage() {
   const history = useHistory();
   const products = useSelector(getProducts);
   const reviews = useSelector(getReviews);
-
+  console.log('product', product)
+console.log('productId', productId);
   useEffect(() => {
     dispatch(fetchProduct(productId));
   }, [productId, dispatch]);
@@ -56,19 +57,20 @@ function DetailProductPage() {
     const min = Math.floor(16);
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
-  const productItems = products.map((product) => {
+  const productItems = products.map((product, idx) => {
     
-    return <ProductIndexItem key={product.id} product={product} />
+    return <ProductIndexItem key={idx} product={product} />
   });
 
-  const productDetails = products.map(product => {
-    return <AllProducts key={product.id} product={product} />
+  const productDetails = products.map((product, idx) => {
+    return <AllProducts key={idx} product={product} />
   });
 
-  const productCat = products.map(product => {
-    return <ProductGetCategory key={product.id} product={product} />
+  const productCat = products.map((product, idx) => {
+    return <ProductGetCategory key={idx} product={product} />
   });
 
+  console.log('productcat',productCat)
    const numArr = [];
    for(let i=0; i<11; i++){
       numArr.push(i.toString());
@@ -77,9 +79,9 @@ function DetailProductPage() {
 
   const quantities = numArr.map((idx) => {
       if(numArr[idx]==='0') 
-        {return <option hidden key={numArr[idx]}>{`Qty: ${count}`}</option>;} 
+        {return <option hidden key={idx}>{`Qty: ${count}`}</option>;} 
       else 
-        { return(<option value={numArr[idx]} key={numArr[idx]}> {numArr[idx]}  </option>)}
+        { return(<option value={numArr[idx]} key={idx}> {numArr[idx]}  </option>)}
   });
   
   const handleSubmit = (e) => {
@@ -92,7 +94,7 @@ function DetailProductPage() {
     setCount(1);
   };
 
-
+console.log()
   return (
     <>
     <div className="parent-container">
@@ -386,6 +388,7 @@ function DetailProductPage() {
    </div>}
    
  <div className="review-section-container">
+  
         <Reviews productId={productId} />
       </div>
    </div>

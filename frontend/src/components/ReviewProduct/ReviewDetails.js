@@ -4,7 +4,7 @@ import { useParams, useHistory, Link } from "react-router-dom";
 import { fetchReview, getReview } from "../../store/review";
 import { deleteReview } from "../../store/review";
 import "./ReviewDetail.css";
-import placeholder from "../../assets/placeholder_profile_ava.jpg";
+
 
 function ReviewShowPage() {
   const { reviewId, productId } = useParams();
@@ -52,7 +52,7 @@ function ReviewShowPage() {
       <div className="customer-review-label">Customer Review</div>
       <div className="review-name-container">
         <div className="placeholder-pic">
-          <img className="placeholder" src={placeholder} alt="avatar"></img>
+          <img className="placeholder" src='{placeholder}' alt="avatar"></img>
           <span className="review-name">{review.user.name}</span>
         </div>
       </div>
