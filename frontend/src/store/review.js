@@ -18,6 +18,7 @@ export const addReviews = (reviews) => ({
   reviews,
 });
 
+
 export const getReviews = (state) =>
   state.reviews ? Object.values(state.reviews) : [];
 
@@ -72,7 +73,7 @@ export const deleteReview = (id) => async (dispatch) => {
 };
 
 const reviewReducer = (state = {}, action) => {
-  debugger;
+
   const newState = { ...state };
   switch (action.type) {
     case ADD_REVIEW:

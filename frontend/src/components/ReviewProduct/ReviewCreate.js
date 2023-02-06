@@ -7,17 +7,19 @@ import "./ReviewCreate.css";
 
 
 function ReviewCreateForm() {
+
   const userId = useSelector((state) => state.session.user?.id);
   const userName = useSelector((state)=> state.session.user.name);
   const history = useHistory();
   const { productId } = useParams();
+
   const product = useSelector(getProduct(productId));
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([]);
   const [headline, setHeadline] = useState("");
   const [rating, setRating] = useState(0); //must complete
   const [body, setBody] = useState("");
-console.log('productid', productId)
+
   if (userId === undefined) history.push("/login");
 
   useEffect(() => {

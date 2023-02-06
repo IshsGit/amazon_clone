@@ -357,3 +357,10 @@
 .cart{
   color: white;
 }
+
+.nav-cart-count{
+  color: white;
+  padding-right: 5px;
+  font-family: serif;
+  font-weight: bold;
+}

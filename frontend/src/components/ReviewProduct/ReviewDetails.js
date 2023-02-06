@@ -17,8 +17,7 @@ function ReviewShowPage() {
     dispatch(fetchReview(productId, userId));
   }, [dispatch, productId, userId]);
 
-  console.log("this is user id");
-  console.log(userId)
+
   const monthNames = [
     "January",
     "February",

@@ -1,5 +1,3 @@
-// frontend/src/components/Navigation/index.js
-
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useEffect} from 'react';
@@ -14,6 +12,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import ProductIndexItem from './ProductIndexItem';
 import { getProducts } from '../../store/products';
 import { fetchProducts } from '../../store/products';
+import { fetchCart } from "../../store/cart";
+import { clearCartTest } from "../../store/cart";
 
 function Navigation() {
 
@@ -22,33 +22,32 @@ function Navigation() {
   const [searchTerm, setSearchTerm] = React.useState("");
   const history = useHistory();
  const [searchResults, setSearchResults] = useState([]);
-  let display;
-  let login;
+ const cart = useSelector((state) => state.carts.cart);
+  let show = "sign in", login;
   if (sessionUser) {
     login = true;
-    display = sessionUser.name;
-  } else {
-    display = "sign in";
+    show = sessionUser.name;
   }
 
-  let altDisplay;
+  let change;
   if (!sessionUser) {
-    altDisplay = (
+    change = (
       <Link to="/login">
-        <span>Hello, {display}</span>
+        <span>Hello, {show}</span>
         <p>Accounts & Lists</p>
       </Link>
     );
   } else {
-    //should display profile page
-    altDisplay = (
+
+    change = (
       <Link to="/login">
-        <span>Hello, {display}</span>
+        <span>Hello, {show}</span>
         <p>Accounts & Lists</p>
       </Link>
     );
   }
 
+  
   const logout = () => {
     dispatch(sessionActions.logout());
   };
@@ -91,6 +90,15 @@ function Navigation() {
     setSearchResults(results);
   }, [searchTerm]);
 
+ 
+
+  const getCartLength = (cart) => {
+    let total = 0;
+    cart.forEach((product) => {
+      total += product.quantity;
+    });
+    return total;
+  };
   return (
     <>
      <div className='main-page-container'>
@@ -142,10 +150,16 @@ function Navigation() {
         <span className="header-optionLineTwo">Prime</span>
       </div>
 
-      {/* {login ? "/carts" : "/login"} */}
         <div className="header-cart">
         <Link className="cart-link" to={login ? "/carts" : "/login"} >
           <div className="nav-right-container">
+          <div className="nav-cart-image-container">
+                <span className="nav-cart-count">
+                  {" "}
+                  {cart ? getCartLength(cart) : 0}
+                </span>
+               
+              </div>
             <p className="cart"> <ShoppingBasketIcon /></p>
           </div>
         </Link>
@@ -153,6 +167,7 @@ function Navigation() {
     </div>
   </div>
     </div>
+    
     </>
   );
 }

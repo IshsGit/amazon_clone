@@ -32,23 +32,6 @@ function ProductCart() {
   }, [dispatch]);
   
   const history = useHistory();
-
-  const calculateCartSize = () => {
-    let size = 0;
-    cart.forEach((product) => {
-      size += product.quantity;
-    });
-    return size;
-  };
-
-  const calculateSubTotal = () => {
-    let total = 0;
-    cart.forEach((product) => {
-      total += product.quantity * product.price;
-    });
-    setSum(Math.round(total * 100) / 100);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(deleteCart());

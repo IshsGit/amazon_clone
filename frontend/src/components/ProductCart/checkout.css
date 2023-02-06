@@ -1,18 +1,5 @@
 @import url("https://fonts.cdnfonts.com/css/amazon-ember");
 
-.checkout-confirm-container {
-  margin-top: 2%;
-  width: 60%;
-  max-width: 80%;
-  background-color: white;
-  padding: 25px 25px;
-  margin-bottom: 5%;
-  padding-bottom: 3%;
-  height: fit-content;
-  display: flex;
-  font-family: "Amazon Ember", sans-serif;
-  align-items: center;
-}
 
 .checkout-image-container {
   width: 60%;
@@ -21,7 +8,7 @@
 .checkout-image {
   height: 350px;
 }
-.checkout-label-container {
+.checkout-container {
   margin-left: 5px;
   display: flex;
   flex-direction: column;
@@ -39,7 +26,8 @@
 }
 
 .confirmed-image {
-  width: 6%;
+  width: 3%;
+  
 }
 
 .checkout-misc {
@@ -47,12 +35,10 @@
   text-align: center;
 }
 
-.secret-message {
-  font-size: 10px;
-  color: rgba(104, 99, 99, 0.491);
-}
 
-.self-plug {
-  margin-top: 10px;
-  font-size: 11px;
+
+.checkout-message{
+  font-family: "Amazon Ember", sans-serif;
+  font-weight: bold;
+  padding-left: 35px;
 }

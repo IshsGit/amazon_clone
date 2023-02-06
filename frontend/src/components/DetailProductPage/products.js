@@ -11,7 +11,7 @@ const AllProducts= (props) => {
 
   return (
     <>
-      <Link to={`/products/${product.id}`}>{title}</Link>
+      <a href={`/products/${product.id}`}>{title}</a>
       </>
       
 

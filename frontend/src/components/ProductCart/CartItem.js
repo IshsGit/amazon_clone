@@ -20,6 +20,16 @@ function CartItem({ product }) {
     range.push(i.toString());
   }
 
+
+  const totalQuantityions = Array.from({length: 10}, (x, i) => i).map((num) => {
+    if (num === 0) {
+      return <option hidden key={num}>{`Qty: ${count}`}</option>;
+    } else {
+      return (<option value={num} key={num}>{num}</option>);
+    }
+  });
+
+
   return (
     <div className="cart-item-container">
         <Link to={`/products/${id}`}>
@@ -42,12 +52,14 @@ function CartItem({ product }) {
                   value={`Qty: ${count}`}
                   onChange={(e) => setCount(e.target.value)}>
                     {(range.map((qty)=>(qty===0) ? (<option hidden key={qty}>{`Qty: ${count}`}</option>) : (<option value={qty} key={qty}>{qty}</option> )))}
+                    {totalQuantityions}
                 </select>
             
               <button
                 onClick={(e) => {dispatch(deleteFromCart(userId, id));}}>Delete</button>
         </div>
          <div>${price.toFixed(2)}</div>
+         
     </div>
   );
 }

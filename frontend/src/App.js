@@ -10,10 +10,8 @@ import { SliderData } from "./components/MainPage/SliderData";
 import CatSearchPage from "./components/CatSearchPage/CatSearchPage";
 import ProductIndex from "./components/ProductIndex/ProductIndex";
 import ProductCart from "./components/ProductCart/ProductCart";
-import CheckoutPage from "./components/CheckoutPage/checkout";
+import CheckoutPage from "./components/ProductCart/checkout";
 import ReviewCreateForm from "./components/ReviewProduct/ReviewCreate";
-// import ReviewEditForm from "./components/ReviewProduct/ReviewEdit"
-// import ReviewShowPage from "./components/ReviewProduct/ReviewDetails";
 import ReviewShowPage from "./components/ReviewProduct/ReviewDetails";
 function App() {
   
