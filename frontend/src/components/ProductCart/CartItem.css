@@ -4,14 +4,16 @@
   font-size: 28px;
 }
 
+
 .cart-container,
 .empty-cart-container {
+
   margin-top: 2%;
   width: 60%;
   max-width: 80%;
   background-color: white;
   padding: 25px 25px;
-  padding-bottom: 3%;
+
   height: fit-content;
 }
 

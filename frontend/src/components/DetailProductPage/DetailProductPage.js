@@ -171,7 +171,7 @@ function DetailProductPage() {
         </div>
         <div className="fastest-delivery">
           Or fastest delivery
-          <span className="delivery-date"> {}</span> tomorrow-ish, December 17. Order within <span className="fast-delivery-hour">10 hours and 9 minutes </span>
+          <span className="delivery-date"> {}</span> tomorrow-ish. Order within <span className="fast-delivery-hour">10 hours and 9 minutes </span>
          
         </div>
         <div className="stock-label"><p>Arrives before chrismas</p>

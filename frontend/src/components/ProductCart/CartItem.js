@@ -19,8 +19,7 @@ function CartItem({ product }) {
   for(let i=0; i<11; i++){
     range.push(i.toString());
   }
-
-
+  
   const totalQuantityions = Array.from({length: 10}, (x, i) => i).map((num) => {
     if (num === 0) {
       return <option hidden key={num}>{`Qty: ${count}`}</option>;
