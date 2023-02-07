@@ -1,12 +1,6 @@
 import csrfFetch from "./csrf.js"
 export const RECEIVE_PRODUCTS = "products/RECEIVE_PRODUCTS";
 export const RECIEVE_PRODUCT = "products/RECIEVE_PRODUCT";
-// export const RECIEVE_PHOTO = "products/RECIEVE_PHOTO";
-
-// export const receivePhoto = (photo) => ({
-//   type: RECIEVE_PHOTO,
-//   photo,
-// });
 
 export const receiveProducts = (products) => ({
   type: RECEIVE_PRODUCTS,
@@ -24,8 +18,20 @@ export const getProducts = (state) =>
 export const getProduct = (productId) => (state) =>
   state.products ? state.products[productId] : null;
 
-// export const getPhoto = (photoId) => (state) =>
-//   state.photos ? state.photos[photoId] : null;
+
+export const fetchProductsByCategory = (category) => async (dispatch) => {
+  const res = await csrfFetch(
+    "/api/products?" + new URLSearchParams({ category }),
+    {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+      },
+    }
+  );
+  const data = await res.json();
+  dispatch(receiveProducts(data));
+};
 
 export const fetchProducts = () => async (dispatch) => {
   const res = await csrfFetch("/api/products");
@@ -43,19 +49,6 @@ export const fetchProduct = (productId) => async (dispatch) => {
 
 
 
-export const fetchProductsByCategory = (category) => async (dispatch) => {
-  const res = await csrfFetch(
-    "/api/products?" + new URLSearchParams({ category }),
-    {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-      },
-    }
-  );
-  const data = await res.json();
-  dispatch(receiveProducts(data));
-};
 
 const productsReducer = (state = {}, action) => {
   const newState = { ...state };

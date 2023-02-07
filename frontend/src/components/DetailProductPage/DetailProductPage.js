@@ -9,7 +9,7 @@ import ProductIndexItem from './ProductIndexItem';
 import { getProducts } from '../../store/products';
 import ProductGetCategory from './productGetCategory';
 import { addToCart } from "../../store/cart";
-import { getReviews, fetchReviewsByProduct } from "../../store/review";
+import { receiveReviews} from "../../store/review";
 import Reviews from '../ReviewProduct/review';
 
 function DetailProductPage() {
@@ -22,7 +22,7 @@ function DetailProductPage() {
   const [count, setCount] = useState(1);
   const history = useHistory();
   const products = useSelector(getProducts);
-  const reviews = useSelector(getReviews);
+  const reviews = useSelector(receiveReviews);
 
   useEffect(() => {
     dispatch(fetchProduct(productId));

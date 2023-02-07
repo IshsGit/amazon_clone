@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./CartItem.css";
-import { deleteFromCart, updateItemCount } from "../../store/cart";
+import { clearCart, updateQuantity } from "../../store/cart";
 import { useDispatch, useSelector } from "react-redux";
 
 function CartItem({ product }) {
@@ -12,7 +12,7 @@ function CartItem({ product }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(updateItemCount(id, count));
+    dispatch(updateQuantity(id, count));
   }, [dispatch, count, id]);
 
   const range = [];
@@ -56,7 +56,7 @@ function CartItem({ product }) {
                 </select>
             
               <button
-                onClick={(e) => {dispatch(deleteFromCart(userId, id));}}>Delete</button>
+                onClick={(e) => {dispatch(clearCart(userId, id));}}>Delete</button>
         </div>
          <div>${price.toFixed(2)}</div>
          

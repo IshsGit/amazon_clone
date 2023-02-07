@@ -1,12 +1,12 @@
 import CartItem from "./CartItem";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCart, getCart, deleteCart } from "../../store/cart";
+import { getCart, getCarts, deleteCart } from "../../store/cart";
 import "./ProductCart.css";
 import { useHistory } from "react-router-dom";
 
 function ProductCart() {
-  const cart = useSelector(getCart);
+  const cart = useSelector(getCarts);
   const dispatch = useDispatch();
   const [sum, setSum] = useState(0.0);
   const cartItems = [];
@@ -28,7 +28,7 @@ function ProductCart() {
   });
 
   useEffect(() => {
-    dispatch(fetchCart());
+    dispatch(getCart());
   }, [dispatch]);
   
   const history = useHistory();

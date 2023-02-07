@@ -12,8 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ProductIndexItem from './ProductIndexItem';
 import { getProducts } from '../../store/products';
 import { fetchProducts } from '../../store/products';
-import { fetchCart } from "../../store/cart";
-import { clearCartTest } from "../../store/cart";
+
 
 function Navigation() {
 

@@ -1,5 +1,5 @@
 import { useEffect} from "react";
-import {getReviews,fetchReviewsByProduct} from "../../store/review";
+import {receiveReviews,receiveReviewsByProduct} from "../../store/review";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import "./review.css";
@@ -7,15 +7,13 @@ import "./review.css";
 
 function Reviews({productId}) {
  
-  const result="hello";
   const dispatch = useDispatch();
    const history = useHistory();
-  // const reviews = useSelector((state) => state.reviewReducer);
-  const reviews = useSelector(getReviews);
+  const reviews = useSelector(receiveReviews);
   
 
   useEffect(() => {
-    dispatch(fetchReviewsByProduct(productId));
+    dispatch(receiveReviewsByProduct(productId));
   }, []);
 
 
@@ -49,7 +47,7 @@ function Reviews({productId}) {
   
   const listReviews = reviews.map((review) => (
     <div key={review.id} className="product-review">
-      asdsd
+      {review.headline}
       <div className="review-name-container">
         <div className="placeholder-pic">
           <img className="placeholder" src='{placeholder}' alt="avatar"></img>
