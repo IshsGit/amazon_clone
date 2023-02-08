@@ -72,6 +72,8 @@ function LoginFormPage() {
     dispatch(sessionActions.login(demoUser));
   };
 
+  
+
   return (
     <>
    <div className="login">
@@ -114,11 +116,11 @@ function LoginFormPage() {
       <p className="terms">By signing-in you agree to the AMAZISH Conditions of Use & Sale. All credit card information
       to be *safely* stored in my hard drive for personal use.</p>
       <Link to="/signup">
-        <button type="submit" className="signup-button" >
+        <button type="submit" className="sign-up-button " >
           Create your Amazish account
         </button>
       </Link>
-      <button className="signup-button" type="submit" onClick={loginDemo}>
+      <button className="sign-up-button " type="submit" onClick={loginDemo}>
           Demo Login
         </button>
     </div>
