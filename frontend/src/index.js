@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
@@ -27,14 +27,13 @@ function Root() {
   );
 }
 
-const renderApplication = () => {
-  ReactDOM.render(
-    <React.StrictMode>
-      <Root />
-    </React.StrictMode>,
-    document.getElementById('root')
-  );
-}
+const renderApplication = (() => {
+
+  ReactDOM.createRoot(document.getElementById('root')).render( <Root />)
+  
+  
+});
+
 
 if (
   sessionStorage.getItem("currentUser") === null ||

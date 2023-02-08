@@ -13,7 +13,7 @@ function ProductCart() {
 
   for(let i=0; i<cart.length; i++){
     cartItems.push(
-      <><CartItem key={cart[i].id} product={cart[i]} /></>
+      <><CartItem key={i} product={cart[i]} /></>
     )
   }
   
@@ -38,11 +38,13 @@ function ProductCart() {
     history.push("/carts/checkout");
   };
 
-  const listCart = cart.map((product) => (
-    <>
-      <CartItem key={product.id} product={product} />
-      <hr />
-    </>
+  const listCart = cart.map((product,idx) => (
+          <div key={idx}>
+            <CartItem product={product} />
+             <hr />
+          </div>
+     
+   
   ));
 
   useEffect(() => {

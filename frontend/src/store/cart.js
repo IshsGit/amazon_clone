@@ -61,7 +61,7 @@ export const clearCart = (user_id, product_id) => async (dispatch) => {
 };
 
 export const deleteCart = () => async (dispatch) => {
-  const res = await csrfFetch("/api/empty_cart", {
+  const res = await csrfFetch("/api/delete_cart", {
     method: "DELETE",
     headers: {
       "content-type": "application/json",

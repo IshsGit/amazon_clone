@@ -217,7 +217,7 @@ const productlistings = products.map((item,idx) => {
                 value={`Qty: ${count}`}
                 onChange={(e) => setCount(e.target.value)}
               >
-                {/* {quantities} */}
+                {quantities}
               </select>
             </label>
           </div>
