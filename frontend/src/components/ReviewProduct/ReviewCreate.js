@@ -4,15 +4,14 @@ import { useHistory, useParams} from "react-router-dom";
 import { fetchProduct, getProduct } from "../../store/products";
 import { createReview } from "../../store/review";
 import "./ReviewCreate.css";
-
+import emptyStar from "../../assets/empty_star.png";
+import filledStar from "../../assets/filled_star.png";
 
 function ReviewCreateForm() {
 
   const userId = useSelector((state) => state.session.user?.id);
-  const userName = useSelector((state)=> state.session.user.name);
   const history = useHistory();
   const { productId } = useParams();
-
   const product = useSelector(getProduct(productId));
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([]);
@@ -91,19 +90,20 @@ function ReviewCreateForm() {
     stars.forEach((star, i) => {
       let pos = i + 1;
       if (pos <= num) {
-        star.src = 'filledStar;'
+        star.src = filledStar;
       }
       if (pos > num) {
-        star.src =' emptyStar;'
+        star.src = emptyStar;
       }
     });
     setRating(num);
   };
   if (!product) return null;
+  
   return (
   
     <>
-    <div className="username-container">
+    {/* <div className="username-container">
       <div className="username"><p>{userName}</p></div>
     </div>
     <div className="create-review-container">
@@ -174,6 +174,112 @@ function ReviewCreateForm() {
               <img
                 className="review-star-image"
                 src='{emptyStar}'
+                alt="star-rating"
+              ></img>
+            </button>
+          </div>
+          <div className="review-error">{displayError("rating")}</div>
+        </div>
+        <hr />
+        <div className="create-review-headline-container">
+          <div className="create-review-headline-label">Add a headline</div>
+          <input
+            className="headline-input"
+            type="text"
+            value={headline}
+            placeholder="What's most important to know?"
+            onChange={(e) => setHeadline(e.target.value)}
+          ></input>
+          <div className="review-error">{displayError("headline")}</div>
+        </div>
+        <hr />
+        <div className="create-review-body-container">
+          <div className="create-review-body-label">Add a written review</div>
+          <textarea
+            value={body}
+            className="body-input"
+            placeholder="What did you like or dislike? What did you use this product for?"
+            onChange={(e) => setBody(e.target.value)}
+          ></textarea>
+          <div className="review-error">{displayError("body")}</div>
+        </div>
+        <hr />
+        <div className="create-review-submit-container">
+          <input
+            className="create-review-submit-button"
+            type="Submit"
+            value="Submit"
+            readOnly
+          ></input>
+        </div>
+      </form>
+    </div> */}
+     <div className="create-review-container">
+      <form onSubmit={handleSubmit}>
+        <div className="create-review-top-container">
+          <div className="create-review-label">Create Review</div>
+          <div className="create-review-product-container">
+            <div className="review-product-image-container">
+              <img
+                className="review-product-image"
+                src={product.photo}
+                alt="review-item"
+              ></img>
+            </div>
+            <div className="create-review-product-name">{product.name}</div>
+          </div>
+        </div>
+        <hr />
+        <div className="create-review-rating-container">
+          <div className="create-review-rating-label">Overall Rating</div>
+          <div className="create-review-star-rating-container">
+            <button
+              className="review-star"
+              onClick={(e) => handleRatingClick(e, 1)}
+            >
+              <img
+                className="review-star-image"
+                src={emptyStar}
+                alt="star-rating"
+              ></img>
+            </button>
+            <button
+              className="review-star"
+              onClick={(e) => handleRatingClick(e, 2)}
+            >
+              <img
+                className="review-star-image"
+                src={emptyStar}
+                alt="star-rating"
+              ></img>
+            </button>
+            <button
+              className="review-star"
+              onClick={(e) => handleRatingClick(e, 3)}
+            >
+              <img
+                className="review-star-image"
+                src={emptyStar}
+                alt="star-rating"
+              ></img>
+            </button>
+            <button
+              className="review-star"
+              onClick={(e) => handleRatingClick(e, 4)}
+            >
+              <img
+                className="review-star-image"
+                src={emptyStar}
+                alt="star-rating"
+              ></img>
+            </button>
+            <button
+              className="review-star"
+              onClick={(e) => handleRatingClick(e, 5)}
+            >
+              <img
+                className="review-star-image"
+                src={emptyStar}
                 alt="star-rating"
               ></img>
             </button>

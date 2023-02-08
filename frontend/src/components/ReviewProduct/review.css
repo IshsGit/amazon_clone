@@ -1,109 +1,158 @@
-  .review-name {
-    font-size: 13px;
-    line-height: 19px;
-    color: #0f1111;
-    margin: auto;
-  }
-  
-  .review-heading {
-    font-size: 14px;
-    font-weight: bold;
-  }
-  
-  .product-review {
-    margin-top: 10px;
-    margin-bottom: 25px;
-  }
-  
-  .review-body {
-    margin-top: 5px;
-    font-size: 14px;
-  }
-  
-  .review-creator-label {
-    font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .review-creator-comment {
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
-  
-  .review-creator-button-container {
-    background: 0 0;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
-    height: 29px;
-    width: 100%;
-    border-color: #d5d9d9;
-    border-style: solid;
-    border-width: 1px;
-    text-align: center;
-    white-space: nowrap;
-  }
-  
-  
-  
-  .review-creator-button {
-    color: #0f1111;
-    background-color: transparent;
-    border: 0;
-    display: block;
-    font-size: 13px;
-    line-height: 29px;
-    margin: 0;
-    outline: 0;
-    padding: 0 10px 0 11px;
-    text-align: center;
-    white-space: nowrap;
-  }
-  
-  .star-ratings-image {
-    margin-right: 1px;
-    height: 16px;
-  }
-  
-  .review-rating {
-    margin: 5px 0px;
-    width: fit-content;
-    cursor: pointer;
-  }
-  
-  .authorized-review-buttons {
-    margin-top: 10px;
-    display: flex;
-  }
-  
-  .edit-button-container,
-  .delete-button-container {
-    border-radius: 8px;
-    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
-    background: #fff;
-    border-color: #d5d9d9;
-    border-style: solid;
-    border-width: 1px;
-    cursor: pointer;
-    display: inline-block;
-    padding: 0;
-    text-align: center;
-    text-decoration: none !important;
-    vertical-align: middle;
-    font-size: 11px;
-    line-height: 20px;
-    height: 20px;
-    padding: 0 6px 0 7px;
-    margin-right: 5px;
-  }
-  
-  .delete-button {
-    background: 0;
-    border: 0;
-    font-size: 11px;
-    cursor: pointer;
-  }
-  
-  .authorized-button-label {
-    width: 77px;
-  }
+.main-review-container {
+  display: flex;
+  margin-left: 100px;
+  margin-top: 24px;
+}
+
+.left-review-container {
+  width: 20%;
+}
+
+.product-reviews-container {
+  padding-left: 100px;
+  width: 50%;
+}
+
+.product-ratings-label {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.product-review-label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  line-height: 24px;
+}
+
+.review-location-label {
+  font-size: 14px;
+  color: #565959;
+}
+
+.placeholder-pic {
+  display: inline-flex;
+}
+
+.placeholder {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.review-name {
+  font-size: 13px;
+  line-height: 19px;
+  color: #0f1111;
+  margin: auto;
+}
+
+.review-heading {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.product-review {
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.review-body {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.review-creator-label {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.review-creator-comment {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.review-creator-button-container {
+  background: 0 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+  height: 29px;
+  width: 100%;
+  border-color: #d5d9d9;
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* .review-creator-button {
+  color: #0f1111;
+  padding: 0 10px 0 11px;
+  font-size: 13px;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+} */
+
+.review-creator-button {
+  color: #0f1111;
+  background-color: transparent;
+  border: 0;
+  display: block;
+  font-size: 13px;
+  line-height: 29px;
+  margin: 0;
+  outline: 0;
+  padding: 0 10px 0 11px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.star-ratings-image {
+  margin-right: 1px;
+  height: 16px;
+}
+
+.review-rating {
+  margin: 5px 0px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.authorized-review-buttons {
+  margin-top: 10px;
+  display: flex;
+}
+
+.edit-button-container,
+.delete-button-container {
+  border-radius: 8px;
+  box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+  background: #fff;
+  border-color: #d5d9d9;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  text-align: center;
+  text-decoration: none !important;
+  vertical-align: middle;
+  font-size: 11px;
+  line-height: 20px;
+  height: 20px;
+  padding: 0 6px 0 7px;
+  margin-right: 5px;
+}
+
+.delete-button {
+  background: 0;
+  border: 0;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.authorized-button-label {
+  width: 77px;
+}

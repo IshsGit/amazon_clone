@@ -98,6 +98,12 @@ function Navigation() {
     });
     return total;
   };
+
+  const handlesubmit = (e) => {
+    e.preventDefault();
+    setSearchTerm(e.target.value); 
+  }
+
   return (
     <>
      <div className='main-page-container'>
@@ -114,7 +120,9 @@ function Navigation() {
         </div>
 
     <div className="header-search">
+     
     <input className="header-searchInput" type="text" value={searchTerm} onChange={handleSearch}/>
+
     <Link className="category-link" key={searchTerm} to={`/${searchTerm}`} ><SearchIcon className="header-searchIcon" /></Link>
     </div>
 

@@ -66,9 +66,9 @@ function DetailProductPage() {
     return <ProductIndexItem key={idx} product={product} />
   });
 
-  // const productDetails = products.map((product, idx) => {
-  //   return <AllProducts key={idx} product={product} />
-  // });
+  const productDetails = products.map((product, idx) => {
+    return <AllProducts key={idx} product={product} />
+  });
 
   const productCat = products.map((product, idx) => {
     return <ProductGetCategory key={idx} product={product} />
@@ -81,13 +81,15 @@ function DetailProductPage() {
 
    //needs unique key
 
-  const quantities = numArr.map((idx) => {
+  const quantities = numArr.map((num,idx) => {
     
-      if(numArr[idx]==='0') 
-        {return <option hidden key={numArr[idx]}>{`Qty: ${count}`}</option>;} 
+      if(numArr[num]==='0') 
+        {return <option key={idx}>{`Qty: ${count}`}</option>;} 
       else 
-        { return(<option value={numArr[idx]} key={numArr[idx]}> {numArr[idx]}  </option>)}
+        { return(<option value={numArr[num]} key={idx}> {numArr[num]}  </option>)}
   });
+
+  
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -99,34 +101,36 @@ function DetailProductPage() {
   };
 
 
-  const productDetails = products.map((product,idx) => {
+  // const productDetails = products.map((product,idx) => {
     
-    return <AllProducts key={idx} product={product} />
-  });
+  //   return <AllProducts key={idx} product={product} />
+  // });
 
 
  function refreshPage() {
   window.location.reload(false);
 };
 
-const productlistings = products.map((item,idx)=>{
+const productlistings = products.map((item,idx) => {
   if(product.category === productCat[idx].props.product.category && item!==product){
     
-    return <div className="tile2-detail" style={{marginTop:"2%", marginRight:"3%"}}>
-      <div className='tile-inner' >
-      <div className='tile-inner-box-thumbnail'><button className='similar-products' type="button" onClick={ refreshPage } style={{border: "none",  padding: 0,  background: "none"}}> <NavLink  to={`/products/${product.id}/review`}>
-        <div className='similar-thumbnail'>{productItems[idx]}</div>
-        </NavLink></button>       </div>
-      <button className='similar-products' type="button" onClick={ refreshPage } style={{border: "none",  padding: 0,  background: "none"}}> 
-      <NavLink to={`/products/${product.id}/review`}>
-       <div > {productDetails[idx] }</div>
-        </NavLink>
-      
-      </button> 
-      </div>
-      </div>
+    return <div key={idx} className="tile2-detail" style={{marginTop:"2%", marginRight:"3%"}}>
+              <div className='tile-inner' >
+                <div className='tile-inner-box-thumbnail'>
+                  <button className='similar-products' type="button" onClick={ refreshPage } style={{border: "none",  padding: 0,  background: "none"}}>
+                      <div className='similar-thumbnail'>{productItems[idx]}</div>
+                  </button>       
+                </div>
+                <button className='similar-products' type="button" onClick={ refreshPage } style={{border: "none",  padding: 0,  background: "none"}}> 
+                 <div> {productDetails[idx] }</div>
+                </button> 
+              </div>
+            </div>
+  } else{
+    return <div></div>
   }
 });
+
   return (
     <>
     <div className="parent-container">
@@ -139,10 +143,8 @@ const productlistings = products.map((item,idx)=>{
     <div className="product-title-details">
       {product.title}
       <div className="product__rating">
-          Rating:&nbsp;{Array(product.rating)
-            .fill()
-            .map((_, i) => (
-              <p>🌟</p> 
+          Rating:&nbsp;{Array(product.rating).fill().map((_, idx) => (
+              <p key={idx}>🌟</p> 
             ))} &nbsp;&nbsp;
             {Math.round(getRandomReviews())}
            <p>{Math.round(Math.random(1,1000))} reviews</p>
@@ -215,7 +217,7 @@ const productlistings = products.map((item,idx)=>{
                 value={`Qty: ${count}`}
                 onChange={(e) => setCount(e.target.value)}
               >
-                {quantities}
+                {/* {quantities} */}
               </select>
             </label>
           </div>
@@ -230,7 +232,7 @@ const productlistings = products.map((item,idx)=>{
     
 
  <div className='rest-of-products'>
- { productlistings}
+ {/* { productlistings} */}
 
  
    </div>

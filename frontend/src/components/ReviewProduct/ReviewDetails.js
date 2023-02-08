@@ -4,7 +4,8 @@ import { useParams, useHistory, Link } from "react-router-dom";
 import { getReview, receiveReview } from "../../store/review";
 import { deleteReview } from "../../store/review";
 import "./ReviewDetail.css";
-
+import emptyStar from "../../assets/empty_star.png";
+import filledStar from "../../assets/filled_star.png";
 
 function ReviewShowPage() {
   const { reviewId, productId } = useParams();
@@ -46,14 +47,22 @@ function ReviewShowPage() {
     history.push(`/products/${productId}`);
   };
 
+  let rating = 0;
+  review.forEach((review) => {
+    rating += review.rating;
+  });
+  if (rating > 0) {
+    rating = (rating / review.length).toFixed(1);
+  }
+
+
+
   return (
     <div className="product-review">
       <div className="customer-review-label">Customer Review</div>
+     
       <div className="review-name-container">
-        <div className="placeholder-pic">
-          <img className="placeholder" src='{placeholder}' alt="avatar"></img>
-          <span className="review-name">{review.user.name}</span>
-        </div>
+       
       </div>
       <div className="review-rating">
       </div>

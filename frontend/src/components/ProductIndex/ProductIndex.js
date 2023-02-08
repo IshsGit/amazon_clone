@@ -7,7 +7,7 @@ import { useParams, Link } from 'react-router-dom';
 import "./mainpage.css";
 import AllProducts from './products';
 import ProductIndexItem from './ProductIndexItem';
-import ProductGetCategory from './productGetCategory';
+
 
 
 const ProductIndex = () => {
@@ -33,33 +33,34 @@ const ProductIndex = () => {
     />
   });
 
-  const productDetails = products.map((product,idx) => {
+  // const productDetails = products.map((product,idx) => {
     
-    return <AllProducts key={idx} product={product} />
-  });
+  //   return <AllProducts key={idx} product={product} />
+  // });
 
 
   // const productCat = products.map(product => {
     
   //   return <ProductGetCategory key={product.id} product={product} />
   // });
-  const cathash={}
-  const productCat = products.map((product,idx) => {
-    cathash[product.category] = idx;
-    return product.category;
-  });
+
+  // const productCat = products.map((product,idx) => {
+  //   cathash[product.category] = idx;
+  //   return product.category;
+  // });
 
 
 
-  const catArr = Object.keys(cathash);
-  console.log('category', catArr)
 
 
-  const productSearchDetails = productDetails.map((productsD,idx) => {
+
+
+  const productSearchDetails = productItems.map((productsD,idx) => {
+    
     if(category.toLowerCase() === productsD.props.product.category.toLowerCase()|| (productsD.props.product.category.toLowerCase().includes(category.toLowerCase())) || (productsD.props.product.title.toLowerCase().includes(category.toLowerCase()))){
       return  <>
       
-      <div className='product-thumbnail'>
+      <div key={idx} className='product-thumbnail' >
       <div className='product-container'>
         <div className='product-title'> <Link to={`/products/${products[idx].id}`}>{products[idx].title}</Link>
         <div className="product__rating">
@@ -71,7 +72,8 @@ const ProductIndex = () => {
             {Math.round(getRandomReviews())}
            <p>{Math.round(Math.random(1,1000))} reviews</p>
         </div>
-        <div className='product-desc'>{products[idx].description}</div>
+        <div  className='product-desc'>About this item: {products[idx].description} </div>
+   
         </div>
           <div className="tile-cat">
                {productItems[idx]}   
@@ -82,7 +84,7 @@ const ProductIndex = () => {
       </div>
       <hr></hr>
       </>
-    }
+    } 
   });
 
 

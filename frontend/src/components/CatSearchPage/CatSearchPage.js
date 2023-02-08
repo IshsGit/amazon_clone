@@ -36,9 +36,9 @@ function CatSearchPage() {
 
   return (
     <div className="category-bar-container">
-      <Link className="category-link" key="products" to="/products">
+   
         <Link className='all-products' to='/'>All Products </Link>
-      </Link>
+   
       {catLinks}
     </div>
   );
