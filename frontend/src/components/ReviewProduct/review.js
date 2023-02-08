@@ -50,7 +50,7 @@ function Reviews({productId}) {
     let stars = [];
     for (let i = 0; i < review.rating; i++) {
       stars.push(
-        <img
+        <img key={i}
           className="star-ratings-image"
           src={filledStar}
           alt="filled-star"
@@ -59,7 +59,7 @@ function Reviews({productId}) {
     }
     for (let i = review.rating; i < 5; i++) {
       stars.push(
-        <img
+        <img key={i}
           className="star-ratings-image"
           src={emptyStar}
           alt="empty-star"
@@ -107,7 +107,7 @@ function Reviews({productId}) {
     let stars = [];
     for (let i = 0; i < Math.floor(rating); i++) {
       stars.push(
-        <img
+        <img key={i}
           className="star-ratings-image"
           src={filledStar}
           alt="filled-star"
@@ -116,7 +116,7 @@ function Reviews({productId}) {
     }
     for (let i = rating; i < 5; i++) {
       stars.push(
-        <img
+        <img key={i}
           className="star-ratings-image"
           src={emptyStar}
           alt="empty-star"

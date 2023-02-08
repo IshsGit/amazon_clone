@@ -127,7 +127,7 @@ const productlistings = products.map((item,idx) => {
               </div>
             </div>
   } else{
-    return <div></div>
+    return <div key={idx}></div>
   }
 });
 
@@ -232,7 +232,7 @@ const productlistings = products.map((item,idx) => {
     
 
  <div className='rest-of-products'>
- {/* { productlistings} */}
+ { productlistings}
 
  
    </div>
