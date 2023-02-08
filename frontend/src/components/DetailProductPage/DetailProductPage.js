@@ -112,10 +112,17 @@ function DetailProductPage() {
 const productlistings = products.map((item,idx)=>{
   if(product.category === productCat[idx].props.product.category && item!==product){
     
-    return <div className="tile2-detail" style={{marginTop:"5%", marginRight:"3%"}}>
-      <div className='tile-inner'>
-      <button classname='similar-products' type="button" onClick={ refreshPage }> <NavLink to={`/products/${product.id}/review`}>{productItems[idx]}</NavLink></button>       
-     
+    return <div className="tile2-detail" style={{marginTop:"2%", marginRight:"3%"}}>
+      <div className='tile-inner' >
+      <div className='tile-inner-box-thumbnail'><button className='similar-products' type="button" onClick={ refreshPage } style={{border: "none",  padding: 0,  background: "none"}}> <NavLink  to={`/products/${product.id}/review`}>
+        <div className='similar-thumbnail'>{productItems[idx]}</div>
+        </NavLink></button>       </div>
+      <button className='similar-products' type="button" onClick={ refreshPage } style={{border: "none",  padding: 0,  background: "none"}}> 
+      <NavLink to={`/products/${product.id}/review`}>
+       <div > {productDetails[idx] }</div>
+        </NavLink>
+      
+      </button> 
       </div>
       </div>
   }

@@ -120,7 +120,7 @@
     background-color: #eaeded;
     display: flex;
     flex-wrap: wrap;
-    
+    padding-bottom: 2%;
   }
 
   .left-container {
