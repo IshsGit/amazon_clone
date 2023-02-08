@@ -14,11 +14,8 @@ const ProductIndex = () => {
 
   
   const {category}  = useParams();
-
   const dispatch = useDispatch();
-  
   const products = useSelector(getProducts);   
-   
   function getRandomReviews(){
     const min = Math.ceil(1);
    const max = Math.floor(1000);
@@ -31,14 +28,14 @@ const ProductIndex = () => {
 
   const productItems = products.map((product, idx) => {
     
-    return <ProductIndexItem key={product.id} product={product} 
+    return <ProductIndexItem key={idx} product={product} 
     
     />
   });
 
-  const productDetails = products.map(product => {
+  const productDetails = products.map((product,idx) => {
     
-    return <AllProducts key={product.id} product={product} />
+    return <AllProducts key={idx} product={product} />
   });
 
 
@@ -49,16 +46,10 @@ const ProductIndex = () => {
   const cathash={}
   const productCat = products.map((product,idx) => {
     cathash[product.category] = idx;
-    if(category === (Object.keys(cathash))[idx]){
-      
-    }
     return product.category;
   });
 
 
-  const catDup = productCat.map((category,idx)=>{
-    cathash[category] = idx;
-  });
 
   const catArr = Object.keys(cathash);
   console.log('category', catArr)

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useHistory} from 'react-router-dom';
+import { useParams, useHistory, Link, } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProduct } from '../../store/products';
 import prime from "../../assets/prime.png";
@@ -16,13 +17,16 @@ function DetailProductPage() {
 
   const dispatch = useDispatch();
   const {productId}  = useParams();
- 
+  const {category}  = useParams();
   const userId = useSelector((state) => state.session.user?.id);
   const product = useSelector(state => state.products[productId] ? state.products[productId] : {})
   const [count, setCount] = useState(1);
   const history = useHistory();
   const products = useSelector(getProducts);
   const reviews = useSelector(receiveReviews);
+
+
+
 
   useEffect(() => {
     dispatch(fetchProduct(productId));
@@ -62,9 +66,9 @@ function DetailProductPage() {
     return <ProductIndexItem key={idx} product={product} />
   });
 
-  const productDetails = products.map((product, idx) => {
-    return <AllProducts key={idx} product={product} />
-  });
+  // const productDetails = products.map((product, idx) => {
+  //   return <AllProducts key={idx} product={product} />
+  // });
 
   const productCat = products.map((product, idx) => {
     return <ProductGetCategory key={idx} product={product} />
@@ -75,12 +79,14 @@ function DetailProductPage() {
       numArr.push(i.toString());
    }
 
+   //needs unique key
 
   const quantities = numArr.map((idx) => {
+    
       if(numArr[idx]==='0') 
-        {return <option hidden key={idx}>{`Qty: ${count}`}</option>;} 
+        {return <option hidden key={numArr[idx]}>{`Qty: ${count}`}</option>;} 
       else 
-        { return(<option value={numArr[idx]} key={idx}> {numArr[idx]}  </option>)}
+        { return(<option value={numArr[idx]} key={numArr[idx]}> {numArr[idx]}  </option>)}
   });
   
   const handleSubmit = (e) => {
@@ -91,16 +97,29 @@ function DetailProductPage() {
       history.push("/login");
     setCount(1);
   };
-  
-  const filter = products.map((product, idx) => {
-    // if(product.category === products[productId-1].category )
-    //    return <div className='tile-inner'>
-    //       {productItems[idx]}
 
-    //       <h2>{productDetails[idx]}</h2>
-    //    </div>
+
+  const productDetails = products.map((product,idx) => {
+    
+    return <AllProducts key={idx} product={product} />
   });
 
+
+ function refreshPage() {
+  window.location.reload(false);
+};
+
+const productlistings = products.map((item,idx)=>{
+  if(product.category === productCat[idx].props.product.category && item!==product){
+    
+    return <div className="tile2-detail" style={{marginTop:"5%", marginRight:"3%"}}>
+      <div className='tile-inner'>
+      <button classname='similar-products' type="button" onClick={ refreshPage }> <NavLink to={`/products/${product.id}/review`}>{productItems[idx]}</NavLink></button>       
+     
+      </div>
+      </div>
+  }
+});
   return (
     <>
     <div className="parent-container">
@@ -204,8 +223,8 @@ function DetailProductPage() {
     
 
  <div className='rest-of-products'>
- 
-  {filter[2]}
+ { productlistings}
+
  
    </div>
    <div className="review-section-container">

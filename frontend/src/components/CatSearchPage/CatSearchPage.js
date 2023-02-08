@@ -13,8 +13,8 @@ function CatSearchPage() {
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
-  const getCat = products.map(product => {
-    return <GetCat key={product.id} product={product} />
+  const getCat = products.map((product,idx) => {
+    return <GetCat key={idx} product={product} />
   });
 
   const arr =Array(getCat.length)
@@ -28,8 +28,8 @@ function CatSearchPage() {
   
   const categories = arr.filter(rem);
 
-  const catLinks = categories.map((category) => (
-    <Link className="category-link" key={category} to={`/${category}`}>
+  const catLinks = categories.map((category,idx) => (
+    <Link className="category-link" key={idx} to={`/${category}`}>
       {category}
     </Link>
   ));

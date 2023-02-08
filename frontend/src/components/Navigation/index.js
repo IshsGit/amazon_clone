@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ProductIndexItem from './ProductIndexItem';
 import { getProducts } from '../../store/products';
 import { fetchProducts } from '../../store/products';
-
+import { NavLink } from "react-router-dom";
 
 function Navigation() {
 
@@ -108,8 +108,9 @@ function Navigation() {
         src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
       />
         </Link>
-        <div className="external-link" >  <a  className='github' href="https://github.com/IshsGit/amazon_clone"><GitHubIcon /></a>
-        <a className='linkedin' href="https://www.linkedin.com/"><LinkedInIcon /></a>
+        <div className="external-link" >    <NavLink className='github' to="https://github.com/IshsGit/amazon_clone"><GitHubIcon /></NavLink> 
+       
+        <NavLink className='linkedin' to="https://www.linkedin.com/"><LinkedInIcon /></NavLink>
         </div>
 
     <div className="header-search">

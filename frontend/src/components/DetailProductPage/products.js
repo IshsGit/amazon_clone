@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+import { NavLink } from 'react-router-dom';
 
 
 const AllProducts= (props) => {
@@ -10,7 +10,8 @@ const AllProducts= (props) => {
 
   return (
     <>
-      <a href={`/products/${product.id}`}>{title}</a>
+
+      <NavLink to={`/products/${product.id}`}>{title}</NavLink>
       </>
       
 
