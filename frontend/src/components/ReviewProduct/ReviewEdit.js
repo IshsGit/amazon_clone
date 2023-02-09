@@ -63,8 +63,6 @@ function ReviewEditForm() {
     );
   };
 
-  
-
   const handleSelect = (e, num) => {
     e.preventDefault();
     if(num === 5){

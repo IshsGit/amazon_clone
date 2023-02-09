@@ -1,12 +1,12 @@
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./CartItem.css";
+import "./CartIndex.css";
 import { clearCart, updateQuantity } from "../../store/cart";
 import { useDispatch, useSelector } from "react-redux";
 import prime from "../../assets/prime.png";
 
-function CartItem({ product }) { 
+function CartIndex({ product }) { 
   const user = useSelector((state) => state.session.user?.id);
   const { id, name, price } = product;
   const dispatch = useDispatch();
@@ -72,4 +72,4 @@ function CartItem({ product }) {
   );
 }
 
-export default CartItem;
+export default CartIndex;

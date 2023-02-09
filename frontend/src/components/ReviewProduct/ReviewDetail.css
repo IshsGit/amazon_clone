@@ -2,16 +2,6 @@
 
 .product-review {
   font-family: "Amazon Ember", sans-serif;
-  min-width: 998px;
- padding-top: 20px;
- padding-left: 30px;
-  margin: 0 auto;
-  text-rendering: optimizeLegibility;
-}
+  padding-left: 30px;
 
-.customer-review-label {
-    font-size: 28px;
-    font-weight: 400;
-    line-height: 36px;
-    padding-bottom: 4px;
 }

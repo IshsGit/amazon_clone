@@ -3,13 +3,13 @@ import {receiveReviews, deleteReview, receiveReviewsByProduct} from "../../store
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import "./review.css";
-import emptyStar from "../../assets/empty_star.png";
-import filledStar from "../../assets/filled_star.png";
+import noStar from "../../assets/empty_star.png";
+import allStar from "../../assets/filled_star.png";
 
 function Reviews({productId}) {
  
   const dispatch = useDispatch();
-   const history = useHistory();
+  const history = useHistory();
   const reviews = useSelector(receiveReviews);
   const userId = useSelector((state) => state.session.user?.id);
 
@@ -21,66 +21,64 @@ function Reviews({productId}) {
     history.push(`/products/${productId}/review/${review.id}`);
   };
 
-  const displayStarRating = (review) => {
-    let stars = [];
-    for (let i = 0; i < review.rating; i++) {
-      stars.push(
-        <img key={i}
-          className="star-ratings-image"
-          src={filledStar}
-          alt="filled-star"
-        ></img>
-      );
-    }
-    for (let i = review.rating; i < 5; i++) {
-      stars.push(
-        <img key={i}
-          className="star-ratings-image"
-          src={emptyStar}
-          alt="empty-star"
-        ></img>
-      );
+  const countReview = (rating,stars) => {
+    let idx=0;
+    while(idx <rating){
+      stars.push(<img key={idx} className="star-png" src={allStar}  alt="star"></img>);
+      idx+=1;
     }
     return stars;
+
+  }
+  const showRating = (rating, stars) => {
+    let idx = rating;
+    while(idx < 5){
+    stars.push(<img key={idx} className="star-png" src={noStar}  alt="star"></img>);
+    idx+=1;
+  }
+    return stars;
+  }
+  const showReviewRating = (review) => {
+    let starArr = [];
+    countReview(review.rating, starArr)
+    showRating(review.rating, starArr)
+    return starArr;
   };
 
-  const listReviews = reviews.map((review, idx) => (
+
+  const showReviews = reviews.map((review, idx) => (
     <div key={idx} className="product-review">
       {review.headline}
-      <div className="review-name-container">
-        <div className="placeholder-pic">
-        
-          <span className="review-name">By {review.user.name}</span>
-        </div>
-      </div>
+          <div className="username">By {review.user.name}</div>
       <div
-        className="review-rating"
+        className="show-rating"
         onClick={(e) => handleEdit(e, review)}
       >
-        <div className="review-star-ratings">
-          {displayStarRating(review)}{" "}
-          <span className="review-heading">{review.headline}</span>
+        <div className="user-stars">
+          {showReviewRating(review)}{" "}
+          {review.headline}
         </div>
       </div>
       
-      <div className="review-body">{review.body}</div>
+      <div className="user-feedback">{review.body}</div>
       {review.userId === userId && (
-        <div className="authorized-review-buttons">
-          <div className="edit-button-container">
+        <>
+          <div className="edit">
             <Link to={`/products/${productId}/review/${review.id}/edit`}>
-              <div className="authorized-button-label">Edit</div>
+            Edit
             </Link>
           </div>
-          <div className="delete-button-container">
+          <div className="delete">
             <button
               className="delete-button"
               onClick={(e) => dispatch(deleteReview(review.id))}
             >
-              <div className="authorized-button-label">Delete</div>
+             Delete
             </button>
           </div>
-        </div>
+        </>
       )}
+      <hr></hr>
     </div>
   ));
   
@@ -97,19 +95,12 @@ function Reviews({productId}) {
     <>
 
       <div className="main-review-container">
-        
         <div className="left-review-container">
-          
           <div className="product-ratings-container">
-        
-         
           </div>
-         
           <div className="review-creator-container">
             <div className="top-half">
-            
             <div className="review-creator-button-container">
-             
               <Link
                 className="review-creator-button"
                 to={`/products/${productId}/review/`}
@@ -120,13 +111,12 @@ function Reviews({productId}) {
             </div>
           </div>
         </div>
-        <div className="product-reviews-container">
           <div className="product-review-label">
-            User Reviews
+            Read User Reviews Below
           </div>
-          {listReviews}
+          {showReviews}
         </div>
-      </div>
+    
     </>
   );
 }

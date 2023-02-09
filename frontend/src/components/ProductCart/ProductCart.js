@@ -1,4 +1,4 @@
-import CartItem from "./CartItem";
+import CartIndex from ".";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCart, getCarts, deleteCart } from "../../store/cart";
@@ -13,7 +13,7 @@ function ProductCart() {
 
   for(let i=0; i<cart.length; i++){
     cartItems.push(
-      <><CartItem key={i} product={cart[i]} /></>
+      <><CartIndex key={i} product={cart[i]} /></>
     )
   }
   
@@ -40,11 +40,9 @@ function ProductCart() {
 
   const listCart = cart.map((product,idx) => (
           <div key={idx}>
-            <CartItem product={product} />
+            <CartIndex product={product} />
              <hr />
           </div>
-     
-   
   ));
 
   useEffect(() => {

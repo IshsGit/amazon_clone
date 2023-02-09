@@ -9,9 +9,10 @@
 .product-review-label{
   justify-content: center;
   padding-left: 2%;
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 2%;
 }
-
-
 
 .review-creator-button {
   color: green;
@@ -21,13 +22,18 @@
   white-space: nowrap;
 }
 
-.star-ratings-image {
+.star-png {
   margin-right: 1px;
   height: 16px;
+
+}
+
+.user-stars{
+  pointer-events: none;
 }
 
 
-.review-name{
+.username{
   
   font-weight: bold;
 }
@@ -36,7 +42,7 @@
 .review-rating {
   margin: 5px 0px;
   width: fit-content;
-  cursor: pointer;
+  pointer-events: none;
 }
 
 .authorized-review-buttons {
@@ -44,23 +50,17 @@
   display: flex;
 }
 
-.edit-button-container,
-.delete-button-container {
-  border-radius: 8px;
-  box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
-  background: #fff;
-  border-color: #d5d9d9;
+.edit,
+.delete {
   border-style: solid;
+  padding: 0;
+  text-align: center;
   border-width: 1px;
   cursor: pointer;
   display: inline-block;
-  padding: 0;
-  text-align: center;
-  text-decoration: none !important;
-  vertical-align: middle;
+  height: 20px;
   font-size: 11px;
   line-height: 20px;
-  height: 20px;
   padding: 0 6px 0 7px;
   margin-right: 5px;
 }
@@ -72,6 +72,3 @@
   cursor: pointer;
 }
 
-.authorized-button-label {
-  width: 77px;
-}
