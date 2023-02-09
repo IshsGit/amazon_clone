@@ -7,7 +7,6 @@ import "./ReviewDetail.css";
 
 
 function ReviewShowPage() {
-  console.log('in reviewshow')
   const { reviewId, productId } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();

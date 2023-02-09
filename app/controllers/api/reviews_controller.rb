@@ -14,7 +14,6 @@ class Api::ReviewsController < ApplicationController
     def show
         @user = current_user
         @review = Review.find_by(user_id: params[:id])
-        # debugger;
         if @review
             render :show
         else
@@ -41,7 +40,6 @@ class Api::ReviewsController < ApplicationController
     end
 
     def destroy
-        # debugger;
         @review = current_user.reviews.find_by(id: params[:id])
         unless @review
           render json: { message: 'Unauthorized' }, status: :unauthorized
