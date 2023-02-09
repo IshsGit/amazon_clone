@@ -48,7 +48,6 @@ function ProductCart() {
     dispatch(getCart());
   }, [dispatch]);
 
-
   const getQuantity = () => {
     let count = 0;
     for(let i=0; i<cart.length; i++){
@@ -58,22 +57,17 @@ function ProductCart() {
   }
   return (
     <>
-       <div className="background-container">
-      <div className="cart-background">
-        {getQuantity() > 0 && (
-          <>
+       <div >
+      <div className="cart-grid">
+        {getQuantity() && <div>
             <div className="cart-container">
-              <div className="cart-content">{listCart}</div>
-              <div className="sub-total-container">
-                Your total ({getQuantity()}{" "}
-                {getQuantity() > 1 ? "items" : "item"}):&nbsp;
-                <span className="sub-total-amt">${sum}</span>
-              </div>
+              {listCart} Your total ({getQuantity()}{" "}
+                {getQuantity() > 1 ? "items" : "item"})${sum}
             </div>
-            <div className="checkout-container">
-              <div className="sub-total-container">
+            <div className="checkout-page-cart">
+              <div className="total-cost">
                 Your total: ({getQuantity()}{" "}
-                {getQuantity() > 1 ? "items" : "item"}):&nbsp;
+                {getQuantity() > 1 ? "items" : "item"})
                 <span className="sub-total-amt">${sum}</span>
               </div>
               <form onSubmit={handleSubmit}>
@@ -84,21 +78,18 @@ function ProductCart() {
                 ></input>
               </form>
             </div>
-          </>
-        )}
-        {getQuantity() < 1 && (
-          <>
-            <div className="empty-cart-page">
+         </div>}
+          <div>
+            <div className="show-no-cart">
               <div className="checkout-cart">
               </div>
               <div>
-                <p className="cart-empty-label">Your Cart is empty</p>
+                <div className="empty-cart-msg">Your Cart is empty</div>
               </div>
             </div>
-          </>
-        )}
+          </div>
+        
       </div>
-    
     </div>
 </>
   );

@@ -6,7 +6,7 @@
 .checkout-image {
   height: 350px;
 }
-.checkout-container {
+.checkout-page-cart {
   margin-left: 5px;
   display: flex;
   flex-direction: column;
