@@ -41,15 +41,10 @@ function CartItem({ product }) {
       <div className="item-center-container">
         <div className="item-name-container">
           <div className="cart-item-name">{product.title}</div>
-          <div className="cart-stock-label">In Stock</div>
+         
           <div className="prime"><img src={prime} alt="prime-logo" className="prime-logo"></img></div>
-          <div className="cart-eligible">
-            Eligble for FREE Shipping & <span>FREE Returns</span>
-          </div>
-          <form className="cart-form">
-            <input type="checkbox"></input>
           
-          </form>
+     
           <div className="quantity-section">
             <div className="quantity">
               <label className="box-shadow">

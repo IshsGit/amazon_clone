@@ -83,14 +83,14 @@ function ProductCart() {
               
               <div className="cart-content">{listCart}</div>
               <div className="sub-total-container">
-                sum ({calculateCartSize()}{" "}
+                Your total ({calculateCartSize()}{" "}
                 {calculateCartSize() > 1 ? "items" : "item"}):&nbsp;
                 <span className="sub-total-amt">${sum}</span>
               </div>
             </div>
             <div className="checkout-container">
               <div className="sub-total-container">
-                sum ({calculateCartSize()}{" "}
+                Your total: ({calculateCartSize()}{" "}
                 {calculateCartSize() > 1 ? "items" : "item"}):&nbsp;
                 <span className="sub-total-amt">${sum}</span>
               </div>

@@ -284,7 +284,7 @@
 .slider{
   object-fit: contain;
   width: 100;
- 
+  
 
 
 }
@@ -308,7 +308,7 @@
   top:25%;
   right: 32px;
   font-size: 3rem;
-  color:#000;
+  color:rgb(173, 20, 20);
   z-index:1;
   cursor: pointer;
   user-select: none;
@@ -320,7 +320,7 @@
   top:25%;
   left: 32px;
   font-size: 3rem;
-  color:#000;
+  color:rgb(173, 20, 20);
   z-index:1;
   cursor: pointer;
   user-select: none;
