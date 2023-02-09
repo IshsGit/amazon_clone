@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import "./CartIndex.css";
 import { clearCart, updateQuantity } from "../../store/cart";
 import { useDispatch, useSelector } from "react-redux";
-import prime from "../../assets/prime.png";
 
-function CartIndex({ product }) { 
+
+function CartItem({ product }) { 
   const user = useSelector((state) => state.session.user?.id);
   const { id, name, price } = product;
   const dispatch = useDispatch();
@@ -33,18 +33,14 @@ function CartIndex({ product }) {
   return (
    <>
    <div className="cart-item-container">
-      <div className="cart-item-image-container">
+      <div className="product-container-cart">
         <Link to={`/products/${id}`} target="_blank">
-          <img className="cart-item-image" src={product.photoURL} alt="product"></img>
+          <img className="product-image-cart" src={product.photoURL} alt="product"></img>
         </Link>
       </div>
       <div className="item-center-container">
         <div className="item-name-container">
           <div className="cart-item-name">{product.title}</div>
-         
-          <div className="prime"><img src={prime} alt="prime-logo" className="prime-logo"></img></div>
-          
-     
           <div className="quantity-section">
             <div className="quantity">
               <label className="box-shadow">
@@ -53,13 +49,13 @@ function CartIndex({ product }) {
                   value={`Qty: ${count}`}
                   onChange={(e) => setCount(e.target.value)}
                 >
-                    {totalQuantityions}
-                </select>
+                    {totalQuantityions} 
+                </select><button className="delete-button"
+                onClick={(e) => {dispatch(clearCart(user, id));}}>Delete</button>
               </label>
             </div>
             <div className="cart-item-delete-container">
-            <button
-                onClick={(e) => {dispatch(clearCart(user, id));}}>Delete</button>
+            
             </div>
           </div>
         </div>
@@ -72,4 +68,4 @@ function CartIndex({ product }) {
   );
 }
 
-export default CartIndex;
+export default CartItem;

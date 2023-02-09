@@ -1,4 +1,4 @@
-import CartIndex from ".";
+import CartIndex from "./CartIndex";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCart, getCarts, deleteCart } from "../../store/cart";
