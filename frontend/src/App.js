@@ -11,7 +11,7 @@ import CatSearchPage from "./components/CatSearchPage/CatSearchPage";
 import ProductIndex from "./components/ProductIndex/ProductIndex";
 import ProductCart from "./components/ProductCart/ProductCart";
 import CheckoutPage from "./components/ProductCart/checkout";
-import ReviewCreateForm from "./components/ReviewProduct/ReviewCreate";
+import ReviewForm from "./components/ReviewProduct/ReviewCreate";
 import ReviewShowPage from "./components/ReviewProduct/ReviewDetails";
 import ReviewEditForm from "./components/ReviewProduct/ReviewEditForm";
 function App() {
@@ -60,7 +60,7 @@ function App() {
        <Route exact path="/products/:productId/review">
           <Navigation />
           <CatSearchPage />
-          <ReviewCreateForm />
+          <ReviewForm />
       
         </Route>
         <Route exact path="/products/:productId/review/:reviewId">

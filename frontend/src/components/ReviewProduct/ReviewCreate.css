@@ -96,7 +96,7 @@
   margin-right: 5px;
 }
 
-.review-star-image {
+.star-query {
   height: 100%;
   cursor: pointer;
 }
@@ -114,4 +114,11 @@
   margin-top: 0.9rem;
   color: #d00;
   font-size: 14px;
+}
+
+
+.error-msg{
+  color: red;
+  padding-bottom: 2%;
+  padding-left: 30%;
 }

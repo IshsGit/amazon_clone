@@ -4,26 +4,29 @@ import { useHistory, useParams} from "react-router-dom";
 import { fetchProduct, getProduct } from "../../store/products";
 import { createReview } from "../../store/review";
 import "./ReviewCreate.css";
-import emptyStar from "../../assets/empty_star.png";
-import filledStar from "../../assets/filled_star.png";
+import noStar from "../../assets/empty_star.png";
+import allStar from "../../assets/filled_star.png";
 
-function ReviewCreateForm() {
+function ReviewForm() {
 
-  const userId = useSelector((state) => state.session.user?.id);
+  const [errors, setErrors] = useState([]);
   const history = useHistory();
   const { productId } = useParams();
   const product = useSelector(getProduct(productId));
   const dispatch = useDispatch();
-  const [errors, setErrors] = useState([]);
-  const [headline, setHeadline] = useState("");
-  const [rating, setRating] = useState(0); //must complete
   const [body, setBody] = useState("");
+  const userId = useSelector((state) => state.session.user?.id);
+  const [headline, setHeadline] = useState("");
+  const [rating, setRating] = useState(0); 
 
-  if (userId === undefined) history.push("/login");
+
 
   useEffect(() => {
     dispatch(fetchProduct(productId));
   }, [dispatch, productId]);
+
+
+  if (!userId) history.push("/login");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,52 +55,80 @@ function ReviewCreateForm() {
       });
   };
 
-  const displayError = (input) => {
-    let messages = {
-      headline: {
-        1: "Please enter your headline.",
-        2: "Please enter at most 100 characters.",
-      },
-      rating: {
-        1: "Please select a star rating",
-      },
-      body: {
-        1: "Please add a written review",
-        2: "Please enter at most 20000 characters",
-      },
-    };
-    let result = "";
-    let type;
-    errors.forEach((error) => {
-      type = error.split(" ")[0].toLowerCase();
-      if (type === input) {
-        if (type === "headline" && headline.length > 100) {
-          result = messages[type][2];
-        } else if (type === "body" && body.length > 20000) {
-          result = messages[type][2];
-        } else {
-          result = messages[input][1];
-        }
-      }
-    });
-    return <p>{result}</p>;
-  };
-
-  const handleRatingClick = (e, num) => {
+  const handleSelect = (e, num) => {
     e.preventDefault();
-    const stars = document.querySelectorAll(".review-star-image");
+    if(num === 5){
+      const stars = document.querySelectorAll(".star-query");
+      for(let i =0; i<num;i++){
+      
+        stars.forEach((star, idx) => {
+          if(idx<num){
+            star.src = allStar;
+          } 
+        })
+        
+      }
+    }
 
-    stars.forEach((star, i) => {
-      let pos = i + 1;
-      if (pos <= num) {
-        star.src = filledStar;
+    if(num === 4){
+      const stars = document.querySelectorAll(".star-query");
+      for(let i =0; i<num;i++){
+      
+        stars.forEach((star, idx) => {
+          if(idx<num){
+            star.src = allStar;
+          } else {
+            star.src = noStar;
+          }
+        })
+        
       }
-      if (pos > num) {
-        star.src = emptyStar;
+    }
+    if(num ===3){
+      const stars = document.querySelectorAll(".star-query");
+      for(let i =0; i<num;i++){
+      
+        stars.forEach((star, idx) => {
+          if(idx<num){
+            star.src = allStar;
+          } else {
+            star.src = noStar;
+          }
+        })
+        
       }
-    });
+    }
+    if(num === 2){
+      const stars = document.querySelectorAll(".star-query");
+      for(let i =0; i<num;i++){
+      
+        stars.forEach((star, idx) => {
+          if(idx<num){
+            star.src = allStar;
+          } else {
+            star.src = noStar;
+          }
+        })
+        
+      }
+    }
+    if(num === 1){
+      const stars = document.querySelectorAll(".star-query");
+      for(let i =0; i<num;i++){
+      
+        stars.forEach((star, idx) => {
+          if(idx<num){
+            star.src = allStar;
+          } else {
+            star.src = noStar;
+          }
+        })
+        
+      }
+    }
     setRating(num);
   };
+
   if (!product) return null;
   
   return (
@@ -106,6 +137,11 @@ function ReviewCreateForm() {
    
      <div className="create-review-container">
       <form onSubmit={handleSubmit}>
+      <ul>
+            {errors.map((error) => (
+              <li className="error-msg" key={error}>{error}</li>
+            ))}
+          </ul>
         <div className="create-review-top-container">
           <div className="create-review-label">Create Review</div>
           <div className="create-review-product-container">
@@ -122,61 +158,62 @@ function ReviewCreateForm() {
           </div>
         </div>
         <hr />
+    
         <div className="create-review-rating-container">
           <div className="create-review-rating-label">Overall Rating</div>
           <div className="create-review-star-rating-container">
             <button
               className="review-star"
-              onClick={(e) => handleRatingClick(e, 1)}
+              onClick={(e) => handleSelect(e, 1)}
             >
               <img
-                className="review-star-image"
-                src={emptyStar}
+                className="star-query"
+                src={noStar}
                 alt="star-rating"
               ></img>
             </button>
             <button
               className="review-star"
-              onClick={(e) => handleRatingClick(e, 2)}
+              onClick={(e) => handleSelect(e, 2)}
             >
               <img
-                className="review-star-image"
-                src={emptyStar}
+                className="star-query"
+                src={noStar}
                 alt="star-rating"
               ></img>
             </button>
             <button
               className="review-star"
-              onClick={(e) => handleRatingClick(e, 3)}
+              onClick={(e) => handleSelect(e, 3)}
             >
               <img
-                className="review-star-image"
-                src={emptyStar}
+                className="star-query"
+                src={noStar}
                 alt="star-rating"
               ></img>
             </button>
             <button
               className="review-star"
-              onClick={(e) => handleRatingClick(e, 4)}
+              onClick={(e) => handleSelect(e, 4)}
             >
               <img
-                className="review-star-image"
-                src={emptyStar}
+                className="star-query"
+                src={noStar}
                 alt="star-rating"
               ></img>
             </button>
             <button
               className="review-star"
-              onClick={(e) => handleRatingClick(e, 5)}
+              onClick={(e) => handleSelect(e, 5)}
             >
               <img
-                className="review-star-image"
-                src={emptyStar}
+                className="star-query"
+                src={noStar}
                 alt="star-rating"
               ></img>
             </button>
           </div>
-          <div className="review-error">{displayError("rating")}</div>
+      
         </div>
         <hr />
         <div className="create-review-headline-container">
@@ -188,7 +225,7 @@ function ReviewCreateForm() {
             placeholder="What's most important to know?"
             onChange={(e) => setHeadline(e.target.value)}
           ></input>
-          <div className="review-error">{displayError("headline")}</div>
+        
         </div>
         <hr />
         <div className="create-review-body-container">
@@ -199,7 +236,7 @@ function ReviewCreateForm() {
             placeholder="What did you like or dislike? What did you use this product for?"
             onChange={(e) => setBody(e.target.value)}
           ></textarea>
-          <div className="review-error">{displayError("body")}</div>
+      
         </div>
         <hr />
         <div className="create-review-submit-container">
@@ -216,4 +253,4 @@ function ReviewCreateForm() {
   );
 }
 
-export default ReviewCreateForm;
+export default ReviewForm;
