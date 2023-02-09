@@ -37,7 +37,7 @@ function DetailProductPage() {
   }
 
   
-  // Random num gen, to be updated with dom manipulation
+  // Random num gen, to be updated 
   function getRandomInt(price) {
     const min = Math.ceil(.75);
     const max = Math.floor(.15);
@@ -147,7 +147,7 @@ const productlistings = products.map((item,idx) => {
               <p key={idx}>🌟</p> 
             ))} &nbsp;&nbsp;
             {Math.round(getRandomReviews())}
-           <p>{Math.round(Math.random(1,1000))} reviews</p>
+           <p>{Math.round(Math.random(1,1000))} ratings</p>
         </div>
       <p>Brand: Zish Services</p>
         <hr></hr>

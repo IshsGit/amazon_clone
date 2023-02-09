@@ -111,7 +111,7 @@ function ReviewEditForm() {
     let stars = [];
     for (let i = 0; i < rating; i++) {
       stars.push(
-        <button
+        <button key={i}
           className="review-star"
           onClick={(e) => handleRatingClick(e, i + 1)}
         >
@@ -125,7 +125,7 @@ function ReviewEditForm() {
     }
     for (let i = rating; i < 5; i++) {
       stars.push(
-        <button
+        <button key={i}
           className="review-star"
           onClick={(e) => handleRatingClick(e, i + 1)}
         >
