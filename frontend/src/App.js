@@ -13,6 +13,7 @@ import ProductCart from "./components/ProductCart/ProductCart";
 import CheckoutPage from "./components/ProductCart/checkout";
 import ReviewCreateForm from "./components/ReviewProduct/ReviewCreate";
 import ReviewShowPage from "./components/ReviewProduct/ReviewDetails";
+import ReviewEditForm from "./components/ReviewProduct/ReviewEditForm";
 function App() {
   
   return (
@@ -73,6 +74,11 @@ function App() {
           <CatSearchPage />
           <CheckoutPage />
 
+        </Route>
+        <Route exact path="/products/:productId/review/:reviewId/edit">
+        <Navigation />
+          <CatSearchPage />
+       <ReviewEditForm />
         </Route>
       </Switch>
     </>

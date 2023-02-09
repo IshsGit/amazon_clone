@@ -41,6 +41,7 @@ class Api::ReviewsController < ApplicationController
     end
 
     def destroy
+        # debugger;
         @review = current_user.reviews.find_by(id: params[:id])
         unless @review
           render json: { message: 'Unauthorized' }, status: :unauthorized

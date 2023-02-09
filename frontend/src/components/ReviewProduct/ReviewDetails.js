@@ -4,10 +4,10 @@ import { useParams, useHistory, Link } from "react-router-dom";
 import { getReview, receiveReview } from "../../store/review";
 import { deleteReview } from "../../store/review";
 import "./ReviewDetail.css";
-import emptyStar from "../../assets/empty_star.png";
-import filledStar from "../../assets/filled_star.png";
+
 
 function ReviewShowPage() {
+  console.log('in reviewshow')
   const { reviewId, productId } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -57,6 +57,7 @@ function ReviewShowPage() {
 
 
 
+
   return (
     <div className="product-review">
       <div className="customer-review-label">Customer Review</div>
@@ -70,7 +71,7 @@ function ReviewShowPage() {
         Reviewed in the United States on {createdToDate(review.createdAt)}
       </div>
       <div className="review-body">{review.body}</div>
-      {review.userId === userId && (
+      {review.id === userId && (
         <div className="authorized-review-buttons">
           <div className="edit-button-container">
             <Link to={`/products/${productId}/review/${review.id}/edit`}>

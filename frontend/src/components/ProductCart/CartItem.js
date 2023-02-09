@@ -58,7 +58,6 @@ function CartItem({ product }) {
                   value={`Qty: ${count}`}
                   onChange={(e) => setCount(e.target.value)}
                 >
-                   {/* {(range.map((qty)=>(qty===0) ? (<option hidden key={qty}>{`Qty: ${count}`}</option>) : (<option value={qty} key={qty}>{qty}</option> )))} */}
                     {totalQuantityions}
                 </select>
               </label>

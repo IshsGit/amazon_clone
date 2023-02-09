@@ -1,5 +1,5 @@
 import { useEffect} from "react";
-import {receiveReviews,receiveReviewsByProduct} from "../../store/review";
+import {receiveReviews, deleteReview, receiveReviewsByProduct} from "../../store/review";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import "./review.css";
@@ -11,7 +11,7 @@ function Reviews({productId}) {
   const dispatch = useDispatch();
    const history = useHistory();
   const reviews = useSelector(receiveReviews);
-  
+  const userId = useSelector((state) => state.session.user?.id);
 
   useEffect(() => {
     dispatch(receiveReviewsByProduct(productId));
@@ -92,6 +92,23 @@ function Reviews({productId}) {
         Reviewed in the United States on {createdToDate(review.createdAt)}
       </div>
       <div className="review-body">{review.body}</div>
+      {review.userId === userId && (
+        <div className="authorized-review-buttons">
+          <div className="edit-button-container">
+            <Link to={`/products/${productId}/review/${review.id}/edit`}>
+              <div className="authorized-button-label">Edit</div>
+            </Link>
+          </div>
+          <div className="delete-button-container">
+            <button
+              className="delete-button"
+              onClick={(e) => dispatch(deleteReview(review.id))}
+            >
+              <div className="authorized-button-label">Delete</div>
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   ));
   
