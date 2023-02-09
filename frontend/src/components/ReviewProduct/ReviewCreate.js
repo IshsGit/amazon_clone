@@ -115,7 +115,9 @@ function ReviewCreateForm() {
                 src={product.photo}
                 alt="review-item"
               ></img>
+       
             </div>
+            <div className="product-review-title">{product.title}</div>
             <div className="create-review-product-name">{product.name}</div>
           </div>
         </div>

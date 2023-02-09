@@ -51,15 +51,9 @@
   outline: 0;
 }
 
-.headline-input:focus,
-.body-input:focus {
-  --inner-focus-color: #e77600;
-  --outer-focus-color: rgba(228, 121, 17, 0.5);
-  outline: 0;
-  border: 1px solid var(--inner-focus-color);
-  box-shadow: 0 0 3px 2px var(--outer-focus-color);
+.create-review-star-rating-container{
+  padding-left: 35%;
 }
-
 .body-input {
   background-color: #fff;
   width: 100%;
@@ -109,6 +103,11 @@
 
 .review-product-image {
   height: 50px;
+  padding-left: 40%;
+}
+
+.product-review-title{
+  padding-left: 10%;
 }
 
 .review-error {

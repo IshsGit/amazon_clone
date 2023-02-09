@@ -61,38 +61,8 @@
   justify-content: space-evenly;
 }
 
-.cart-form,
-.form-link {
-  font-size: 12px;
-}
 
-.form-link {
-  color: #007185;
-}
 
-.cart-eligible {
-  margin-bottom: 5px;
-}
-
-.sub-total-container {
-  float: right;
-  font-size: 18px;
-}
-
-.sub-total-amt {
-  font-weight: bold;
-}
-
-.cart-price-label {
-  text-align: end;
-  font-size: 14px;
-  color: #565959;
-  margin-right: 3px;
-}
-
-.top-border {
-  margin-top: 5px;
-}
 
 form > input.checkout-btn {
   margin-top: 15px;

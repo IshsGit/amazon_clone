@@ -79,9 +79,8 @@ function ProductCart() {
         {calculateCartSize() > 0 && (
           <>
             <div className="cart-container">
-              <div className="cart-label">Shopping Cart</div>
-              <div className="cart-price-label">Price</div>
-              <hr className="top-border" />
+            
+              
               <div className="cart-content">{listCart}</div>
               <div className="sub-total-container">
                 sum ({calculateCartSize()}{" "}
