@@ -16,6 +16,7 @@ function ReviewForm() {
   const dispatch = useDispatch();
   const [body, setBody] = useState("");
   const userId = useSelector((state) => state.session.user?.id);
+  const sessionUser = useSelector((state) => state.session.user);
   const [headline, setHeadline] = useState("");
   const [rating, setRating] = useState(0); 
 
@@ -135,15 +136,16 @@ function ReviewForm() {
   
     <>
    
-     <div className="create-review-container">
+     <div className="review-form">
       <form onSubmit={handleSubmit}>
       <ul>
             {errors.map((error) => (
               <li className="error-msg" key={error}>{error}</li>
             ))}
           </ul>
-        <div className="create-review-top-container">
-          <div className="create-review-label">Create Review</div>
+       
+          <div className="review-create">Create Review</div>
+          <div className="username">{sessionUser.name}</div>
           <div className="create-review-product-container">
             <div className="review-product-image-container">
               <img
@@ -156,7 +158,7 @@ function ReviewForm() {
             <div className="product-review-title">{product.title}</div>
             <div className="create-review-product-name">{product.name}</div>
           </div>
-        </div>
+        
         <hr />
     
         <div className="create-review-rating-container">
@@ -216,32 +218,31 @@ function ReviewForm() {
       
         </div>
         <hr />
-        <div className="create-review-headline-container">
-          <div className="create-review-headline-label">Add a headline</div>
+      
+          <div >Add a headline</div>
           <input
-            className="headline-input"
+            className="user-feedback-outer"
             type="text"
             value={headline}
-            placeholder="What's most important to know?"
+            placeholder="Please review our product"
             onChange={(e) => setHeadline(e.target.value)}
           ></input>
         
-        </div>
         <hr />
         <div className="create-review-body-container">
           <div className="create-review-body-label">Add a written review</div>
           <textarea
             value={body}
-            className="body-input"
-            placeholder="What did you like or dislike? What did you use this product for?"
+            className="user-feedback-inner"
+            placeholder="Please review our product!"
             onChange={(e) => setBody(e.target.value)}
           ></textarea>
       
         </div>
         <hr />
-        <div className="create-review-submit-container">
+        <div>
           <input
-            className="create-review-submit-button"
+            className="submit-button"
             type="Submit"
             value="Submit"
             readOnly
