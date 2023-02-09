@@ -112,6 +112,7 @@ function Navigation() {
       <img
         className="header-logo"
         src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
+        alt='img'
       />
         </Link>
         <div className="external-link" >  <a  className='github' href="https://github.com/IshsGit/amazon_clone"><GitHubIcon /></a>

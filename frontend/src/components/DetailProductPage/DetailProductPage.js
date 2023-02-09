@@ -100,13 +100,6 @@ function DetailProductPage() {
     setCount(1);
   };
 
-
-  // const productDetails = products.map((product,idx) => {
-    
-  //   return <AllProducts key={idx} product={product} />
-  // });
-
-
  function refreshPage() {
   window.location.reload(false);
 };

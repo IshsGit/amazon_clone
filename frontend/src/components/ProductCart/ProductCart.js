@@ -46,10 +46,6 @@ function ProductCart() {
   ));
 
   useEffect(() => {
-    calculateSubTotal();
-  });
-
-  useEffect(() => {
     dispatch(getCart());
   }, [dispatch]);
 
@@ -61,15 +57,6 @@ function ProductCart() {
     return size;
   };
 
-  const calculateSubTotal = () => {
-    let total = 0;
-    cart.forEach((product) => {
-      total += product.quantity * product.price;
-    });
-    setSum(Math.round(total * 100) / 100);
-  };
-
-
   return (
     <>
        <div className="background-container">
@@ -77,8 +64,6 @@ function ProductCart() {
         {calculateCartSize() > 0 && (
           <>
             <div className="cart-container">
-            
-              
               <div className="cart-content">{listCart}</div>
               <div className="sub-total-container">
                 Your total ({calculateCartSize()}{" "}
@@ -105,10 +90,9 @@ function ProductCart() {
         {calculateCartSize() < 1 && (
           <>
             <div className="empty-cart-container">
-              <div className="cart-empty-image-container">
-              
+              <div className="empty-item-cart">
               </div>
-              <div className="cart-empty-label-container">
+              <div>
                 <p className="cart-empty-label">Your Cart is empty</p>
               </div>
             </div>

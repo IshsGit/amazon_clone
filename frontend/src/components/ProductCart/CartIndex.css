@@ -12,25 +12,11 @@ div {
     text-align: center;
 }
 
-
-
-
-
 .product-image-cart {
     width: 85%;
 }
 
-.item-name-container {
-    width: 60%;
-    margin-right: 15%;
-}
 
-.prime-logo {
-  position: relative;
-  color: #565959;
-  font-size: 14px;
-  bottom: 4px;
-}
 
 .delete-button{
     background: 0;
@@ -38,4 +24,8 @@ div {
     font-size: 11px;
     cursor: pointer;
     border: 1px solid black;
+}
+
+.cart-item-price{
+    padding-top:2%
 }

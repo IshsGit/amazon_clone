@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 function CartItem({ product }) { 
   const user = useSelector((state) => state.session.user?.id);
-  const { id, name, price } = product;
+  const { id } = product;
   const dispatch = useDispatch();
   const [count, setCount] = useState(product.quantity);
 
@@ -28,8 +28,7 @@ function CartItem({ product }) {
       return (<option value={num} key={num}>{num}</option>);
     }
   });
-
-
+  
   return (
    <>
    <div className="cart-item-container">
@@ -38,11 +37,8 @@ function CartItem({ product }) {
           <img className="product-image-cart" src={product.photoURL} alt="product"></img>
         </Link>
       </div>
-      <div className="item-center-container">
-        <div className="item-name-container">
-          <div className="cart-item-name">{product.title}</div>
-          <div className="quantity-section">
-            <div className="quantity">
+      <div >
+          <div >{product.title}</div>
               <label className="box-shadow">
                 <select
                   className="cart-count-select"
@@ -53,18 +49,12 @@ function CartItem({ product }) {
                 </select><button className="delete-button"
                 onClick={(e) => {dispatch(clearCart(user, id));}}>Delete</button>
               </label>
-            </div>
             <div className="cart-item-delete-container">
-            
             </div>
-          </div>
-        </div>
       </div>
       <div className="cart-item-price">${product.price.toFixed(2)}</div>
     </div>
-   
     </>
-    
   );
 }
 

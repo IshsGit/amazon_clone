@@ -1,6 +1,4 @@
 @import url("https://fonts.cdnfonts.com/css/amazon-ember");
-
-
 .checkout-image-container {
   width: 60%;
 }
@@ -16,7 +14,7 @@
   align-items: center;
 }
 
-.checkout-label {
+.checkout-msg {
   color: #067d62;
   font-weight: 700;
   font-size: 24px;
@@ -25,9 +23,8 @@
   margin-left: 1px;
 }
 
-.confirmed-image {
+.checkmark {
   width: 3%;
-  
 }
 
 .checkout-misc {
@@ -35,9 +32,7 @@
   text-align: center;
 }
 
-
-
-.checkout-message{
+.checkout-email{
   font-family: "Amazon Ember", sans-serif;
   font-weight: bold;
   padding-left: 35px;
