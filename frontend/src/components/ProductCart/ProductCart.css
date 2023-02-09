@@ -1,12 +1,12 @@
 @import url("https://fonts.cdnfonts.com/css/amazon-ember");
 
 
-.empty-cart-container {
+.empty-cart-page {
   display: flex;
   align-items: center;
 }
 
-.empty-item-cart {
+.checkout-cart {
   width: 35%;
   margin-right: 10px;
 }
@@ -22,7 +22,7 @@
 }
 
 .cart-container,
-.empty-cart-container {
+.empty-cart-page {
   margin-top: 2%;
   width: 60%;
   max-width: 80%;

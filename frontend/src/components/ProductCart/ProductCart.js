@@ -18,7 +18,12 @@ function ProductCart() {
   }
   
   let total = 0;
-  let size= 0;
+  const history = useHistory();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(deleteCart());
+    history.push("/carts/checkout");
+  };
   
   useEffect(() => {
     for(let i=0; i<cart.length;i++){
@@ -31,12 +36,6 @@ function ProductCart() {
     dispatch(getCart());
   }, [dispatch]);
   
-  const history = useHistory();
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(deleteCart());
-    history.push("/carts/checkout");
-  };
 
   const listCart = cart.map((product,idx) => (
           <div key={idx}>
@@ -49,32 +48,32 @@ function ProductCart() {
     dispatch(getCart());
   }, [dispatch]);
 
-  const calculateCartSize = () => {
-    let size = 0;
-    cart.forEach((product) => {
-      size += product.quantity;
-    });
-    return size;
-  };
 
+  const getQuantity = () => {
+    let count = 0;
+    for(let i=0; i<cart.length; i++){
+      count+=cart[i].quantity;
+    }
+    return count;
+  }
   return (
     <>
        <div className="background-container">
       <div className="cart-background">
-        {calculateCartSize() > 0 && (
+        {getQuantity() > 0 && (
           <>
             <div className="cart-container">
               <div className="cart-content">{listCart}</div>
               <div className="sub-total-container">
-                Your total ({calculateCartSize()}{" "}
-                {calculateCartSize() > 1 ? "items" : "item"}):&nbsp;
+                Your total ({getQuantity()}{" "}
+                {getQuantity() > 1 ? "items" : "item"}):&nbsp;
                 <span className="sub-total-amt">${sum}</span>
               </div>
             </div>
             <div className="checkout-container">
               <div className="sub-total-container">
-                Your total: ({calculateCartSize()}{" "}
-                {calculateCartSize() > 1 ? "items" : "item"}):&nbsp;
+                Your total: ({getQuantity()}{" "}
+                {getQuantity() > 1 ? "items" : "item"}):&nbsp;
                 <span className="sub-total-amt">${sum}</span>
               </div>
               <form onSubmit={handleSubmit}>
@@ -87,10 +86,10 @@ function ProductCart() {
             </div>
           </>
         )}
-        {calculateCartSize() < 1 && (
+        {getQuantity() < 1 && (
           <>
-            <div className="empty-cart-container">
-              <div className="empty-item-cart">
+            <div className="empty-cart-page">
+              <div className="checkout-cart">
               </div>
               <div>
                 <p className="cart-empty-label">Your Cart is empty</p>
