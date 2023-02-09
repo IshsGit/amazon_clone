@@ -79,7 +79,7 @@ SliderData.map((slide, index)=>{
 
 <div className="tile2">
   <div className='tile-inner'>
-  <h1>Very Merry Deals</h1>
+  <h1>Very The best  Deals</h1>
   {productItems[1]}
  <span>
   <p>up to 24% off</p>
@@ -102,7 +102,7 @@ SliderData.map((slide, index)=>{
 
 <div className="tile2" style={{marginRight: "2%"}}>
   <div className='tile-inner'>
-  <h1>Very Merry Deals</h1>
+  <h1>Very The best  Deals</h1>
   {productItems[3]}
  <span>
   <p>up to 50% off</p>
@@ -115,7 +115,7 @@ SliderData.map((slide, index)=>{
 <div className='rest-of-products'>
 <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
   <div className='tile-inner'>
-  <h1>Very Merry Deals</h1>
+  <h1>Very The best  Deals</h1>
   {productItems[4]}
  <span>
   <p>up to 37% off</p>
@@ -236,6 +236,20 @@ SliderData.map((slide, index)=>{
  <p> Top deal</p>
  </span>
   <h2>{productDetails[14] }</h2>
+  </div>
+
+
+  
+  </div>
+  <div className="tile2" style={{marginTop:"5%", marginRight:"3%"}}>
+  <div className='tile-inner'>
+  <h1>Make the best of this</h1>
+  {productItems[15]}
+ <span>
+  <p>up to 28% off</p>
+ <p> Top deal</p>
+ </span>
+  <h2>{productDetails[15] }</h2>
   </div>
   </div>
   </div>

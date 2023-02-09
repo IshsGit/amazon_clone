@@ -161,7 +161,13 @@ ApplicationRecord.transaction do
         file: "https://amazish-seeds.s3.amazonaws.com/ezgif.com-gif-maker+(4).jpg",
         fileName: "15-pet-toy.jpg",
       }, 
-
+      title: "OWUYUXI Chef Knife, 8 Inch Kitchen Knife, Professional Japanese AUS-10V Super Stainless Steel Chefs Knife with Ergonomic Handle, Durable Sharp Cooking Knife with Gift Box",
+      description: "This 8 inch Professional chef's knife designed to perform well at many differing kitchen tasks， It can be used for your daily kitchen tasks of chopping, slicing, dicing and mincing of all kinds of meat, vegetables, fruits and bread. This chef knife has been the top choice of both home chefs and professionals alike.",
+      category: "kitchen",
+      price: 19.99,
+      rating: 5,
+      file: "https://amazish-seeds.s3.amazonaws.com/11-knife.jpg",
+      fileName: "15-pet-toy.jpg",
 
     
     ]
