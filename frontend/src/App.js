@@ -13,7 +13,7 @@ import ProductCart from "./components/ProductCart/ProductCart";
 import CheckoutPage from "./components/ProductCart/checkout";
 import ReviewForm from "./components/ReviewProduct/ReviewCreate";
 import ReviewShowPage from "./components/ReviewProduct/ReviewDetails";
-import ReviewEditForm from "./components/ReviewProduct/ReviewEditForm";
+import ReviewEdit from "./components/ReviewProduct/ReviewEdit";
 function App() {
   
   return (
@@ -78,7 +78,7 @@ function App() {
         <Route exact path="/products/:productId/review/:reviewId/edit">
         <Navigation />
           <CatSearchPage />
-       <ReviewEditForm />
+       <ReviewEdit />
         </Route>
       </Switch>
     </>

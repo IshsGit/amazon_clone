@@ -21,32 +21,6 @@ function Reviews({productId}) {
     history.push(`/products/${productId}/review/${review.id}`);
   };
 
-
-  const monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-
-
-  const createdToDate = (date) => {
-    date = new Date(date);
-    let str = date.toDateString();
-    str = str.split(" ");
-    return `${monthNames[date.getMonth()]} ${str[2]}, ${str[3]}`;
-  };
-
-
-  
   const displayStarRating = (review) => {
     let stars = [];
     for (let i = 0; i < review.rating; i++) {

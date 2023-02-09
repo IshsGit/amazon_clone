@@ -1,0 +1,91 @@
+@import url("https://fonts.cdnfonts.com/css/amazon-ember");
+
+.username{
+  font-family: serif;
+  padding-bottom: 20px;
+  padding-top: 15px;
+  display: flex;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.username-container{
+  background-color: rgb(218, 239, 245);
+}
+
+
+.review-form{
+  font-family: "Amazon Ember", sans-serif;
+  margin: 0 auto;
+  width: 768px;
+  padding-top: 20px;
+  padding: 14px;
+}
+
+.review-create{
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.user-feedback-outer,
+.user-feedback-inner {
+  width: 100%;
+  font-family: inherit;
+  background-color: #fff;
+  height: 31px;
+  padding: 3px 7px;
+  border: 1px solid black;
+  outline: 0;
+}
+
+.create-review-star-rating-container{
+  padding-left: 35%;
+}
+.user-feedback-inner {
+  background-color: #fff;
+  width: 100%;
+  padding: 5px 7px;
+  resize: vertical;
+  height: 130px;
+}
+
+
+
+.submit-button {
+  background: #e8a90a;
+    border-color: #a88734 #9c7e31 #846a29;
+}
+
+.create-review-submit-button:hover {
+  background: #f7ca00;
+  border-color: #f2c200;
+}
+
+.review-star {
+  background-color: transparent;
+  border: 0;
+  width: 35px;
+  height: 35px;
+  margin-right: 5px;
+}
+
+.star-query {
+  height: 100%;
+  cursor: pointer;
+}
+
+.review-product-image {
+  height: 50px;
+  padding-left: 40%;
+}
+
+.product-review-title{
+  padding-left: 10%;
+}
+
+
+.error-msg{
+  color: red;
+  padding-bottom: 2%;
+  padding-left: 30%;
+}
