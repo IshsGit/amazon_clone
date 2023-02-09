@@ -20,18 +20,15 @@ function LoginFormPage() {
     setEmail(e.target.value)
     setSuccessMsg('');
     setEmailError('');
-    
   }
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value)
     setSuccessMsg('');
     setPasswordError('');
-    
   }
 
   if (sessionUser) return <Redirect to="/" />;
-
   const checkUser = (ele) => {
     if(!sessionUser.email){
       setEmailError('Email required');
@@ -44,12 +41,9 @@ function LoginFormPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     setErrors([]);
     return dispatch(sessionActions.login({ email, password })).catch(
-      
       async (res) => {
-        
         let data;
         try {
           data = await res.clone().json();
@@ -63,7 +57,6 @@ function LoginFormPage() {
     );
   };
 
-
   const loginDemo = () => {
     const demoUser = {
       email: "zish@amazon.io",
@@ -71,8 +64,6 @@ function LoginFormPage() {
     };
     dispatch(sessionActions.login(demoUser));
   };
-
-  
 
   return (
     <>
@@ -95,8 +86,6 @@ function LoginFormPage() {
               type="text"
               value={email}
               onChange={(e)=>handleEmailChange(e)}
-
-          
             /><br></br>
             {emailError&&<div className='error-msg'>{emailError}</div>}
       <h5>Password</h5>
@@ -106,8 +95,6 @@ function LoginFormPage() {
               value={password}
               onChange={(e)=>handlePasswordChange(e)}
               placeholder="At least 6 characters"
-              
-              
             /><br></br>
             {passwordError&&<div className='error-msg'>{passwordError}</div>}
 

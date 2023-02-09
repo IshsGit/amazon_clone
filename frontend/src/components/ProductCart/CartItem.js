@@ -72,41 +72,7 @@ function CartItem({ product }) {
       </div>
       <div className="cart-item-price">${product.price.toFixed(2)}</div>
     </div>
-    {/* <div className="cart-item-container">
-         
-        <Link to={`/products/${id}`}>
-     
-          
-          <div className="image-container"><img className="cart-item-image" src={product.photoURL} alt="product"></img></div>
-          <div className="product-title">{product.title}</div>
-        </Link>
-          <div>{name}</div>
-          <div className="cart-stock-label">In Stock</div>
-          <div className="cart-eligible">
-            Eligble for FREE Shipping & <span>FREE Returns</span>
-          </div>
-          <form className="cart-form">
-            <input type="checkbox"></input>
-            <label>
-              {" "}
-      
-            </label>
-          </form>
-          <div>
-                <select
-                  value={`Qty: ${count}`}
-                  onChange={(e) => setCount(e.target.value)}>
-                    {(range.map((qty)=>(qty===0) ? (<option hidden key={qty}>{`Qty: ${count}`}</option>) : (<option value={qty} key={qty}>{qty}</option> )))}
-                    {totalQuantityions}
-                </select>
-            
-              <button
-                onClick={(e) => {dispatch(clearCart(user, id));}}>Delete</button>
-        </div>
-         <div>${price.toFixed(2)}</div>
-         
-    </div> */}
-
+   
     </>
     
   );

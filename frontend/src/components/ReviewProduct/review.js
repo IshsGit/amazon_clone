@@ -103,28 +103,6 @@ function Reviews({productId}) {
   if (rating > 0) {
     rating = (rating / reviews.length).toFixed(1);
   }
-  const displayProductRating = (rating) => {
-    let stars = [];
-    for (let i = 0; i < Math.floor(rating); i++) {
-      stars.push(
-        <img key={i}
-          className="star-ratings-image"
-          src={filledStar}
-          alt="filled-star"
-        ></img>
-      );
-    }
-    for (let i = rating; i < 5; i++) {
-      stars.push(
-        <img key={i}
-          className="star-ratings-image"
-          src={emptyStar}
-          alt="empty-star"
-        ></img>
-      );
-    }
-    return stars;
-  };
 
   return (
     <>
@@ -133,39 +111,7 @@ function Reviews({productId}) {
         <div className="left-review-container">
           <div className="product-ratings-container">
             <div className="product-ratings-label">Customer Reviews</div>
-            <div className="product-ratings-score">
-              {displayProductRating(rating)} <span>{rating} out of 5</span>
-            </div>
-          </div>
-          <hr />
-          <div className="review-creator-container">
-            <div className="review-creator-label">Review this product</div>
-            <div className="review-creator-comment">
-              Share your thoughts with other customers
-            </div>
-            <div className="review-creator-button-container">
-              <Link
-                className="review-creator-button"
-                to={`/products/${productId}/review/`}
-              >
-                Write a customer review
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="product-reviews-container">
-          <div className="product-review-label">
-            Top reviews from the United States
-          </div>
-          {/* {listReviews} */}
-        </div>
-      </div>
-      {/* <hr />
-      <div className="main-review-container">
-        <div className="left-review-container">
-          <div className="product-ratings-container">
-            <div className="product-ratings-label">Customer Reviews</div>
-           
+            
           </div>
           <hr />
           <div className="review-creator-container">
@@ -189,7 +135,7 @@ function Reviews({productId}) {
           </div>
           {listReviews}
         </div>
-      </div> */}
+      </div>
     </>
   );
 }

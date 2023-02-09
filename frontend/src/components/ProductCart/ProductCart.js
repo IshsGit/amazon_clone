@@ -120,32 +120,6 @@ function ProductCart() {
       </div>
     
     </div>
-    {/* <div className="cart-page">
-      <div className="cart-container">
-     
-     
-        <div>{cartItems}</div>
-        <div>
-          total ({cart.forEach((product) => (size += product.quantity ))}{" "}
-          {cart.forEach((product) => (size += product.quantity )) > 1 ? "items" : "item"})
-         <div>:&nbsp;${sum}</div>
-        </div>
-
-      </div>
-      <div className="checkout-page">
-          total ({cart.forEach((product) => (size += product.quantity ))}:&nbsp{cart.forEach((product) => (size += product.quantity )) > 1 ? "items" : "item"}):&nbsp;
-          <span className="sub-total-amt">${sum}</span>
-        
-          
-      </div>
-    </div>
-    <form onSubmit={handleSubmit}>
-    <input
-      type="submit"
-      className="checkout-btn"
-      value="Proceed to Checkout"
-    ></input>
-</form> */}
 </>
   );
 }
