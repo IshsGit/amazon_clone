@@ -80,13 +80,13 @@ function ProductCart() {
             </div>
          </div>}
           <div>
-            <div className="show-no-cart">
+            {getQuantity() < 1 && <div className="show-no-cart">
               <div className="checkout-cart">
               </div>
               <div>
                 <div className="empty-cart-msg">Your Cart is empty</div>
               </div>
-            </div>
+            </div>}
           </div>
         
       </div>
