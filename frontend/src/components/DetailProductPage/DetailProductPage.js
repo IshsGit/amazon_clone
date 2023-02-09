@@ -147,7 +147,7 @@ const productlistings = products.map((item,idx) => {
               <p key={idx}>🌟</p> 
             ))} &nbsp;&nbsp;
             {Math.round(getRandomReviews())}
-           <p>{Math.round(Math.random(1,1000))} ratings</p>
+           <p>{Math.round(Math.random(1,1000))} ratings </p> <div className='read-review'>Read or write a review below!</div>
         </div>
       <p>Brand: Zish Services</p>
         <hr></hr>

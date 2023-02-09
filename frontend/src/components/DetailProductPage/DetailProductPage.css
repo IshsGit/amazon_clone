@@ -62,6 +62,10 @@
     font-weight: bold;
   }
 
+  .read-review{
+    padding-left: 10px;
+    color: #007600;
+  }
 
   .product-image-details{
     
@@ -130,24 +134,10 @@
 }
 
 
-/*   
-.similar-thumbnail{
-  padding-left: 25%;
-} */
-  /* .tile-inner > span > p:first-child {
-  
-    background-color:#CC0C39;
-    color:#ffffff;
-     padding-right: 10px;
-   }
- 
-   .tile-inner> span > p:last-child {
-     font-size: 12px;
-     padding-left: 5px;
-     color:#CC0C39;
-     font-family: "Amazon Ember",Arial, sans-serif; 
-   } */
+.review-section-container{
 
+
+}
    .fastest-delivery {
     line-height: 18px;
   }

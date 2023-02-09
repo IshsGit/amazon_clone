@@ -17,6 +17,10 @@ function Reviews({productId}) {
     dispatch(receiveReviewsByProduct(productId));
   }, []);
 
+  const handleEdit = (review) => {
+    history.push(`/products/${productId}/review/${review.id}`);
+  };
+
 
   const monthNames = [
     "January",
@@ -33,9 +37,6 @@ function Reviews({productId}) {
     "December",
   ];
 
-  const handleEditClick = (e, review) => {
-    history.push(`/products/${productId}/review/${review.id}`);
-  };
 
   const createdToDate = (date) => {
     date = new Date(date);
@@ -75,12 +76,12 @@ function Reviews({productId}) {
       <div className="review-name-container">
         <div className="placeholder-pic">
         
-          <span className="review-name">{review.user.name}</span>
+          <span className="review-name">By {review.user.name}</span>
         </div>
       </div>
       <div
         className="review-rating"
-        onClick={(e) => handleEditClick(e, review)}
+        onClick={(e) => handleEdit(e, review)}
       >
         <div className="review-star-ratings">
           {displayStarRating(review)}{" "}
@@ -88,9 +89,6 @@ function Reviews({productId}) {
         </div>
       </div>
       
-      <div className="review-location-label">
-        Reviewed in the United States on {createdToDate(review.createdAt)}
-      </div>
       <div className="review-body">{review.body}</div>
       {review.userId === userId && (
         <div className="authorized-review-buttons">
@@ -123,32 +121,34 @@ function Reviews({productId}) {
 
   return (
     <>
-  <hr />
+
       <div className="main-review-container">
+        
         <div className="left-review-container">
+          
           <div className="product-ratings-container">
-            <div className="product-ratings-label">Customer Reviews</div>
-            
+        
+         
           </div>
-          <hr />
+         
           <div className="review-creator-container">
-            <div className="review-creator-label">Review this product</div>
-            <div className="review-creator-comment">
-              Share your thoughts with other customers
-            </div>
+            <div className="top-half">
+            
             <div className="review-creator-button-container">
+             
               <Link
                 className="review-creator-button"
                 to={`/products/${productId}/review/`}
               >
-                Write a customer review
+                Write a review
               </Link>
+            </div>
             </div>
           </div>
         </div>
         <div className="product-reviews-container">
           <div className="product-review-label">
-            Top reviews from the United States
+            User Reviews
           </div>
           {listReviews}
         </div>

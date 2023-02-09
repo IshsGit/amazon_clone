@@ -3,7 +3,8 @@
 .product-review {
   font-family: "Amazon Ember", sans-serif;
   min-width: 998px;
-  padding: 14px 18px 18px;
+ padding-top: 20px;
+ padding-left: 30px;
   margin: 0 auto;
   text-rendering: optimizeLegibility;
 }

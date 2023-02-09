@@ -149,7 +149,7 @@ function ReviewEditForm() {
             <div className="review-product-image-container">
               <img
                 className="review-product-image"
-                src={product.photoUrl}
+                src={product.photo}
                 alt="review-item"
               ></img>
             </div>
