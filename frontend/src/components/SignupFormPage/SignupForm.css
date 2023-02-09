@@ -78,3 +78,9 @@
   .name-header{
     padding-top:5%;
   }
+
+  .icon-content{
+    font-size: 12px;
+    padding-bottom: 3%;
+    color: green;
+  }

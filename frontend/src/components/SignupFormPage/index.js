@@ -34,56 +34,28 @@ function SignupFormPage() {
 
   if (sessionUser) return <Redirect to="/" />;
   
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-   
-  //   if (password === confirmPassword) {
-  //     setErrors([]);
-  //     return dispatch(sessionActions.signup({ email, name, password }))
-  //       .catch(async (res) => {
-  //       let data;
-  //       try {
-  //         data = await res.clone().json();
-  //       } catch {
-  //         data = await res.text(); 
-  //       }
-  //       if (data?.errors) setErrors(data.errors);
-  //       else if (data) setErrors([data]);
-  //       else setErrors([res.statusText]);
-  //     });
-  //   }
-
-  // };
-
   const handleSubmit = (e) => {
     e.preventDefault();
    
-    setErrors([]);
-    dispatch(sessionActions.signup({ email, name, password })).catch(
-      async (res) => {
+    if (password === confirmPassword) {
+      setErrors([]);
+      return dispatch(sessionActions.signup({ email, name, password }))
+        .catch(async (res) => {
         let data;
         try {
           data = await res.clone().json();
         } catch {
-          data = await res.text();
+          data = await res.text(); 
         }
-        if (
-          password.length >= 1 &&
-          (password !== confirmPassword || confirmPassword.length === 0)
-        ) {
-          if (data?.errors) {
-            data.errors.push("SecondPassword needs to be typed");
-          } else {
-            data.push("SecondPassword needs to be typed");
-          }
-        }
-
         if (data?.errors) setErrors(data.errors);
         else if (data) setErrors([data]);
         else setErrors([res.statusText]);
-      }
-    );
+      });
+    }
+
   };
+
+  
 
  
 
@@ -96,10 +68,7 @@ function SignupFormPage() {
     dispatch(sessionActions.login(demoUser));
   };
 
-  const checkEmpty = () => {
-    if(!email || !name || !password )
-      errors.push("Fields cannot be empty")
-  }
+ 
   return (
     <>
    <div className="login">
@@ -111,8 +80,8 @@ function SignupFormPage() {
       <h1>Create Account</h1>
       <form onSubmit={handleSubmit}>
         <ul>
-            {errors.map((error) => (
-              <li className='error-prompt' key={error}>{error}</li>
+            {errors.map((error,idx) => (
+              <li key={idx} className='error-prompt'>{error}</li>
             ))}
           </ul>
          <h5 className='name-header'>Name</h5>
@@ -155,8 +124,8 @@ function SignupFormPage() {
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
-              
-    <button className="login__registerButton" type="submit" onClick={checkEmpty}>Continue</button>
+              <p className="icon-content">Passwords must match</p>
+    <button className="login__registerButton" type="submit" >Continue</button>
       </form>
       <button className="login-button" type="submit" onClick={loginDemo}>
           Demo Login
