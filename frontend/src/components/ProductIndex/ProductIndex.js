@@ -7,8 +7,6 @@ import { useParams, Link } from 'react-router-dom';
 import "./mainpage.css";
 import ProductIndexItem from './ProductIndexItem';
 
-
-
 const ProductIndex = () => {
 
   
@@ -29,13 +27,6 @@ const ProductIndex = () => {
     return <ProductIndexItem key={idx} product={product} 
     />
   });
-
-
-
-
-
-
-
 
   const productSearchDetails = productItems.map((productsD,idx) => {
     
