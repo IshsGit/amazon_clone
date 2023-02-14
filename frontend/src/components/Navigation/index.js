@@ -115,7 +115,7 @@ function Navigation() {
         alt='img'
       />
         </Link>
-        <div className="external-link" >  <a  className='github' href="https://github.com/IshsGit/amazon_clone"><GitHubIcon /></a>
+        <div className="external-link" >  <a target={"/"}  className='github' href="https://github.com/IshsGit/amazon_clone"><GitHubIcon /></a>
         <a className='linkedin' href="https://www.linkedin.com/in/iahmed93/"><LinkedInIcon /></a>
         </div>
 
