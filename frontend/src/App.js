@@ -14,6 +14,7 @@ import CheckoutPage from "./components/ProductCart/checkout";
 import ReviewForm from "./components/ReviewProduct/ReviewCreate";
 import ReviewShowPage from "./components/ReviewProduct/ReviewDetails";
 import ReviewEdit from "./components/ReviewProduct/ReviewEdit";
+import Footer from "./components/Footer";
 function App() {
   
   return (
@@ -23,6 +24,7 @@ function App() {
           <Navigation />
           <CatSearchPage />
           <ProductCart />
+       
         </Route>
         <Route exact path = "/">
           <Navigation />
@@ -35,38 +37,43 @@ function App() {
         </Route>
         <Route exact path="/signup">
           <SignupFormPage />
+          <Footer />
         </Route>
         <Route exact path="/products/:productId">
         <Navigation />
         <CatSearchPage />
         <DetailProductPage/>
+        <Footer />
         </Route>
         <Route exact path="/:category">
           <Navigation />
           <CatSearchPage />
-   
           <ProductIndex />
+     
         </Route>
         <Route exact path="/products">
           <Navigation />
           <CatSearchPage />
           <ProductIndex />
+        
         </Route>
        <Route exact path="/:search">
           <Navigation />
           <CatSearchPage />
           <ProductIndex/>
+      
        </Route>
        <Route exact path="/products/:productId/review">
           <Navigation />
           <CatSearchPage />
           <ReviewForm />
-      
+          <Footer/>
         </Route>
         <Route exact path="/products/:productId/review/:reviewId">
           <Navigation />
           <CatSearchPage />
           <ReviewShowPage />
+          <Footer />
         </Route>
       
         <Route exact path="/carts/checkout">

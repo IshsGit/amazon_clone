@@ -52,7 +52,7 @@ function Reviews({productId}) {
           <div className="username">By {review.user.name}</div>
       <div
         className="show-rating"
-        onClick={(e) => handleEdit(e, review)}
+       
       >
         <div className="user-stars">
           {showReviewRating(review)}{" "}
