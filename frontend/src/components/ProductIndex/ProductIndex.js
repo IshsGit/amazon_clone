@@ -9,15 +9,13 @@ import ProductIndexItem from './ProductIndexItem';
 
 const ProductIndex = () => {
 
-  
   const {category}  = useParams();
   const dispatch = useDispatch();
   const products = useSelector(getProducts);   
   function getRandomReviews(){
-    const min = Math.ceil(1);
-   const max = Math.floor(1000);
+  const min = Math.ceil(1);
+  const max = Math.floor(1000);
     return Math.floor(Math.random() * (max - min + 1)) + min;
-   
   }
   useEffect(() => {
     dispatch(fetchProducts());
@@ -29,10 +27,7 @@ const ProductIndex = () => {
   });
 
   const productSearchDetails = productItems.map((productsD,idx) => {
-    
     if(category.toLowerCase() === productsD.props.product.category.toLowerCase()|| (productsD.props.product.category.toLowerCase().includes(category.toLowerCase())) || (productsD.props.product.title.toLowerCase().includes(category.toLowerCase()))){
-      
-      
       return  <div key={idx} className='product-thumbnail' >
         <div className='product-container'>
           <div className='product-title'> <Link to={`/products/${products[idx].id}`}>{products[idx].title}</Link>
@@ -49,21 +44,15 @@ const ProductIndex = () => {
               
           </div>
           <div className="tile-cat">
-                 {productItems[idx]}   
-
+                 {productItems[idx]}  
           </div>
         </div>
              <hr></hr>
       </div>
-      
-   
     } else{
       return <div key={idx}></div>
     }
   });
-
-
-
   return (
     <>
    <section className="slider">

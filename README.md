@@ -42,7 +42,64 @@ Responsive intuitive homepage for users to easily find a product for purchase ju
 Filter listings by categories which query products based on the selected category such as electronics or toys. 
 
 ## Code snippets
-<img src='https://github.com/IshsGit/amazon_clone/blob/main/frontend/src/assets/images/amazish-code-snippet.png' alt='' />
+```.js
+const ProductIndex = () => {
+
+  const {category}  = useParams();
+  const dispatch = useDispatch();
+  const products = useSelector(getProducts);   
+  function getRandomReviews(){
+  const min = Math.ceil(1);
+  const max = Math.floor(1000);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
+
+  const productItems = products.map((product, idx) => {
+    return <ProductIndexItem key={idx} product={product} 
+    />
+  });
+
+  const productSearchDetails = productItems.map((productsD,idx) => {
+    if(category.toLowerCase() === productsD.props.product.category.toLowerCase()|| (productsD.props.product.category.toLowerCase().includes(category.toLowerCase())) || (productsD.props.product.title.toLowerCase().includes(category.toLowerCase()))){
+      return  <div key={idx} className='product-thumbnail' >
+        <div className='product-container'>
+          <div className='product-title'> <Link to={`/products/${products[idx].id}`}>{products[idx].title}</Link>
+            <div className="product__rating">
+              Rating:&nbsp;{Array(products[idx].rating)
+                .fill()
+                .map((_, i) => (
+                  <p key={i}>🌟</p> 
+                ))} &nbsp;&nbsp;
+                {Math.round(getRandomReviews())}
+               <p>{Math.round(Math.random(1,1000))} reviews</p>
+            </div>
+          <div  className='product-desc'>About this item: {products[idx].description} </div>
+              
+          </div>
+          <div className="tile-cat">
+                 {productItems[idx]}  
+          </div>
+        </div>
+             <hr></hr>
+      </div>
+    } else{
+      return <div key={idx}></div>
+    }
+  });
+  return (
+    <>
+   <section className="slider">
+{productSearchDetails}
+</section>
+    </>
+  );
+};
+
+export default ProductIndex;
+```.js
 An intuitive way of fetching categories of the products and passing them across components for filtering
 
 ## Future updates
