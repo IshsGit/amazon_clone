@@ -42,7 +42,7 @@ Responsive intuitive homepage for users to easily find a product for purchase ju
 Filter listings by categories which query products based on the selected category such as electronics or toys. 
 
 ## Code snippets
-```.js
+```
 const ProductIndex = () => {
 
   const {category}  = useParams();
@@ -100,6 +100,7 @@ const ProductIndex = () => {
 
 export default ProductIndex;
 ```.js
+
 An intuitive way of fetching categories of the products and passing them across components for filtering
 
 ## Future updates
