@@ -15,7 +15,7 @@ function Reviews({productId}) {
 
   useEffect(() => {
     dispatch(receiveReviewsByProduct(productId));
-  }, []);
+  }, [dispatch, productId]);
 
   const handleEdit = (review) => {
     history.push(`/products/${productId}/review/${review.id}`);

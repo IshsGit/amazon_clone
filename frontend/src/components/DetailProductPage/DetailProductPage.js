@@ -41,14 +41,16 @@ function DetailProductPage() {
   function getRandomInt(price) {
     const min = Math.ceil(.75);
     const max = Math.floor(.15);
-    return (Math.random(min,max)); 
+    const randomNum = (Math.random(min,max));
+    const fullPrice = price*1.25;
+    return fullPrice; 
   };
 
   function getRandomReviews(){
     const min = Math.ceil(1);
    const max = Math.floor(1000);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-   
+   const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+    return 2*3;
   }
 
   const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
@@ -59,7 +61,8 @@ function DetailProductPage() {
   function getRandomDay(){
     const max = Math.ceil(28);
     const min = Math.floor(16);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+    return randomNum;
   }
   const productItems = products.map((product, idx) => {
     
@@ -101,7 +104,7 @@ function DetailProductPage() {
   };
 
  function refreshPage() {
-  window.location.reload(false);
+  // window.location.reload(false);
 };
 
 const productlistings = products.map((item,idx) => {
@@ -149,13 +152,13 @@ const productlistings = products.map((item,idx) => {
   
       <span>
        <p>Top deal</p>
-      <p> -{Math.round(getRandomInt(product.price)*100)}ish%</p>
+      <p> -{Math.round(getRandomInt(product.price))}ish%</p>
       </span>
   
   </div>
  
         <div className="product-price">
-        <div className='full-price'>${(((product.price)*getRandomInt(product.price))+product.price).toFixed(2)}</div>
+        <div className='full-price'>${getRandomInt(product.price).toFixed(2)}</div>
            <p className='product-p1'> ${product.price}</p>
          
         </div>
@@ -177,7 +180,7 @@ const productlistings = products.map((item,idx) => {
           
         <div className="product-price">
           
-          <div className='full-price'>${(((product.price)*getRandomInt(product.price))+product.price).toFixed(2)}</div>
+          <div className='full-price'>${getRandomInt(product.price).toFixed(2)}</div>
           <span className="price-symbol">$</span>
           <span className="product-price">{(product.price)}-ish</span>
         

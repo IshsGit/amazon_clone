@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ProductIndexItem from './ProductIndexItem';
 import { getProducts } from '../../store/products';
 import { fetchProducts } from '../../store/products';
-
+import { getCart, clearCartTest } from "../../store/cart";
 
 function Navigation() {
 
@@ -46,7 +46,6 @@ function Navigation() {
     );
   }
 
-  
   const logout = () => {
     dispatch(sessionActions.logout());
   };
@@ -55,6 +54,13 @@ function Navigation() {
   
   const products = useSelector(getProducts);
 
+  useEffect(() => {
+    if (sessionUser) {
+      dispatch(getCart(sessionUser.id));
+    } else {
+      dispatch(clearCartTest());
+    }
+  }, [sessionUser, dispatch]);
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
@@ -116,7 +122,7 @@ function Navigation() {
       />
         </Link>
         <div className="external-link" >  <a target={"/"}  className='github' href="https://github.com/IshsGit/amazon_clone"><GitHubIcon /></a>
-        <a className='linkedin' href="https://www.linkedin.com/in/iahmed93/"><LinkedInIcon /></a>
+        <a target={"/"} className='linkedin' href="https://www.linkedin.com/in/iahmed93/"><LinkedInIcon /></a>
         </div>
 
     <div className="header-search">
@@ -138,12 +144,12 @@ function Navigation() {
            </Link>
             </button>
            {!login&& <div><div className="dropdown-content">
-            <Link to="/Signup">Create an account</Link>
+            <Link  to="/Signup">Create an account</Link>
             <Link to="/login">Sign in</Link>
             </div></div>}
 
-            {login&&  <div><div className="dropdown-content">
-            <button onClick={logout}>Logout</button>
+            {login&&  <div><div className="dropdown-content-logout">
+            <button className="logout-button" onClick={logout}>Logout</button>
             </div></div>}
           </div>
         </div>

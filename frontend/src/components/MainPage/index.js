@@ -69,7 +69,7 @@ SliderData.map((slide, index)=>{
   <h1>Revolutionary technology</h1>
   {productItems[0]}
  <span>
-  <p>up to 19% off</p>
+  <p>up to 35% off</p>
  <p> Top deal</p>
  </span>
   <h2>{productDetails[0] }</h2>
@@ -82,7 +82,7 @@ SliderData.map((slide, index)=>{
   <h1>Very The best  Deals</h1>
   {productItems[1]}
  <span>
-  <p>up to 24% off</p>
+  <p>up to 35% off</p>
  <p> Top deal</p>
  </span>
   <h2>{productDetails[1] }</h2>
@@ -93,7 +93,7 @@ SliderData.map((slide, index)=>{
   <h1>Deals on Amazon Devices</h1>
   {productItems[2]}
  <span>
-  <p>up to 21% off</p>
+  <p>up to 35% off</p>
  <p> Top deal</p>
  </span>
   <h2>{productDetails[2] }</h2>
@@ -105,7 +105,7 @@ SliderData.map((slide, index)=>{
   <h1>Very The best  Deals</h1>
   {productItems[3]}
  <span>
-  <p>up to 50% off</p>
+  <p>up to 35% off</p>
  <p> Top deal</p>
  </span>
   <h2>{productDetails[3] }</h2>
@@ -118,7 +118,7 @@ SliderData.map((slide, index)=>{
   <h1>Very The best  Deals</h1>
   {productItems[4]}
  <span>
-  <p>up to 37% off</p>
+  <p>up to 35% off</p>
  <p> Top deal</p>
  </span>
   <h2>{productDetails[4] }</h2>
@@ -129,7 +129,7 @@ SliderData.map((slide, index)=>{
   <h1>Snap your chops, drop your peas</h1>
   {productItems[5]}
  <span>
-  <p>up to 47% off</p>
+  <p>up to 35% off</p>
  <p> Top deal</p>
  </span>
   <h2>{productDetails[5] }</h2>
@@ -140,7 +140,7 @@ SliderData.map((slide, index)=>{
   <h1>Every side is a square!</h1>
   {productItems[6]}
  <span>
-  <p>up to 39% off</p>
+  <p>up to 35% off</p>
  <p> Top deal</p>
  </span>
   <h2>{productDetails[6] }</h2>
@@ -151,7 +151,7 @@ SliderData.map((slide, index)=>{
   <h1>Shop gifts at any price</h1>
   {productItems[7]}
  <span>
-  <p>up to 17% off</p>
+  <p>up to 35% off</p>
  <p> Top deal</p>
  </span>
   <h2>{productDetails[7] }</h2>
@@ -163,7 +163,7 @@ SliderData.map((slide, index)=>{
   <h1>It's holiday-party time</h1>
   {productItems[8]}
  <span>
-  <p>up to 16% off</p>
+  <p>up to 35% off</p>
  <p> Top deal</p>
  </span>
   <h2>{productDetails[8] }</h2>
@@ -175,7 +175,7 @@ SliderData.map((slide, index)=>{
   <h1>Deals on last-minute gifts</h1>
   {productItems[9]}
  <span>
-  <p>up to 18% off</p>
+  <p>up to 35% off</p>
  <p> Top deal</p>
  </span>
   <h2>{productDetails[9] }</h2>
@@ -187,7 +187,7 @@ SliderData.map((slide, index)=>{
   <h1>Deals on last-minute gifts</h1>
   {productItems[10]}
  <span>
-  <p>up to 18% off</p>
+  <p>up to 35% off</p>
  <p> Top deal</p>
  </span>
   <h2>{productDetails[10] }</h2>
@@ -199,7 +199,7 @@ SliderData.map((slide, index)=>{
   <h1>Deals on last-minute gifts</h1>
   {productItems[11]}
  <span>
-  <p>up to 18% off</p>
+  <p>up to 35% off</p>
  <p> Top deal</p>
  </span>
   <h2>{productDetails[11] }</h2>
@@ -211,7 +211,7 @@ SliderData.map((slide, index)=>{
   <h1>Deals on last-minute gifts</h1>
   {productItems[12]}
  <span>
-  <p>up to 18% off</p>
+  <p>up to 35% off</p>
  <p> Top deal</p>
  </span>
   <h2>{productDetails[12] }</h2>
@@ -222,7 +222,7 @@ SliderData.map((slide, index)=>{
   <h1>Deals on last-minute gifts</h1>
   {productItems[13]}
  <span>
-  <p>up to 18% off</p>
+  <p>up to 35% off</p>
  <p> Top deal</p>
  </span>
   <h2>{productDetails[13] }</h2>
@@ -232,7 +232,7 @@ SliderData.map((slide, index)=>{
   <h1>Deals on last-minute gifts</h1>
   {productItems[14]}
  <span>
-  <p>up to 18% off</p>
+  <p>up to 35% off</p>
  <p> Top deal</p>
  </span>
   <h2>{productDetails[14] }</h2>
@@ -246,7 +246,7 @@ SliderData.map((slide, index)=>{
   <h1>Make the best of this</h1>
   {productItems[15]}
  <span>
-  <p>up to 28% off</p>
+  <p>up to 35% off</p>
  <p> Top deal</p>
  </span>
   <h2>{productDetails[15] }</h2>

@@ -39,7 +39,6 @@ function CartItem({ product }) {
       </div>
       <div >
           <div >{product.title}</div>
-              <label className="box-shadow">
                 <select
                   className="cart-count-select"
                   value={`Qty: ${count}`}
@@ -47,8 +46,7 @@ function CartItem({ product }) {
                 >
                     {totalQuantityions} 
                 </select><button className="delete-button"
-                onClick={(e) => {dispatch(clearCart(user, id));}}>Delete</button>
-              </label>
+                onClick={(e) => {dispatch(clearCart(user, id));}}>Delete</button>   
             <div className="cart-item-delete-container">
             </div>
       </div>

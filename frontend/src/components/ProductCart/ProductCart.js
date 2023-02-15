@@ -9,15 +9,16 @@ function ProductCart() {
   const cart = useSelector(getCarts);
   const dispatch = useDispatch();
   const [sum, setSum] = useState(0.0);
-  const cartItems = [];
 
-  for(let i=0; i<cart.length; i++){
-    cartItems.push(
-      <><CartIndex key={i} product={cart[i]} /></>
-    )
-  }
+
+  // const cartItems = [];
+
+  // for(let i=0; i<cart.length; i++){
+  //   cartItems.push(
+  //     <><CartIndex key={i} product={cart[i]} /></>
+  //   )
+  // }
   
-  let total = 0;
   const history = useHistory();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,10 +27,10 @@ function ProductCart() {
   };
   
   useEffect(() => {
-    for(let i=0; i<cart.length;i++){
-      total = total + cart[i].quantity * cart[i].price;
-    }
-    setSum(((total * 100) / 100).toFixed(2));
+    addtotal();
+    // for(let i=0; i<cart.length;i++){
+    //   total = total + cart[i].quantity * cart[i].price;
+    // }
   });
 
   useEffect(() => {
@@ -37,37 +38,60 @@ function ProductCart() {
   }, [dispatch]);
   
 
-  const listCart = cart.map((product,idx) => (
-          <div key={idx}>
-            <CartIndex product={product} />
-             <hr />
-          </div>
+  const addtotal = () => {
+    let total = 0;
+    cart.forEach((product) => {
+      total += product.quantity * product.price;
+    });
+    setSum(((Math.round(total * 100) / 100)).toFixed(2));
+  }
+
+  // const listCart = cart.map((product,idx) => (
+  //         <div key={product.id}>
+  //           <CartIndex product={product} />
+  //            <hr />
+  //         </div>
+  // ));
+
+  const listCart = cart.map((product) => (
+    <>
+      <CartIndex key={product.id} product={product} />
+      <hr />
+    </>
   ));
 
   useEffect(() => {
     dispatch(getCart());
   }, [dispatch]);
 
-  const getQuantity = () => {
-    let count = 0;
-    for(let i=0; i<cart.length; i++){
-      count+=cart[i].quantity;
-    }
-    return count;
-  }
+  const calculateCartSize = () => {
+    let size = 0;
+    cart.forEach((product) => {
+      size += product.quantity;
+    });
+    return size;
+  };
+
+  // const getQuantity = () => {
+  //   let count = 0;
+  //   for(let i=0; i<cart.length; i++){
+  //     count+=cart[i].quantity;
+  //   }
+  //   return count;
+  // }
   return (
     <>
        <div >
       <div className="cart-grid">
-        {getQuantity() && <div>
+        { calculateCartSize() > 0 && <div>
             <div className="cart-container">
-              {listCart} Your total ({getQuantity()}{" "}
-                {getQuantity() > 1 ? "items" : "item"})${sum}
+              {listCart} Your total ({ calculateCartSize()}{" "}
+                { calculateCartSize() > 1 ? "items" : "item"})${sum}
             </div>
             <div className="checkout-page-cart">
               <div className="total-cost">
-                Your total: ({getQuantity()}{" "}
-                {getQuantity() > 1 ? "items" : "item"})
+                Your total: ({ calculateCartSize()}{" "}
+                { calculateCartSize() > 1 ? "items" : "item"})
                 <span className="sub-total-amt">${sum}</span>
               </div>
               <form onSubmit={handleSubmit}>
@@ -80,7 +104,7 @@ function ProductCart() {
             </div>
          </div>}
           <div>
-            {getQuantity() < 1 && <div className="show-no-cart">
+            { calculateCartSize() < 1 && <div className="show-no-cart">
               <div className="checkout-cart">
               </div>
               <div>
