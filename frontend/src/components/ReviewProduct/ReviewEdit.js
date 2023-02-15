@@ -136,7 +136,38 @@ function ReviewEditForm() {
     }
     setRating(num);
   };
-
+  const displayReviewStars = () => {
+    let stars = [];
+    for (let i = 0; i < rating; i++) {
+      stars.push(
+        <button key={i}
+          className="review-star"
+          onClick={(e) => handleSelect(e, i + 1)}
+        >
+          <img
+            className="star-query"
+            src={allStar}
+            alt="star-rating"
+          ></img>
+        </button>
+      );
+    }
+    for (let i = rating; i < 5; i++) {
+      stars.push(
+        <button key={i}
+          className="review-star"
+          onClick={(e) => handleSelect(e, i + 1)}
+        >
+          <img
+            className="star-query"
+            src={noStar}
+            alt="star-rating"
+          ></img>
+        </button>
+      );
+    }
+    return stars;
+  };
   
   if (!review || !product) return null;
   return (
@@ -145,8 +176,8 @@ function ReviewEditForm() {
     <div className="review-form">
      <form onSubmit={handleSubmit}>
      <ul>
-           {errors.map((error) => (
-             <li className="error-msg" key={error}>{error}</li>
+           {errors.map((error, idx) => (
+             <li className="error-msg" key={idx}>{error}</li>
            ))}
          </ul>
       
@@ -170,6 +201,9 @@ function ReviewEditForm() {
        <div className="create-review-rating-container">
          <div className="create-review-rating-label">Overall Rating</div>
          <div className="create-review-star-rating-container">
+            {displayReviewStars()}
+          </div>
+         {/* <div className="create-review-star-rating-container">
            <button
              className="review-star"
              onClick={(e) => handleSelect(e, 1)}
@@ -220,7 +254,7 @@ function ReviewEditForm() {
                alt="star-rating"
              ></img>
            </button>
-         </div>
+         </div> */}
      
        </div>
        <hr />

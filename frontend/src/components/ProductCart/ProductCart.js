@@ -28,9 +28,7 @@ function ProductCart() {
   
   useEffect(() => {
     addtotal();
-    // for(let i=0; i<cart.length;i++){
-    //   total = total + cart[i].quantity * cart[i].price;
-    // }
+   
   });
 
   useEffect(() => {
@@ -46,18 +44,13 @@ function ProductCart() {
     setSum(((Math.round(total * 100) / 100)).toFixed(2));
   }
 
-  // const listCart = cart.map((product,idx) => (
-  //         <div key={product.id}>
-  //           <CartIndex product={product} />
-  //            <hr />
-  //         </div>
-  // ));
 
-  const listCart = cart.map((product) => (
-    <>
-      <CartIndex key={product.id} product={product} />
+
+  const listCart = cart.map((product, idx) => (
+    <div key={idx}>
+      <CartIndex  product={product} />
       <hr />
-    </>
+      </div>
   ));
 
   useEffect(() => {
@@ -72,13 +65,7 @@ function ProductCart() {
     return size;
   };
 
-  // const getQuantity = () => {
-  //   let count = 0;
-  //   for(let i=0; i<cart.length; i++){
-  //     count+=cart[i].quantity;
-  //   }
-  //   return count;
-  // }
+
   return (
     <>
        <div >
