@@ -33,7 +33,7 @@ function CartItem({ product }) {
    <>
    <div className="cart-item-container">
       <div className="product-container-cart">
-        <Link to={`/products/${id}`} target="_blank">
+        <Link to={`/products/${id}`} >
           <img className="product-image-cart" src={product.photoURL} alt="product"></img>
         </Link>
       </div>
